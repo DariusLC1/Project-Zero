@@ -43,10 +43,6 @@ public class playerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            takeDamage(1);
-        }
         weaponSwap();
         playerMovement();
         Sprint();
