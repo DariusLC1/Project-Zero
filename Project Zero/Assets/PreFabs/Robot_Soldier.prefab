@@ -1869,7 +1869,7 @@ MonoBehaviour:
   HP: 5
   facePlayer: 5
   shootRate: 1
-  damage: 5
+  damage: 1
   bulletSpeed: 10
   bulletDestroyTime: 3
   bullet: {fileID: 6763116933408057900, guid: 07d2c0f69816bca4eb782fae4ac467b4, type: 3}

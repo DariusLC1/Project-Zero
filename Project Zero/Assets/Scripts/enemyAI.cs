@@ -37,7 +37,9 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         turnToPlayer();
         if (!isShooting)
+        {
             StartCoroutine(shoot());
+        }
     }
 
     void turnToPlayer()
