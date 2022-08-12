@@ -5,12 +5,23 @@ using UnityEngine.AI;
 
 public class enemyAI : MonoBehaviour, IDamageable
 {
+    [Header("-----Components-----")]
     [SerializeField] NavMeshAgent agent;
 
-    [SerializeField] int HP;
+    [Header("-----Stats-----")]
+    [Range(0, 10)][SerializeField] int HP;
+    [Range(0, 10)][SerializeField] int facePlayer;
+
+    [Header("-----Weapon Stats-----")]
+    [Range(0.1f, 5)][SerializeField] float shootRate;
+    [Range(1, 10)][SerializeField] int damage;
+    [Range(1, 10)][SerializeField] int bulletSpeed;
+    [Range(1, 10)][SerializeField] int bulletDestroyTime;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bulletSpawn;
 
     Vector3 playerDirection;
-    [SerializeField] int facePlayer;
+    bool isShooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +36,8 @@ public class enemyAI : MonoBehaviour, IDamageable
         playerDirection = gameManager.instance.player.transform.position - transform.position;
 
         turnToPlayer();
+        if (!isShooting)
+            StartCoroutine(shoot());
     }
 
     void turnToPlayer()
@@ -45,6 +58,19 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        GameObject bulletClone = Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
+        bulletClone.GetComponent<bullet>().damage = damage;
+        bulletClone.GetComponent<bullet>().speed = bulletSpeed;
+        bulletClone.GetComponent<bullet>().destroyTime = bulletDestroyTime;
+
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 
 }

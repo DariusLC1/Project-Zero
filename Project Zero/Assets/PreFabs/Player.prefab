@@ -56,6 +56,10 @@ MonoBehaviour:
   jumpHeight: 9
   gravity: 24
   jumpsMax: 2
+  shootingDist: 0
+  shootRate: 0
+  shootDamage: 0
+  gunStat: []
 --- !u!33 &6850657891260237704
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,7 +118,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179578142381131528}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

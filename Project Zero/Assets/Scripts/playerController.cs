@@ -50,6 +50,7 @@ public class playerController : MonoBehaviour
         weaponSwap();
         playerMovement();
         Sprint();
+        StartCoroutine(shoot());
     }
 
     void playerMovement()

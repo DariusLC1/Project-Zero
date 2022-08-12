@@ -49,8 +49,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5180171449858110161}
-  HP: 2
+  HP: 0
   facePlayer: 5
+  shootRate: 0
+  damage: 0
+  bulletSpeed: 0
+  bulletDestroyTime: 0
+  bullet: {fileID: 0}
 --- !u!33 &7622952481292526258
 MeshFilter:
   m_ObjectHideFlags: 0
