@@ -22,6 +22,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     Vector3 playerDirection;
     bool isShooting = false;
+    bool detection = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         playerDirection = gameManager.instance.player.transform.position - transform.position;
 
         turnToPlayer();
-        if (!isShooting)
+        if (detection && !isShooting)
         {
             StartCoroutine(shoot());
         }
@@ -75,4 +76,19 @@ public class enemyAI : MonoBehaviour, IDamageable
         isShooting = false;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            detection = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            detection = false;
+        }
+    }
 }
