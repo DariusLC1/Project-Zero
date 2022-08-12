@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(0, 10)][SerializeField] int HP;
+    [Range(0, 100)][SerializeField] int HP;
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(1, 4)][SerializeField] float sprintMultiplyer;
     [Range(8, 18)][SerializeField] float jumpHeight;
