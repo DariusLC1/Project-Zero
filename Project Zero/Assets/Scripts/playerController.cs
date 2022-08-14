@@ -38,6 +38,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         playerSpeedOriginal = playerSpeed;
         HPOrig = HP;
+        upddatePlayerHP();
     }
 
     // Update is called once per frame
@@ -98,6 +99,7 @@ public class playerController : MonoBehaviour, IDamageable
     public void resetHP()
     {
         HP = HPOrig;
+        upddatePlayerHP();
     }
 
     public void respawn()
@@ -111,6 +113,8 @@ public class playerController : MonoBehaviour, IDamageable
     {
         HP -= dmg;
 
+        upddatePlayerHP();
+             
         StartCoroutine(damageFlash());
 
         if (HP <= 0)
@@ -185,7 +189,10 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-
+    public void upddatePlayerHP()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
+    }
 
 
 
