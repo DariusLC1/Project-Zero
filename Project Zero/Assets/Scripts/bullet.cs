@@ -22,7 +22,7 @@ public class bullet : MonoBehaviour
         {
             other.GetComponent<IDamageable>().takeDamage(damage);
         }
-
+        Debug.Log(other.transform.name);
         Destroy(gameObject);
     }
 

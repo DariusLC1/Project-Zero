@@ -54,7 +54,7 @@ public class playerController : MonoBehaviour, IDamageable
         HPOrig = HP;
         ammoCountOg = ammoCount;
         updatePlayerHP();
-        //updateAmmoCount();
+        updateAmmoCount();
         
     }
 
@@ -67,6 +67,7 @@ public class playerController : MonoBehaviour, IDamageable
         Sprint();
         reload();
         StartCoroutine(shoot());
+        
     }
     #region PlayerStuff
     void playerMovement()
@@ -179,7 +180,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             isShooting = true;
             ammoCount--;
-            //updateAmmoCount();
+            updateAmmoCount();
 
             // do something
             RaycastHit hit;
@@ -201,16 +202,17 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, GameObject model,gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo,  GameObject model,gunStats _gstats)
     {
         shootRate = shtRate;
         shootingDist = shtingDist;
         shootDamage = shtDamage;
         gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
-        //bulletPershot = bulletCount;
+        ammoCount = ammo;
+        ammoCountOg = ammoCount;
         gunStat.Add(_gstats);
-        //updateAmmoCount();
+        updateAmmoCount();
     }
 
     void weaponSwap()
@@ -225,6 +227,7 @@ public class playerController : MonoBehaviour, IDamageable
                 shootDamage = gunStat[amtWeapon].shootDamage;
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                updateAmmoCount();
             }
             else if (Input.GetAxis("Mouse ScrollWheel") > 0 && amtWeapon > 0)
             {
@@ -234,6 +237,7 @@ public class playerController : MonoBehaviour, IDamageable
                 shootDamage = gunStat[amtWeapon].shootDamage;
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                updateAmmoCount();
             }
         }
     }
@@ -243,17 +247,17 @@ public class playerController : MonoBehaviour, IDamageable
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
 
-    //public void updateAmmoCount()
-    //{
-    //    gameManager.instance.ammoCount.fillAmount = (float)ammoCount / ammoCountOg;
-    //}
+    public void updateAmmoCount()
+    {
+        gameManager.instance.ammoCount.fillAmount = (float)ammoCount / (float)ammoCountOg;
+    }
 
     void reload()
     {
         if (Input.GetButtonDown("Reload"))
         {
             ammoCount = ammoCountOg;
-            //updateAmmoCount();
+            updateAmmoCount();
         }
     }
     #endregion

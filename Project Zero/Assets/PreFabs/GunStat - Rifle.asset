@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d22b0dbedb7c25409e7ae62cba31613, type: 3}
   m_Name: GunStat - Rifle
   m_EditorClassIdentifier: 
-  shootRate: 100
+  shootRate: 1
   shootingDist: 50
   shootDamage: 10
-  ammo: 0
+  ammo: 20
   model: {fileID: 142843593569271752, guid: a2d4b35accc657c448380d124df08a8b, type: 3}
