@@ -19,6 +19,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject playerSpawnPos;
 
+    public int enemyCount;
+
     public bool isPaused = false;
     // Start is called before the first frame update
     void Awake()
@@ -66,9 +68,9 @@ public class gameManager : MonoBehaviour
         menuCurrentlyOpen = null;
     }
 
-    //public IEnumerator checkEnemyTotal()
-    //{
-    //    enemyCount--;
+    public void checkEnemyTotal()
+    {
+       enemyCount--;
     //    if (enemyCount <= 0)
     //    {
     //        yield return new WaitForSeconds(2);
@@ -77,6 +79,6 @@ public class gameManager : MonoBehaviour
     //        menuCurrentlyOpen = winCondition;
     //        cursorLockPause();
     //    }
-    //}
+    }
 
 }

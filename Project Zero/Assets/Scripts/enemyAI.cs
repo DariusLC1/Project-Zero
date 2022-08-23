@@ -91,6 +91,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         if (HP <= 0)
         {
+            gameManager.instance.checkEnemyTotal();
             Destroy(gameObject);
         }
     }
