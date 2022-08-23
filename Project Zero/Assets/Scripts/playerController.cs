@@ -53,7 +53,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerSpeedOriginal = playerSpeed;
         HPOrig = HP;
         ammoCountOg = ammoCount;
-        upddatePlayerHP();
+        updatePlayerHP();
         //updateAmmoCount();
         
     }
@@ -61,6 +61,7 @@ public class playerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+
         weaponSwap();
         playerMovement();
         Sprint();
@@ -117,7 +118,7 @@ public class playerController : MonoBehaviour, IDamageable
     public void resetHP()
     {
         HP = HPOrig;
-        upddatePlayerHP();
+        updatePlayerHP();
     }
 
     public void respawn()
@@ -133,7 +134,7 @@ public class playerController : MonoBehaviour, IDamageable
 
         //aud.PlayOneShot(soundDamage[Random.Range(0, soundDamage.Length)], soundDamageVol);
 
-        //updatePlayerHP();
+        updatePlayerHP();
         StartCoroutine(damageFlash());
 
         if (HP <= 0)
@@ -237,7 +238,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void upddatePlayerHP()
+    public void updatePlayerHP()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
