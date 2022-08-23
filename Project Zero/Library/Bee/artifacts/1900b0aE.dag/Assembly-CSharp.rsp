@@ -358,6 +358,7 @@
 "Assets/Scripts/gunPickup.cs"
 "Assets/Scripts/gunStats.cs"
 "Assets/Scripts/IDamageable.cs"
+"Assets/Scripts/objectDamageable.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/spawner.cs"
 "Assets/UnityStore stuff/RobotSphere/Assets/Scripts/RobotFreeAnim.cs"

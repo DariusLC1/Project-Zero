@@ -16,11 +16,15 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamageFlash;
     public Image playerHPBar;
     public Image ammoCount;
+    public GameObject core;
+    public GameObject winMenu;
+
+
 
     public GameObject playerSpawnPos;
 
     public int enemyCount;
-
+    public bool gameOver;
     public bool isPaused = false;
     // Start is called before the first frame update
     void Awake()
@@ -50,8 +54,13 @@ public class gameManager : MonoBehaviour
             else
             {
                 cursorUnlockUnpause();
+                
             }
         }
+
+        isCoreDestroyed();
+
+
     }
 
     public void cursorLockPause()
@@ -85,4 +94,14 @@ public class gameManager : MonoBehaviour
     //    }
     }
 
+    public void isCoreDestroyed()
+    {
+        if (core.activeInHierarchy == false)
+        {
+            gameOver = true;
+            winMenu.SetActive(true);
+            menuCurrentlyOpen = winMenu;
+            cursorLockPause();
+        }
+    }
 }
