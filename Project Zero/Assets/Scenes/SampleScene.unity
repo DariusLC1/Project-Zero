@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Regular Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2105246659579662224, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2105246659579826800, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -472,10 +468,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 147200387556479464, guid: bdd721868d0d88846a5d40a19a22353d, type: 3}
-      propertyPath: m_Radius
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 147200387556479465, guid: bdd721868d0d88846a5d40a19a22353d, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -752,10 +744,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 871410909707256798, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
 --- !u!1001 &5809752243889770836
@@ -996,10 +984,6 @@ PrefabInstance:
     - target: {fileID: 8837637456444200921, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
       propertyPath: m_Name
       value: Heavy Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837637456444200921, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8837637456444295737, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
       propertyPath: m_RootOrder
