@@ -37,16 +37,20 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") )
+        if (Input.GetButtonDown("Cancel") && playerScript.HP > 0)
         {
             isPaused = !isPaused;
             menuCurrentlyOpen = pauseMenu;
             menuCurrentlyOpen.SetActive(isPaused);
 
             if (isPaused)
+            {
                 cursorLockPause();
+            }
             else
+            {
                 cursorUnlockUnpause();
+            }
         }
     }
 
