@@ -11,16 +11,21 @@ public class spawner : MonoBehaviour
 
     [SerializeField] GameObject enemy;
 
-
-
     bool spawnAgain = true;
 
     int localEnemyCount;
 
+    bool playerOnTrigger = false;
     // Update is called once per frame
+
+    void Start()
+    {
+        gameManager.instance.enemyCount += enemyMax;
+        
+    }
     void Update()
     {
-        if (spawnAgain && localEnemyCount < enemyMax)
+        if (playerOnTrigger && spawnAgain && localEnemyCount < enemyMax)
         {
             StartCoroutine(spawn());
         }
@@ -35,5 +40,21 @@ public class spawner : MonoBehaviour
         yield return new WaitForSeconds(spawnTimer);
         spawnAgain = true;
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerOnTrigger = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerOnTrigger = false;
+        }
     }
 }
