@@ -20,8 +20,21 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(.01f, 200)][SerializeField] float shootRate;
     [Range(.01f, 200)][SerializeField] int shootDamage;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;
+    [SerializeField] int ammoCount;
+    [SerializeField] GameObject gunModel;
     public List<gunStats> gunStat = new List<gunStats>();
 
+    [Header("----- Effects -----")]
+    [SerializeField] GameObject hitEffect;
+
+    [Header("----- Weapon Sounds -----")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] soundDamage;
+    [Range(0, 50)][SerializeField] float soundDamageVol;
+    [SerializeField] AudioClip[] shootSound;
+    [Range(0, 50)][SerializeField] float shootSoundVol;
+    [SerializeField] AudioClip[] footSteps;
+    [Range(0, 50)][SerializeField] float footStepsVol;
 
     private Vector3 playerVelocity;
     Vector3 move = Vector3.zero;
@@ -31,6 +44,7 @@ public class playerController : MonoBehaviour, IDamageable
     int HPOrig;
     bool isShooting = false;
     int amtWeapon = 0;
+    int ammoCountOg;
 
 
     // Start is called before the first frame update
@@ -38,7 +52,10 @@ public class playerController : MonoBehaviour, IDamageable
     {
         playerSpeedOriginal = playerSpeed;
         HPOrig = HP;
+        ammoCountOg = ammoCount;
         upddatePlayerHP();
+        //updateAmmoCount();
+        
     }
 
     // Update is called once per frame
@@ -47,9 +64,10 @@ public class playerController : MonoBehaviour, IDamageable
         weaponSwap();
         playerMovement();
         Sprint();
+        reload();
         StartCoroutine(shoot());
     }
-
+    #region PlayerStuff
     void playerMovement()
     {
         if (controller.isGrounded && playerVelocity.y < 0)
@@ -74,7 +92,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-
+ 
     void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
@@ -113,8 +131,9 @@ public class playerController : MonoBehaviour, IDamageable
     {
         HP -= dmg;
 
-        upddatePlayerHP();
-             
+        //aud.PlayOneShot(soundDamage[Random.Range(0, soundDamage.Length)], soundDamageVol);
+
+        //updatePlayerHP();
         StartCoroutine(damageFlash());
 
         if (HP <= 0)
@@ -129,7 +148,27 @@ public class playerController : MonoBehaviour, IDamageable
         gameManager.instance.menuCurrentlyOpen = gameManager.instance.playerDeadMenu;
         gameManager.instance.menuCurrentlyOpen.SetActive(true);
     }
+    #endregion
+    #region Sounds
+    IEnumerator footsteps()
+    {
+        //if (controller.isGrounded && move.normalized.magnitude > 0.3f)
+        //{
+        //    playerFootStep = false;
+        //    aud.PlayOneShot(footSteps[Random.Range(0, footSteps.Length)], footStepsVol);
+        //    if (!isSprinting)
+        //    {
+        //        yield return new WaitForSeconds(0.4f);
+        //    }
+        //    else
+        //        yield return new WaitForSeconds(0.4f);
 
+        //    playerFootStep = true;
+        //}
+        yield return null; // change this when you're done
+    }
+    #endregion
+    #region Weapons
     // --------- for Weapons ------------ \\
     IEnumerator shoot()
     {
@@ -138,6 +177,8 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
         {
             isShooting = true;
+            ammoCount--;
+            //updateAmmoCount();
 
             // do something
             RaycastHit hit;
@@ -159,13 +200,16 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, GameObject model,gunStats _gstats)
     {
         shootRate = shtRate;
         shootingDist = shtingDist;
         shootDamage = shtDamage;
+        gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
         //bulletPershot = bulletCount;
         gunStat.Add(_gstats);
+        //updateAmmoCount();
     }
 
     void weaponSwap()
@@ -178,6 +222,8 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
+                gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") > 0 && amtWeapon > 0)
             {
@@ -185,6 +231,8 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
+                gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
             }
         }
     }
@@ -194,6 +242,20 @@ public class playerController : MonoBehaviour, IDamageable
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
 
+    //public void updateAmmoCount()
+    //{
+    //    gameManager.instance.ammoCount.fillAmount = (float)ammoCount / ammoCountOg;
+    //}
+
+    void reload()
+    {
+        if (Input.GetButtonDown("Reload"))
+        {
+            ammoCount = ammoCountOg;
+            //updateAmmoCount();
+        }
+    }
+    #endregion
 
 
 }

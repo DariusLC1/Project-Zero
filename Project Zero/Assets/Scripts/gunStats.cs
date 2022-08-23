@@ -10,5 +10,6 @@ public class gunStats : ScriptableObject
     [Range(0.01f, 200)] public float shootRate;
     [Range(5, 200)] public int shootingDist;
     [Range(1, 200)] public int shootDamage;
-    
+    [Range(.01f, 200)] public int ammo;
+    public GameObject model;
 }   

@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDeadMenu;
     public GameObject playerDamageFlash;
     public Image playerHPBar;
+    public Image ammoCount;
 
     public GameObject playerSpawnPos;
 
@@ -65,5 +66,17 @@ public class gameManager : MonoBehaviour
         menuCurrentlyOpen = null;
     }
 
+    //public IEnumerator checkEnemyTotal()
+    //{
+    //    enemyCount--;
+    //    if (enemyCount <= 0)
+    //    {
+    //        yield return new WaitForSeconds(2);
+    //        gameOver = true;
+    //        winCondition.SetActive(true);
+    //        menuCurrentlyOpen = winCondition;
+    //        cursorLockPause();
+    //    }
+    //}
 
 }

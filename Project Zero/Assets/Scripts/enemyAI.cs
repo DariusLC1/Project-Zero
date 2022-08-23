@@ -41,6 +41,38 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             StartCoroutine(shoot());
         }
+
+        //if (playerInRange)
+        //{
+        //    canSeePlayer();
+        //}
+        //else if (agent.remainingDistance < 0.1f)
+        //    roam();
+    }
+
+    void canSeePlayer()
+    {
+        //float angle = Vector3.Angle(playerDir, transform.forward);
+        //Debug.Log(angle);
+
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, playerDir, out hit))
+        //{
+        //    Debug.DrawRay(transform.position, playerDir);
+
+        //    if (hit.collider.CompareTag("Player") && !isShooting && angle <= fliedOfView)
+        //    {
+        //        agent.SetDestination(gameManager.instance.player.transform.position);
+        //        agent.stoppingDistance = stoppingDistog;
+        //        agent.speed = speedChase;
+        //        facePlayer();
+
+        //        if (!isShooting && angle <= fieldOfViewShoot)
+        //            StartCoroutine(shoot());
+        //    }
+
+        //}
+
     }
 
     void turnToPlayer()
