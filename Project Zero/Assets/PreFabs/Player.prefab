@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1408744386}
   HP: 100
-  playerSpeed: 5
-  sprintMultiplyer: 4
+  playerSpeed: 3
+  sprintMultiplyer: 2
   jumpHeight: 9
   gravity: 24
   jumpsMax: 2
