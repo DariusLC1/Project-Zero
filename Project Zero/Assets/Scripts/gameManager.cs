@@ -57,7 +57,7 @@ public class gameManager : MonoBehaviour
             }
         }
 
-        isCoreDestroyed();
+       
     }
 
     public void cursorLockPause()
