@@ -186,6 +186,7 @@ public class playerController : MonoBehaviour, IDamageable
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootingDist))
             {
+                Instantiate(hitEffect, hit.point, hitEffect.transform.rotation);
                 if (hit.collider.GetComponent<IDamageable>() != null)
                 {
                     IDamageable isDamageable = hit.collider.GetComponent<IDamageable>();
@@ -229,7 +230,7 @@ public class playerController : MonoBehaviour, IDamageable
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") > 0 && amtWeapon > 0)
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && amtWeapon > 0)
             {
                 amtWeapon--;
                 shootRate = gunStat[amtWeapon].shootRate;
