@@ -7,10 +7,19 @@ public class enemyAI : MonoBehaviour, IDamageable
 {
     [Header("-----Components-----")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Renderer rend;
+    //[SerializeField] Animator anim;
+    [SerializeField] Transform head;
+
 
     [Header("-----Stats-----")]
     [Range(0, 100)][SerializeField] int HP;
     [Range(0, 10)][SerializeField] int facePlayer;
+    [Range(15, 360)][SerializeField] int FOV;
+    [Range(15, 360)][SerializeField] int FOVShoot;
+    [SerializeField] int roamRadius;
+    [SerializeField] float speedRoam;
+    [SerializeField] float speedChase;
 
     [Header("-----Weapon Stats-----")]
     [Range(0.1f, 5)][SerializeField] float shootRate;
@@ -21,8 +30,11 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] GameObject bulletSpawn;
 
     Vector3 playerDirection;
+    Vector3 startingPos;
     bool isShooting = false;
-    bool detection = false;
+    bool playerInRange = false;
+    float stoppingDistanceOrig;
+    float speedOrig;
 
     // Start is called before the first frame update
     void Start()
@@ -33,45 +45,73 @@ public class enemyAI : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        //if (agent.isActiveAndEnabled && !anim.GetBool("Dead"))
+        //{
+            //anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
+            playerDirection = gameManager.instance.player.transform.position - head.position;
+
+            if (playerInRange)
+            {
+                canSeePlayer();
+            }
+            else if (agent.remainingDistance < 0.1f)
+            {
+                roam();
+            }
+        //}
         agent.SetDestination(gameManager.instance.player.transform.position);
         playerDirection = gameManager.instance.player.transform.position - transform.position;
 
         turnToPlayer();
-        if (detection && !isShooting)
+        if (playerInRange && !isShooting)
         {
             StartCoroutine(shoot());
         }
 
-        //if (playerInRange)
-        //{
-        //    canSeePlayer();
-        //}
-        //else if (agent.remainingDistance < 0.1f)
-        //    roam();
+        if (playerInRange)
+        {
+            canSeePlayer();
+        }
+        else if (agent.remainingDistance < 0.1f)
+            roam();
+    }
+    void roam()
+    {
+        agent.speed = speedRoam;
+        agent.stoppingDistance = 0;
+        Vector3 RandomDir = Random.insideUnitSphere * roamRadius;
+        RandomDir += startingPos;
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(RandomDir, out hit, roamRadius, 1);
+        NavMeshPath path = new NavMeshPath();
+
+        agent.CalculatePath(hit.position, path);
+        agent.SetPath(path);
     }
 
     void canSeePlayer()
     {
-        //float angle = Vector3.Angle(playerDir, transform.forward);
-        //Debug.Log(angle);
+        float angle = Vector3.Angle(playerDirection, transform.forward);
+        Debug.Log(angle);
 
-        //RaycastHit hit;
-        //if (Physics.Raycast(transform.position, playerDir, out hit))
-        //{
-        //    Debug.DrawRay(transform.position, playerDir);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, playerDirection, out hit))
+        {
+            Debug.DrawRay(transform.position, playerDirection);
 
-        //    if (hit.collider.CompareTag("Player") && !isShooting && angle <= fliedOfView)
-        //    {
-        //        agent.SetDestination(gameManager.instance.player.transform.position);
-        //        agent.stoppingDistance = stoppingDistog;
-        //        agent.speed = speedChase;
-        //        facePlayer();
+            if (hit.collider.CompareTag("Player") && !isShooting && angle <= FOV)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+                agent.stoppingDistance = stoppingDistanceOrig;
+                agent.speed = speedChase;
+                turnToPlayer();
 
-        //        if (!isShooting && angle <= fieldOfViewShoot)
-        //            StartCoroutine(shoot());
-        //    }
+                if (!isShooting && angle <= FOVShoot)
+                    StartCoroutine(shoot());
+            }
 
-        //}
+        }
 
     }
 
@@ -113,7 +153,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if(other.CompareTag("Player"))
         {
-            detection = true;
+            playerInRange = true;
         }
     }
 
@@ -121,7 +161,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
-            detection = false;
+            playerInRange = false;
         }
     }
 }
