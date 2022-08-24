@@ -68,6 +68,7 @@ public class playerController : MonoBehaviour, IDamageable
         reload();
         StartCoroutine(shoot());
         
+
     }
     #region PlayerStuff
     void playerMovement()
@@ -181,6 +182,7 @@ public class playerController : MonoBehaviour, IDamageable
             isShooting = true;
             ammoCount--;
             updateAmmoCount();
+            
 
             // do something
             RaycastHit hit;
@@ -193,8 +195,11 @@ public class playerController : MonoBehaviour, IDamageable
 
                     if (hit.collider is SphereCollider)
                         isDamageable.takeDamage(shootDamage * 2);
+                    
                     else
                         isDamageable.takeDamage(shootDamage);
+                        gameManager.instance.isCoreDestroyed();
+
                 }
             }
 
