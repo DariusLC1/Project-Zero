@@ -195,6 +195,7 @@ public class playerController : MonoBehaviour, IDamageable
                         isDamageable.takeDamage(shootDamage * 2);
                     else
                         isDamageable.takeDamage(shootDamage);
+                        gameManager.instance.isCoreDestroyed();
                 }
             }
 

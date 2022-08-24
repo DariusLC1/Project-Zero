@@ -58,7 +58,7 @@ public class gameManager : MonoBehaviour
             }
         }
 
-        isCoreDestroyed();
+        
 
 
     }
