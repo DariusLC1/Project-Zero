@@ -1804,7 +1804,6 @@ GameObject:
   - component: {fileID: 2105246659579662221}
   - component: {fileID: 2105246659579662223}
   - component: {fileID: 1022247241}
-  - component: {fileID: 346584654}
   - component: {fileID: 513633564}
   m_Layer: 7
   m_Name: Regular Enemy
@@ -1869,8 +1868,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2105246659579662223}
+  rend: {fileID: 2105246659565994792}
+  head: {fileID: 2105246659579826700}
   HP: 20
   facePlayer: 5
+  FOV: 120
+  FOVShoot: 25
+  roamRadius: 6
+  speedRoam: 2
+  speedChase: 4
   shootRate: 0.68
   damage: 5
   bulletSpeed: 10
@@ -1907,21 +1913,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105246659579662224}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
---- !u!136 &346584654
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105246659579662224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.85
