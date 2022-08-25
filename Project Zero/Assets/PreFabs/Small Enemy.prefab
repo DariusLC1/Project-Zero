@@ -1493,7 +1493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &865385656788056032
 Transform:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,6 @@ MonoBehaviour:
   agent: {fileID: 956469774308077961}
   rend: {fileID: 1005983042160960734}
   anim: {fileID: 956469774308078198}
-  head: {fileID: 865736001746478326}
   HP: 2
   facePlayer: 5
   FOV: 120

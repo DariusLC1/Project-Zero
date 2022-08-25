@@ -48,7 +48,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     void Update()
     {
 
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !anim.GetBool("Dead"))
         {
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
 
@@ -122,16 +122,19 @@ public class enemyAI : MonoBehaviour, IDamageable
     public void takeDamage(int dmg)
     {
         HP -= dmg;
-
         anim.SetTrigger("Damage");
-        StartCoroutine(flashColor());
 
         if (HP <= 0)
         {
             gameManager.instance.checkEnemyTotal();
             anim.SetBool("Dead", true);
             agent.enabled = false;
+
+            foreach (Collider col in GetComponents<Collider>())
+                col.enabled = false;
         }
+        else
+            StartCoroutine(flashColor());
     }
 
     IEnumerator flashColor()
