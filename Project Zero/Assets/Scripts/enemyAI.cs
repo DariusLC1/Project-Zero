@@ -7,6 +7,8 @@ public class enemyAI : MonoBehaviour, IDamageable
 {
     [Header("-----Components-----")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Renderer rend;
+    [SerializeField] Animator anim;
 
     [Header("-----Stats-----")]
     [Range(0, 100)][SerializeField] int HP;
@@ -33,21 +35,26 @@ public class enemyAI : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(gameManager.instance.player.transform.position);
-        playerDirection = gameManager.instance.player.transform.position - transform.position;
 
-        turnToPlayer();
-        if (detection && !isShooting)
-        {
-            StartCoroutine(shoot());
-        }
+        
+            anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
 
-        //if (playerInRange)
-        //{
-        //    canSeePlayer();
-        //}
-        //else if (agent.remainingDistance < 0.1f)
-        //    roam();
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            playerDirection = gameManager.instance.player.transform.position - transform.position;
+
+            turnToPlayer();
+            if (detection && !isShooting)
+            {
+                StartCoroutine(shoot());
+            }
+
+            //if (playerInRange)
+            //{
+            //    canSeePlayer();
+            //}
+            //else if (agent.remainingDistance < 0.1f)
+            //    roam();
+        
     }
 
     void canSeePlayer()
@@ -89,16 +96,31 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         HP -= dmg;
 
+        anim.SetTrigger("Damage");
+        StartCoroutine(flashColor());
+
         if (HP <= 0)
         {
             gameManager.instance.checkEnemyTotal();
-            Destroy(gameObject);
+            anim.SetBool("Dead", true);
+            agent.enabled = false;
         }
+    }
+
+    IEnumerator flashColor()
+    {
+        rend.material.color = Color.red;
+        agent.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        agent.enabled = true;
+        rend.material.color = Color.white;
     }
 
     IEnumerator shoot()
     {
         isShooting = true;
+
+        anim.SetTrigger("Shoot");
 
         GameObject bulletClone = Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
         bulletClone.GetComponent<bullet>().damage = damage;
