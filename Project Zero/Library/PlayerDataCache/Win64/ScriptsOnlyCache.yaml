@@ -28,10 +28,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -156,55 +154,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1548}
     - Class: 114
-      Script: {instanceID: 1964}
+      Script: {instanceID: 1974}
     - Class: 114
-      Script: {instanceID: 2336}
+      Script: {instanceID: 1986}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 2360}
     - Class: 114
-      Script: {instanceID: 2772}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2796}
     - Class: 114
-      Script: {instanceID: 3000}
+      Script: {instanceID: 2926}
     - Class: 114
-      Script: {instanceID: 3302}
+      Script: {instanceID: 3024}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3326}
     - Class: 114
-      Script: {instanceID: 3768}
+      Script: {instanceID: 3374}
     - Class: 114
-      Script: {instanceID: 4370}
+      Script: {instanceID: 3792}
     - Class: 114
-      Script: {instanceID: 4640}
+      Script: {instanceID: 4394}
     - Class: 114
-      Script: {instanceID: 5366}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 5408}
+      Script: {instanceID: 5150}
     - Class: 114
-      Script: {instanceID: 5984}
+      Script: {instanceID: 5392}
     - Class: 114
-      Script: {instanceID: 6024}
+      Script: {instanceID: 5434}
     - Class: 114
-      Script: {instanceID: 6178}
+      Script: {instanceID: 6010}
     - Class: 114
-      Script: {instanceID: 6290}
+      Script: {instanceID: 6050}
     - Class: 114
-      Script: {instanceID: 7188}
+      Script: {instanceID: 6204}
     - Class: 114
-      Script: {instanceID: 7406}
+      Script: {instanceID: 6298}
     - Class: 114
-      Script: {instanceID: 7832}
+      Script: {instanceID: 6318}
     - Class: 114
-      Script: {instanceID: 8336}
+      Script: {instanceID: 7216}
     - Class: 114
-      Script: {instanceID: 42728}
+      Script: {instanceID: 7434}
     - Class: 114
-      Script: {instanceID: 42734}
+      Script: {instanceID: 7860}
     - Class: 114
-      Script: {instanceID: 70232}
+      Script: {instanceID: 8046}
     - Class: 114
-      Script: {instanceID: 73236}
+      Script: {instanceID: 8366}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -292,6 +290,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionStayMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 4b10ebd61b0cce7d89afd79e6ad5d302
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Door
   - hash:
       serializedVersion: 2
       Hash: 21f047abb005ea9f8997ab8e2203d199
@@ -702,6 +706,12 @@ ScriptsOnlyBuild:
     className: UnityOnEndDragMessageListener
   - hash:
       serializedVersion: 2
+      Hash: d8bcaa777de8ec0033d796a0cebd6497
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoorTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -826,6 +836,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 4a294c8300a4f27915b14688bae39831
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyDoorTrigger
   - hash:
       serializedVersion: 2
       Hash: df17369d8c80738f8009e97beed0e3fb
@@ -1038,6 +1054,12 @@ ScriptsOnlyBuild:
     className: StateMachine
   - hash:
       serializedVersion: 2
+      Hash: 3fc6f9569044a091ed2a1f729503ea40
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyDoor
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1084,32 +1106,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 4b10ebd61b0cce7d89afd79e6ad5d302
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Door
-  - hash:
-      serializedVersion: 2
-      Hash: d8bcaa777de8ec0033d796a0cebd6497
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DoorTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 3fc6f9569044a091ed2a1f729503ea40
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyDoor
-  - hash:
-      serializedVersion: 2
-      Hash: 4a294c8300a4f27915b14688bae39831
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyDoorTrigger
   platform: 19
   scenePathNames:
   - Assets/Scenes/test scene.unity
-  playerPath: C:/Users/Infin/Documents/GitHub/Project-Zero/Project Zero/Builds/Project
+  playerPath: C:/Users/theal/OneDrive/Documents/GitHub/Project-Zero/Project Zero/Builds/Project
     Zero.exe

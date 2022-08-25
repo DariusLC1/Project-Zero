@@ -52,7 +52,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
 
-            playerDirection = gameManager.instance.player.transform.position - transform.position;
+            playerDirection = gameManager.instance.player.transform.position - new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
 
             turnToPlayer();
 
@@ -88,9 +88,9 @@ public class enemyAI : MonoBehaviour, IDamageable
         float angle = Vector3.Angle(playerDirection, transform.forward); //finds angle between the player and the front of the enemy
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, playerDirection, out hit))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection, out hit))
         {
-            Debug.DrawRay(transform.position, playerDirection); //debug code, remove later
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection); //debug code, remove later
 
             if (hit.collider.CompareTag("Player") && angle <= FOV )
             {
