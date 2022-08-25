@@ -477,10 +477,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7467568542585865630, guid: a2d4b35accc657c448380d124df08a8b, type: 3}
-      propertyPath: gunStat
-      value: 
-      objectReference: {fileID: 11400000, guid: 29ede450e1d77224ca6af8ac3e44213c, type: 2}
     - target: {fileID: 142843593569271752, guid: a2d4b35accc657c448380d124df08a8b, type: 3}
       propertyPath: m_Name
       value: gunPickup - Rifle
@@ -585,10 +581,6 @@ PrefabInstance:
     - target: {fileID: 147200387556479466, guid: bdd721868d0d88846a5d40a19a22353d, type: 3}
       propertyPath: m_Name
       value: Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 147200387556479466, guid: bdd721868d0d88846a5d40a19a22353d, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd721868d0d88846a5d40a19a22353d, type: 3}

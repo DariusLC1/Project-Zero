@@ -92,7 +92,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             Debug.DrawRay(transform.position, playerDirection); //debug code, remove later
 
-            if (hit.collider.CompareTag("Player") && angle <= FOV / 2)
+            if (hit.collider.CompareTag("Player") && angle <= FOV )
             {
                 turnToPlayer();
 
@@ -100,7 +100,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 agent.stoppingDistance = stoppingDistanceOrig;
                 agent.speed = speedChase;
 
-                if (!isShooting && angle <= FOVShoot / 2)
+                if (!isShooting && angle <= FOVShoot )
                 {
                     StartCoroutine(shoot());
                 }

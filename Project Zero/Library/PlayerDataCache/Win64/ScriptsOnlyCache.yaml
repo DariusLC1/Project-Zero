@@ -2,6 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CheckPoint
+    - Door
+    - DoorTrigger
+    - EnemyDoor
+    - EnemyDoorTrigger
     - bullet
     - buttonFunctions
     - camera
@@ -9,6 +13,7 @@ ScriptsOnlyBuild:
     - gameManager
     - gunPickup
     - gunStats
+    - objectDamageable
     - playerController
     - spawner
     Unity.Rider.Editor.dll:
@@ -18,7 +23,16 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -65,6 +79,15 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: buttonFunctions
+    methodName: quit
+  - assembly: Assembly-CSharp
+    fullTypeName: buttonFunctions
+    methodName: restart
+  - assembly: Assembly-CSharp
+    fullTypeName: buttonFunctions
+    methodName: quit
+  - assembly: Assembly-CSharp
+    fullTypeName: buttonFunctions
     methodName: restart
   - assembly: Assembly-CSharp
     fullTypeName: buttonFunctions
@@ -79,7 +102,7 @@ ScriptsOnlyBuild:
     fullTypeName: buttonFunctions
     methodName: resume
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/test scene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -110,6 +133,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -125,47 +152,59 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1594}
+      Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 1846}
+      Script: {instanceID: 1548}
     - Class: 114
-      Script: {instanceID: 2218}
+      Script: {instanceID: 1964}
     - Class: 114
-      Script: {instanceID: 2614}
+      Script: {instanceID: 2336}
     - Class: 114
-      Script: {instanceID: 2654}
+      Script: {instanceID: 2732}
     - Class: 114
-      Script: {instanceID: 2784}
+      Script: {instanceID: 2772}
     - Class: 114
-      Script: {instanceID: 2882}
+      Script: {instanceID: 2902}
     - Class: 114
-      Script: {instanceID: 3184}
+      Script: {instanceID: 3000}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3302}
     - Class: 114
-      Script: {instanceID: 4252}
+      Script: {instanceID: 3350}
     - Class: 114
-      Script: {instanceID: 4522}
+      Script: {instanceID: 3768}
     - Class: 114
-      Script: {instanceID: 5248}
+      Script: {instanceID: 4370}
     - Class: 114
-      Script: {instanceID: 5290}
+      Script: {instanceID: 4640}
     - Class: 114
-      Script: {instanceID: 5866}
+      Script: {instanceID: 5366}
     - Class: 114
-      Script: {instanceID: 5906}
+      Script: {instanceID: 5408}
     - Class: 114
-      Script: {instanceID: 6060}
+      Script: {instanceID: 5984}
     - Class: 114
-      Script: {instanceID: 6172}
+      Script: {instanceID: 6024}
     - Class: 114
-      Script: {instanceID: 6406}
+      Script: {instanceID: 6178}
     - Class: 114
-      Script: {instanceID: 7072}
+      Script: {instanceID: 6290}
     - Class: 114
-      Script: {instanceID: 7714}
+      Script: {instanceID: 7188}
     - Class: 114
-      Script: {instanceID: 8218}
+      Script: {instanceID: 7406}
+    - Class: 114
+      Script: {instanceID: 7832}
+    - Class: 114
+      Script: {instanceID: 8336}
+    - Class: 114
+      Script: {instanceID: 42728}
+    - Class: 114
+      Script: {instanceID: 42734}
+    - Class: 114
+      Script: {instanceID: 70232}
+    - Class: 114
+      Script: {instanceID: 73236}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -184,6 +223,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
     - Class: 222
@@ -197,16 +240,22 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: e09e8bebc0fcd32bb8af1287a6b44816
     assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UIElements
-    className: PanelRaycaster
+    namespaceName: UnityEngine.EventSystems
+    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UIElements
+    className: PanelRaycaster
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -245,7 +294,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionStayMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 5f6e5f2111922ce30d8806dfc7a2e759
+      Hash: 21f047abb005ea9f8997ab8e2203d199
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: spawner
@@ -701,7 +750,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionEnter2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 00fabcdaaf737200eb8a0b98dd154e6b
+      Hash: bee03e8b864b56c7872107257f32eabc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameManager
@@ -749,7 +798,7 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: a7461460723159c980d04102391e464a
+      Hash: e51cf30449af0b5d48a08d4cd6e411ae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemyAI
@@ -789,12 +838,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseUpAsButtonMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: e09e8bebc0fcd32bb8af1287a6b44816
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -929,6 +972,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: f291bf89662e8aa3e94dd0c3e4cc5997
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: objectDamageable
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1035,7 +1084,32 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 4b10ebd61b0cce7d89afd79e6ad5d302
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Door
+  - hash:
+      serializedVersion: 2
+      Hash: d8bcaa777de8ec0033d796a0cebd6497
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoorTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 3fc6f9569044a091ed2a1f729503ea40
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyDoor
+  - hash:
+      serializedVersion: 2
+      Hash: 4a294c8300a4f27915b14688bae39831
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyDoorTrigger
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/bild/Project Zero.exe
+  - Assets/Scenes/test scene.unity
+  playerPath: C:/Users/Infin/Documents/GitHub/Project-Zero/Project Zero/Builds/Project
+    Zero.exe

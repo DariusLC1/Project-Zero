@@ -13,14 +13,13 @@ public class spawner : MonoBehaviour
 
     bool spawnAgain = true;
 
-    int localEnemyCount;
+    public int localEnemyCount;
 
     bool playerOnTrigger = false;
     // Update is called once per frame
 
     void Start()
     {
-        gameManager.instance.enemyCount += enemyMax;
         
     }
     void Update()
@@ -37,6 +36,7 @@ public class spawner : MonoBehaviour
         Instantiate(enemy,transform.position,enemy.transform.rotation);
         gameManager.instance.enemyCount++;
         localEnemyCount++;
+        gameManager.instance.enemyCount++;
         yield return new WaitForSeconds(spawnTimer);
         spawnAgain = true;
 
@@ -56,5 +56,10 @@ public class spawner : MonoBehaviour
         {
             playerOnTrigger = false;
         }
+    }
+
+    private void checkEnemyTotal()
+    {
+        localEnemyCount--;
     }
 }
