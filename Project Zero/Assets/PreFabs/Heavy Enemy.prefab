@@ -79,8 +79,14 @@ MonoBehaviour:
   agent: {fileID: 4188215952553202334}
   rend: {fileID: 13700000, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
   anim: {fileID: 4188215952545915133}
+  head: {fileID: 4188215952552840859}
   HP: 50
   facePlayer: 5
+  FOV: 0
+  FOVShoot: 0
+  roamRadius: 0
+  speedRoam: 0
+  speedChase: 0
   shootRate: 0.75
   damage: 10
   bulletSpeed: 5

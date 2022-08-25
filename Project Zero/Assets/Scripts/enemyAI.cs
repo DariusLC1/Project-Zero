@@ -13,6 +13,11 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Header("-----Stats-----")]
     [Range(0, 100)][SerializeField] int HP;
     [Range(0, 10)][SerializeField] int facePlayer;
+    [Range(15, 360)][SerializeField] int FOV;
+    [Range(15, 360)][SerializeField] int FOVShoot;
+    [SerializeField] int roamRadius;
+    [SerializeField] float speedRoam;
+    [SerializeField] float speedChase;
 
     [Header("-----Weapon Stats-----")]
     [Range(0.1f, 5)][SerializeField] float shootRate;
@@ -23,62 +28,84 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] GameObject bulletSpawn;
 
     Vector3 playerDirection;
+    Vector3 startingPos;
     bool isShooting = false;
     bool detection = false;
+    float stoppingDistanceOrig;
+    float speedOrig;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        speedOrig = agent.speed;
+        stoppingDistanceOrig = agent.stoppingDistance;
+        startingPos = transform.position;
+        roam();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+        if (agent.isActiveAndEnabled)
+        {
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
 
-            agent.SetDestination(gameManager.instance.player.transform.position);
             playerDirection = gameManager.instance.player.transform.position - transform.position;
 
             turnToPlayer();
-            if (detection && !isShooting)
-            {
-                StartCoroutine(shoot());
-            }
 
-            //if (playerInRange)
-            //{
-            //    canSeePlayer();
-            //}
-            //else if (agent.remainingDistance < 0.1f)
-            //    roam();
-        
+            if (detection)
+            {
+                canSeePlayer();
+            }
+            else if (agent.remainingDistance < 0.1f)
+            {
+                roam();
+            }
+        }
+
+    }
+
+    void roam()
+    {
+        agent.speed = speedRoam;
+        agent.stoppingDistance = 0;
+        Vector3 RandomDir = Random.insideUnitSphere * roamRadius;
+        RandomDir += startingPos;
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(RandomDir, out hit, roamRadius, 1);
+        NavMeshPath path = new NavMeshPath();
+
+        agent.CalculatePath(hit.position, path);
+        agent.SetPath(path);
     }
 
     void canSeePlayer()
     {
-        //float angle = Vector3.Angle(playerDir, transform.forward);
-        //Debug.Log(angle);
+        float angle = Vector3.Angle(playerDirection, transform.forward); //finds angle between the player and the front of the enemy
+        RaycastHit hit;
 
-        //RaycastHit hit;
-        //if (Physics.Raycast(transform.position, playerDir, out hit))
-        //{
-        //    Debug.DrawRay(transform.position, playerDir);
+        if (Physics.Raycast(transform.position, playerDirection, out hit))
+        {
+            Debug.DrawRay(transform.position, playerDirection); //debug code, remove later
 
-        //    if (hit.collider.CompareTag("Player") && !isShooting && angle <= fliedOfView)
-        //    {
-        //        agent.SetDestination(gameManager.instance.player.transform.position);
-        //        agent.stoppingDistance = stoppingDistog;
-        //        agent.speed = speedChase;
-        //        facePlayer();
+            if (hit.collider.CompareTag("Player") && angle <= FOV / 2)
+            {
+                turnToPlayer();
 
-        //        if (!isShooting && angle <= fieldOfViewShoot)
-        //            StartCoroutine(shoot());
-        //    }
+                agent.SetDestination(gameManager.instance.player.transform.position);
+                agent.stoppingDistance = stoppingDistanceOrig;
+                agent.speed = speedChase;
 
-        //}
+                if (!isShooting && angle <= FOVShoot / 2)
+                {
+                    StartCoroutine(shoot());
+                }
+            }
+        }
 
     }
 
@@ -110,10 +137,12 @@ public class enemyAI : MonoBehaviour, IDamageable
     IEnumerator flashColor()
     {
         rend.material.color = Color.red;
-        agent.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        agent.enabled = true;
+        agent.speed = 0;
+        yield return new WaitForSeconds(0.3f);
+        agent.speed = speedOrig;
         rend.material.color = Color.white;
+        agent.stoppingDistance = 0;
+        agent.SetDestination(gameManager.instance.player.transform.position);
     }
 
     IEnumerator shoot()
@@ -144,6 +173,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (other.CompareTag("Player"))
         {
             detection = false;
+            agent.stoppingDistance = 0;
         }
     }
 }

@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871276433648964688}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0000076294, y: 0.8146, z: 0.2835}
+  m_LocalPosition: {x: -0.0000076294, y: 0.16, z: 9.04}
   m_LocalScale: {x: 0.03996281, y: 0.03996281, z: 0.03996281}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1543,8 +1543,14 @@ MonoBehaviour:
   agent: {fileID: 956469774308077961}
   rend: {fileID: 1005983042160960734}
   anim: {fileID: 956469774308078198}
+  head: {fileID: 865736001746478326}
   HP: 2
   facePlayer: 5
+  FOV: 120
+  FOVShoot: 25
+  roamRadius: 5
+  speedRoam: 3
+  speedChase: 5
   shootRate: 1
   damage: 2
   bulletSpeed: 10
