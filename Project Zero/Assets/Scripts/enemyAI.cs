@@ -126,12 +126,24 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         if (HP <= 0)
         {
+            if (this.CompareTag("Spawner Enemy"))
+            {
+                gameManager.instance.checkDoorEnemyTotal();
+                anim.SetBool("Dead", true);
+                agent.enabled = false;
+                foreach (Collider col in GetComponents<Collider>())
+                    col.enabled = false;
+            }
+
+            else 
+            { 
             gameManager.instance.checkEnemyTotal();
             anim.SetBool("Dead", true);
             agent.enabled = false;
-
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
+            }
+           
         }
         else
             StartCoroutine(flashColor());

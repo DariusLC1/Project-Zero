@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 23765535}
   m_Layer: 9
   m_Name: Spawner second door
-  m_TagString: Untagged
+  m_TagString: Door Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,9 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMax: 0
-  spawnTimer: 3
-  enemy: {fileID: 2105246659579662224, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
+  enemyMax: 6
+  spawnTimer: 1
+  enemy: {fileID: 2105246659579662224, guid: c65a36e649e2d024c9c248c2f5c55789, type: 3}
   localEnemyCount: 0
 --- !u!135 &23765537
 SphereCollider:
@@ -564,7 +564,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 60
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &25748624
 GameObject:
@@ -1292,68 +1292,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1978625835593278286, guid: 9d3aea2d507a59c448531688cff7ae0c, type: 3}
   m_PrefabInstance: {fileID: 78079632}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &81705312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 81705313}
-  - component: {fileID: 81705315}
-  - component: {fileID: 81705314}
-  m_Layer: 9
-  m_Name: Big enemy spawner (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &81705313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81705312}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -614.35, y: 596.77, z: -144.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901025575}
-  m_RootOrder: 37
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &81705314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81705312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMax: 3
-  spawnTimer: 1
-  enemy: {fileID: 4188215952553202305, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
-  localEnemyCount: 0
---- !u!135 &81705315
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81705312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &110985061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1953,68 +1891,6 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155722824}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &178944747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 178944748}
-  - component: {fileID: 178944750}
-  - component: {fileID: 178944749}
-  m_Layer: 9
-  m_Name: Big enemy spawner (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &178944748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178944747}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -623.04, y: 596.77, z: -144.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901025575}
-  m_RootOrder: 38
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &178944749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178944747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMax: 3
-  spawnTimer: 1
-  enemy: {fileID: 4188215952553202305, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
-  localEnemyCount: 0
---- !u!135 &178944750
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178944747}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -3978,7 +3854,7 @@ GameObject:
   - component: {fileID: 441753301}
   - component: {fileID: 441753300}
   m_Layer: 0
-  m_Name: enemyDoor
+  m_Name: enemyDoor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3997,7 +3873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
-  spawner: {fileID: 82671909584511293}
+  spawner: {fileID: 23765536}
   Speed: 1
   SlideDirection: {x: 0, y: -1, z: 0}
   SlideAmount: 65
@@ -5000,7 +4876,7 @@ GameObject:
   - component: {fileID: 542562252}
   - component: {fileID: 542562251}
   m_Layer: 0
-  m_Name: enemyDoor
+  m_Name: enemyDoor3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5019,7 +4895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
-  spawner: {fileID: 82671909584511293}
+  spawner: {fileID: 763828026}
   Speed: 1
   SlideDirection: {x: 0, y: -1, z: 0}
   SlideAmount: 65
@@ -6440,7 +6316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666419544}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -265.9, y: 105.36841, z: -87.20001}
+  m_LocalPosition: {x: -275.1, y: 105.36841, z: -87.20001}
   m_LocalScale: {x: 120, y: 60, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6471,7 +6347,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.35, y: 1, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &666419548
 MeshRenderer:
@@ -7434,8 +7310,8 @@ GameObject:
   - component: {fileID: 763828026}
   - component: {fileID: 763828025}
   m_Layer: 9
-  m_Name: Spawner second door
-  m_TagString: Untagged
+  m_Name: Spawner third door
+  m_TagString: Door Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7448,7 +7324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763828023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -237.1, y: 76.73204, z: -79.21658}
+  m_LocalPosition: {x: -247.3, y: 76.73204, z: -83.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7480,9 +7356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMax: 0
-  spawnTimer: 3
-  enemy: {fileID: 4188215952553202305, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
+  enemyMax: 5
+  spawnTimer: 1
+  enemy: {fileID: 4188215952553202305, guid: be935faa8a0876649b2384c3e552b40b, type: 3}
   localEnemyCount: 0
 --- !u!135 &763828027
 SphereCollider:
@@ -7495,7 +7371,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 60
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &766101035
 PrefabInstance:
@@ -8858,7 +8734,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1901025575}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &965742646
 MonoBehaviour:
@@ -11187,68 +11063,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1978625835593278286, guid: 9d3aea2d507a59c448531688cff7ae0c, type: 3}
   m_PrefabInstance: {fileID: 1210999995}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1223994335
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1223994336}
-  - component: {fileID: 1223994338}
-  - component: {fileID: 1223994337}
-  m_Layer: 9
-  m_Name: Small enemy Spawner (16)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1223994336
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223994335}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -618.9, y: 592.9546, z: 307.08}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901025575}
-  m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1223994337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223994335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMax: 5
-  spawnTimer: 1
-  enemy: {fileID: 871410909707256798, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
-  localEnemyCount: 0
---- !u!135 &1223994338
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223994335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1234280114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13816,7 +13630,7 @@ GameObject:
   - component: {fileID: 1501074782}
   - component: {fileID: 1501074781}
   m_Layer: 9
-  m_Name: enemyDoorTrigger
+  m_Name: enemyDoorTrigger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13830,7 +13644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501074779}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -265.9, y: 105.36841, z: -87.20001}
+  m_LocalPosition: {x: -255.9, y: 105.36841, z: -87.5}
   m_LocalScale: {x: 120, y: 60, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13861,7 +13675,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.4, y: 1, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1501074783
 MeshRenderer:
@@ -14298,7 +14112,7 @@ GameObject:
   - component: {fileID: 1558895834}
   m_Layer: 9
   m_Name: CORESPAWNER
-  m_TagString: Untagged
+  m_TagString: Door Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14315,9 +14129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMax: 0
-  spawnTimer: 3
-  enemy: {fileID: 4188215952553202305, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
+  enemyMax: 15
+  spawnTimer: 1
+  enemy: {fileID: 4188215952553202305, guid: be935faa8a0876649b2384c3e552b40b, type: 3}
   localEnemyCount: 0
 --- !u!135 &1558895835
 SphereCollider:
@@ -14340,7 +14154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558895833}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.379, y: -0.447, z: 0.076}
+  m_LocalPosition: {x: -0.263, y: -0.447, z: 0.076}
   m_LocalScale: {x: 0.009999995, y: 0.016666668, z: 0.008333329}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15024,68 +14838,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1978625835593278286, guid: 9d3aea2d507a59c448531688cff7ae0c, type: 3}
   m_PrefabInstance: {fileID: 1620272610}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1622430699
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1622430700}
-  - component: {fileID: 1622430702}
-  - component: {fileID: 1622430701}
-  m_Layer: 9
-  m_Name: Regular enemy spawner (13)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1622430700
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622430699}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -597.6, y: 592.9546, z: 56.43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901025575}
-  m_RootOrder: 35
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1622430701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622430699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMax: 8
-  spawnTimer: 1
-  enemy: {fileID: 2105246659579662224, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
-  localEnemyCount: 0
---- !u!135 &1622430702
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622430699}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1636869202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15817,7 +15569,7 @@ GameObject:
   - component: {fileID: 1718666726}
   - component: {fileID: 1718666725}
   m_Layer: 9
-  m_Name: enemyDoorTrigger
+  m_Name: enemyDoorTrigger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15831,7 +15583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718666723}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -265.9, y: 105.36841, z: -87.20001}
+  m_LocalPosition: {x: -265.9, y: 105.36841, z: -88.8}
   m_LocalScale: {x: 120, y: 60, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15862,7 +15614,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.31, y: 1, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1718666727
 MeshRenderer:
@@ -17206,68 +16958,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1978625835593278286, guid: 9d3aea2d507a59c448531688cff7ae0c, type: 3}
   m_PrefabInstance: {fileID: 1871626030}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1884204324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1884204325}
-  - component: {fileID: 1884204327}
-  - component: {fileID: 1884204326}
-  m_Layer: 9
-  m_Name: Big enemy spawner (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1884204325
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884204324}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -604.44, y: 596.77, z: -144.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1901025575}
-  m_RootOrder: 36
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1884204326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884204324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMax: 3
-  spawnTimer: 1
-  enemy: {fileID: 4188215952553202305, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
-  localEnemyCount: 0
---- !u!135 &1884204327
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884204324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1886561549
 GameObject:
   m_ObjectHideFlags: 0
@@ -17662,12 +17352,7 @@ Transform:
   - {fileID: 355715809}
   - {fileID: 1660342174}
   - {fileID: 2011735928}
-  - {fileID: 1223994336}
   - {fileID: 965742645}
-  - {fileID: 1622430700}
-  - {fileID: 1884204325}
-  - {fileID: 81705313}
-  - {fileID: 178944748}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19196,7 +18881,7 @@ GameObject:
   - component: {fileID: 82671909584511293}
   m_Layer: 9
   m_Name: Spawner First door
-  m_TagString: Untagged
+  m_TagString: Door Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19213,9 +18898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9ce9675d13890459fc7b4e8ed9dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMax: 0
-  spawnTimer: 3
-  enemy: {fileID: 871410909707256798, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
+  enemyMax: 6
+  spawnTimer: 1
+  enemy: {fileID: 871410909707256798, guid: 75beac13783f9eb4b84f9a1c284c93e9, type: 3}
   localEnemyCount: 0
 --- !u!135 &82671909584511294
 SphereCollider:

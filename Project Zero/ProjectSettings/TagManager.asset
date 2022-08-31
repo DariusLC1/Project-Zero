@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player Spawn Pos
+  - Spawner Enemy
+  - Door Spawner
   layers:
   - Default
   - TransparentFX
