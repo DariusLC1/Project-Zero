@@ -5,12 +5,6 @@ Library\Bee\artifacts\mvdfrm\UnityEditor.TestRunner.ref.dll_193EC4CE382CBFB3.mvf
 Library\Bee\artifacts\mvdfrm\UnityEditor.UI.ref.dll_4C98D3F7040CD4F5.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.TestRunner.ref.dll_E55D0F7C63F01D9E.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.UI.ref.dll_08FEAA520A2EFD60.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Plastic.Antlr3.Runtime.dll_32A54FACCFF0B400.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Plastic.Newtonsoft.Json.dll_507DFE9A6ACAC935.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.IonicZip.dll_C3667C46718F0590.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.YamlDotNet.dll_CF95E32A46E117EC.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.TextureAssets.dll_66B40C7E07AE75E4.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_81030A0B77AA280B.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.Graphs.dll_0AC1A734C7611641.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.CoreModule.dll_83FCDBF921C85B0F.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.DeviceSimulatorModule.dll_7ACC04D0A264A8E2.mvfrm
@@ -94,6 +88,7 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.VirtualTexturingModule.dll_4BFB287B99D1
 Library\Bee\artifacts\mvdfrm\UnityEngine.VRModule.dll_F333D1CDED8668A7.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WindModule.dll_1D6C8A745B0444A3.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_25F294D276C0B605.mvfrm
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 Library\Bee\artifacts\mvdfrm\UnityEditor.WebGL.Extensions.dll_7854CFB9714FDA11.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.WindowsStandalone.Extensions.dll_BB9734D5E5A0DE81.mvfrm
@@ -106,3 +101,12 @@ Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.YamlDotNet.dll_62F334C47AB606
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.TextureAssets.dll_FA115E183B8364F1.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_14605BA5AB7F1718.mvfrm
 >>>>>>> Stashed changes
+=======
+Library\Bee\artifacts\mvdfrm\UnityEditor.WindowsStandalone.Extensions.dll_BB9734D5E5A0DE81.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Plastic.Antlr3.Runtime.dll_510A3554D4080181.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Plastic.Newtonsoft.Json.dll_CA8A1FCAE3548F24.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.IonicZip.dll_D46E83079EAF297F.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.YamlDotNet.dll_FD5CE819B19E3FAD.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.TextureAssets.dll_947B116D726B9DA5.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_AECA0EFAE2674FCC.mvfrm
+>>>>>>> parent of a4d20a3f (finished effectRay)
