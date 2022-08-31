@@ -17,3 +17,10 @@ MonoBehaviour:
   shootDamage: 10
   ammo: 4
   model: {fileID: 142843593569271752, guid: 5883e6c4db545c940a0e3e3c7f570a9f, type: 3}
+  shootingSound: {fileID: 8300000, guid: 0a7fcf576494b094a8a46d62762b4e25, type: 3}
+  emplyClick: {fileID: 8300000, guid: 10b17c805efbfe443beddb97d28255f9, type: 3}
+  reloadSound: {fileID: 8300000, guid: 9aedfd96020b88f4bbe57116eeab0087, type: 3}
+  shootingVol: 55.1
+  emptyClickVol: 45.8
+  reloadSoundVol: 48.8
+  reloadTimer: 2

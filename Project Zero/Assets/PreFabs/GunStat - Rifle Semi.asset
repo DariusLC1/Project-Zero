@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootRate: 3
   shootingDist: 90
-  shootDamage: 15
+  shootDamage: 50
   ammo: 5
   model: {fileID: 142843593569271752, guid: e3f7d3da4969c5f489410152ef8afd9b, type: 3}
+  shootingSound: {fileID: 8300000, guid: 8454926fc7ccbd349b8ee943ddf8244d, type: 3}
+  emplyClick: {fileID: 8300000, guid: 10b17c805efbfe443beddb97d28255f9, type: 3}
+  reloadSound: {fileID: 8300000, guid: 4fbb0490b49cf204ab2a1e97823dd2aa, type: 3}
+  shootingVol: 52.8
+  emptyClickVol: 45.1
+  reloadSoundVol: 56.6
+  reloadTimer: 8

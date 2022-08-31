@@ -12,4 +12,12 @@ public class gunStats : ScriptableObject
     [Range(1, 200)] public int shootDamage;
     [Range(.01f, 200)] public int ammo;
     public GameObject model;
+
+    [SerializeField] public AudioClip shootingSound;
+    [SerializeField] public AudioClip emplyClick;
+    [SerializeField] public AudioClip reloadSound;
+    [Range(0, 100f)] public float shootingVol;
+    [Range(0, 100f)] public float emptyClickVol;
+    [Range(0, 100f)] public float reloadSoundVol;
+    public int reloadTimer;
 }   

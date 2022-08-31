@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(1, 200)][SerializeField] int shootingDist;
     [Range(.01f, 200)][SerializeField] float shootRate;
     [Range(.01f, 200)][SerializeField] int shootDamage;
+    [SerializeField] int reloadTime;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;
     [SerializeField] int ammoCount;
     [SerializeField] GameObject gunModel;
@@ -30,9 +31,13 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("----- Weapon Sounds -----")]
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] soundDamage;
-    [Range(0, 50)][SerializeField] float soundDamageVol;
-    [SerializeField] AudioClip[] shootSound;
+    [Range(0, 50)][SerializeField] float shootVol;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip emptyClick;
+    [SerializeField] AudioClip reloadSound;
     [Range(0, 50)][SerializeField] float shootSoundVol;
+    [Range(0, 50)][SerializeField] float emptyClickVol;
+    [Range(0, 50)][SerializeField] float reloadSoundVol;
     [SerializeField] AudioClip[] footSteps;
     [Range(0, 50)][SerializeField] float footStepsVol;
 
@@ -55,7 +60,7 @@ public class playerController : MonoBehaviour, IDamageable
         ammoCountOg = ammoCount;
         updatePlayerHP();
         updateAmmoCount();
-        
+
     }
 
     // Update is called once per frame
@@ -67,7 +72,7 @@ public class playerController : MonoBehaviour, IDamageable
         Sprint();
         reload();
         StartCoroutine(shoot());
-        
+
     }
     #region PlayerStuff
     void playerMovement()
@@ -94,7 +99,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
- 
+
     void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
@@ -179,6 +184,10 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
         {
             isShooting = true;
+            if (ammoCount < 0)
+                aud.PlayOneShot(emptyClick, emptyClickVol);
+            else
+                aud.PlayOneShot(shootSound, shootSoundVol);
             ammoCount--;
             updateAmmoCount();
 
@@ -195,7 +204,7 @@ public class playerController : MonoBehaviour, IDamageable
                         isDamageable.takeDamage(shootDamage * 2);
                     else
                         isDamageable.takeDamage(shootDamage);
-                        gameManager.instance.isCoreDestroyed();
+                    gameManager.instance.isCoreDestroyed();
                 }
             }
 
@@ -204,11 +213,18 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo,  GameObject model,gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int reloadTimer,GameObject model, gunStats _gstats)
     {
         shootRate = shtRate;
         shootingDist = shtingDist;
         shootDamage = shtDamage;
+        shootSound = shootingSound;
+        shootVol = shootingVol;
+        emptyClick = emptyClip;
+        emptyClickVol = emptyClipVol;
+        reloadSound = reloading;
+        reloadSoundVol = reloadingVol;
+        reloadTime = reloadTimer;
         gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
         ammoCount = ammo;
@@ -227,6 +243,13 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                shootSound = gunStat[amtWeapon].shootingSound;
+                shootVol = gunStat[amtWeapon].shootingVol;
+                emptyClick = gunStat[amtWeapon].emplyClick;
+                emptyClickVol = gunStat[amtWeapon].emptyClickVol;
+                reloadSound= gunStat[amtWeapon].reloadSound;
+                reloadSoundVol = gunStat[amtWeapon].reloadSoundVol;
+                reloadTime = gunStat[amtWeapon].reloadTimer;
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
@@ -237,6 +260,13 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                shootSound = gunStat[amtWeapon].shootingSound;
+                shootVol = gunStat[amtWeapon].shootingVol;
+                emptyClick = gunStat[amtWeapon].emplyClick;
+                emptyClickVol = gunStat[amtWeapon].emptyClickVol;
+                reloadSound = gunStat[amtWeapon].reloadSound;
+                reloadSoundVol = gunStat[amtWeapon].reloadSoundVol;
+                reloadTime = gunStat[amtWeapon].reloadTimer;
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
@@ -258,6 +288,8 @@ public class playerController : MonoBehaviour, IDamageable
     {
         if (Input.GetButtonDown("Reload"))
         {
+            // yield return new WaitForSeconds(reloadTime);
+            aud.PlayOneShot(reloadSound, reloadSoundVol);
             ammoCount = ammoCountOg;
             updateAmmoCount();
         }
