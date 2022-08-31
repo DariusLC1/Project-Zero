@@ -1,5 +1,6 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ,{ "pid":12345, "tid":0, "ts":1661371729494346, "dur":4062, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661371729498427, "dur":8690, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
@@ -3377,6 +3378,8 @@
 ,{ "pid":12345, "tid":0, "ts":1661371323839206, "dur":3844, "ph":"X", "name": "ProfilerWriteOutput" }
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 ,{ "pid":12345, "tid":0, "ts":1661279173612449, "dur":1610, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661279173614070, "dur":148, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1661279173614257, "dur":37, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -4788,5 +4791,8 @@
 ,{ "pid":12345, "tid":16, "ts":1661279173629728, "dur":752588, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":16, "ts":1661279174382317, "dur":235523, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661279174622013, "dur":3450, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
+>>>>>>> parent of a4d20a3f (finished effectRay)
+=======
 >>>>>>> parent of a4d20a3f (finished effectRay)
 ,

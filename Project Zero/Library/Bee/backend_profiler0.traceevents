@@ -1,5 +1,6 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ,{ "pid":12345, "tid":0, "ts":1661376587628175, "dur":1351, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661376587629535, "dur":311, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
@@ -2662,6 +2663,8 @@
 ,{ "pid":12345, "tid":0, "ts":1661377460098849, "dur":3754, "ph":"X", "name": "ProfilerWriteOutput" }
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 ,{ "pid":12345, "tid":0, "ts":1661280741824919, "dur":1574, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661280741826501, "dur":287, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
 ,{ "pid":12345, "tid":0, "ts":1661280741826832, "dur":31, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
@@ -3958,5 +3961,8 @@
 ,{ "pid":12345, "tid":16, "ts":1661280742016288, "dur":2639, "ph":"X", "name": "CopyFiles",  "args": { "detail":"Library/ScriptAssemblies/Assembly-CSharp.pdb" }}
 ,{ "pid":12345, "tid":16, "ts":1661280742018932, "dur":3957, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1661280742027783, "dur":3167, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
+>>>>>>> parent of a4d20a3f (finished effectRay)
+=======
 >>>>>>> parent of a4d20a3f (finished effectRay)
 ,

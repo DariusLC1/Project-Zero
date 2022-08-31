@@ -146,11 +146,15 @@ PrefabInstance:
     - target: {fileID: 2105246659579826800, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 5
 =======
       value: 2
 >>>>>>> Stashed changes
+=======
+      value: 1
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 1
 >>>>>>> parent of a4d20a3f (finished effectRay)
@@ -197,6 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 --- !u!1001 &392699388
@@ -317,6 +322,8 @@ PrefabInstance:
 >>>>>>> Stashed changes
 =======
 >>>>>>> parent of a4d20a3f (finished effectRay)
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +418,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &1107226146
 PrefabInstance:
@@ -536,6 +544,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 5883e6c4db545c940a0e3e3c7f570a9f, type: 3}
 =======
 >>>>>>> parent of a4d20a3f (finished effectRay)
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 --- !u!1 &1408744380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 179578142381131528, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
@@ -566,11 +576,15 @@ PrefabInstance:
     - target: {fileID: 1803229915096778083, guid: a2d4b35accc657c448380d124df08a8b, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 2
 =======
       value: 6
 >>>>>>> Stashed changes
+=======
+      value: 6
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 6
 >>>>>>> parent of a4d20a3f (finished effectRay)
@@ -1038,11 +1052,15 @@ PrefabInstance:
     - target: {fileID: 865385656788056032, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 6
 =======
       value: 3
 >>>>>>> Stashed changes
+=======
+      value: 2
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 2
 >>>>>>> parent of a4d20a3f (finished effectRay)
@@ -1103,11 +1121,15 @@ PrefabInstance:
     - target: {fileID: 2585892336765946481, guid: 167d4161c139e654980fe8374bf0dd48, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 8
 =======
       value: 5
 >>>>>>> Stashed changes
+=======
+      value: 4
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 4
 >>>>>>> parent of a4d20a3f (finished effectRay)
@@ -1159,8 +1181,11 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167d4161c139e654980fe8374bf0dd48, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
 >>>>>>> parent of a4d20a3f (finished effectRay)
 --- !u!1001 &5810959521575362617
@@ -1177,7 +1202,11 @@ PrefabInstance:
     - target: {fileID: 1803229915096778083, guid: e3f7d3da4969c5f489410152ef8afd9b, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 13
+=======
+      value: 12
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 12
 >>>>>>> parent of a4d20a3f (finished effectRay)
@@ -1225,7 +1254,10 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3f7d3da4969c5f489410152ef8afd9b, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
 >>>>>>> parent of a4d20a3f (finished effectRay)
 --- !u!1001 &6387390733610469487
@@ -1356,11 +1388,15 @@ PrefabInstance:
     - target: {fileID: 8837637456444295737, guid: 6bfe478afd796b34f92988522f1c7da6, type: 3}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       value: 7
 =======
       value: 4
 >>>>>>> Stashed changes
+=======
+      value: 3
+>>>>>>> parent of a4d20a3f (finished effectRay)
 =======
       value: 3
 >>>>>>> parent of a4d20a3f (finished effectRay)

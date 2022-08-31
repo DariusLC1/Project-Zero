@@ -328,6 +328,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 -r:"D:/unityprojects/Project-Zero/Project Zero/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll"
@@ -343,6 +344,8 @@
 -r:"D:/unityprojects/Project-Zero/Project Zero/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> parent of a4d20a3f (finished effectRay)
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll"
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll"
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
@@ -354,6 +357,9 @@
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll"
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll"
 -r:"D:/game shoot/Project-Zero/Project Zero/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+<<<<<<< HEAD
+>>>>>>> parent of a4d20a3f (finished effectRay)
+=======
 >>>>>>> parent of a4d20a3f (finished effectRay)
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.Configuration.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Core.Internal.ref.dll"
