@@ -26,7 +26,7 @@ public class EnemyDoor : MonoBehaviour
 
     public void Open(Vector3 UserPosition)
     {
-        if (!isOpen && spawner.localEnemyCount <= 0)
+        if (!isOpen)
         {
             if (AnimationCoroutine != null)
             {

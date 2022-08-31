@@ -32,13 +32,25 @@ public class spawner : MonoBehaviour
 
     IEnumerator spawn()
     {
-        spawnAgain = false;
-        Instantiate(enemy,transform.position,enemy.transform.rotation);
-        gameManager.instance.enemyCount++;
-        localEnemyCount++;
-        gameManager.instance.enemyCount++;
-        yield return new WaitForSeconds(spawnTimer);
-        spawnAgain = true;
+
+        if (this.CompareTag("Door Spawner"))
+        {
+            spawnAgain = false;
+            Instantiate(enemy, transform.position, enemy.transform.rotation);
+            gameManager.instance.doorEnemyCount++;
+            localEnemyCount++;
+            yield return new WaitForSeconds(spawnTimer);
+            spawnAgain = true;
+        }
+        else
+        {
+            spawnAgain = false;
+            Instantiate(enemy, transform.position, enemy.transform.rotation);
+            gameManager.instance.enemyCount++;
+            localEnemyCount++;
+            yield return new WaitForSeconds(spawnTimer);
+            spawnAgain = true;
+        }
 
     }
 
@@ -56,10 +68,5 @@ public class spawner : MonoBehaviour
         {
             playerOnTrigger = false;
         }
-    }
-
-    private void checkEnemyTotal()
-    {
-        localEnemyCount--;
     }
 }

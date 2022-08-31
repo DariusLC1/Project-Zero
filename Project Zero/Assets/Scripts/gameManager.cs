@@ -24,6 +24,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPos;
 
     public int enemyCount;
+    public int doorEnemyCount;
     public bool gameOver;
     public bool isPaused = false;
     // Start is called before the first frame update
@@ -92,6 +93,11 @@ public class gameManager : MonoBehaviour
     //        menuCurrentlyOpen = winCondition;
     //        cursorLockPause();
     //    }
+    }
+
+    public void checkDoorEnemyTotal()
+    {
+        doorEnemyCount--;
     }
 
     public void isCoreDestroyed()
