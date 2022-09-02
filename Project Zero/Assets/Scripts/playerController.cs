@@ -251,7 +251,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void updateAmmoCount()
     {
-        gameManager.instance.ammoCount.fillAmount = (float)ammoCount / (float)ammoCountOg;
+        gameManager.instance.ammoCount.text = $"{ammoCount}/{ammoCountOg}";
     }
 
     void reload()

@@ -367,6 +367,7 @@
 "Assets/Scripts/spawner.cs"
 "Assets/Scripts/Status Effects.cs"
 "Assets/UnityStore stuff/RobotSphere/Assets/Scripts/RobotFreeAnim.cs"
+"Assets/UnityStore stuff/Sci-Fi UI/Demo_Assets/scripts/GUI_Demo.cs"
 -langversion:9.0
 
 /deterministic

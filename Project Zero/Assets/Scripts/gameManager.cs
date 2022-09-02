@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDeadMenu;
     public GameObject playerDamageFlash;
     public Image playerHPBar;
-    public Image ammoCount;
+    public TextMeshProUGUI ammoCount;
     public GameObject core;
     public GameObject winMenu;
 
