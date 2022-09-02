@@ -15,5 +15,15 @@ MonoBehaviour:
   shootRate: 2
   shootingDist: 20
   shootDamage: 10
+  reloadTime: 1
   ammo: 4
+  recoilAmountX: 6.1
+  recoilAmountY: 6.2
+  MaxAmmo: 0
   model: {fileID: 142843593569271752, guid: 5883e6c4db545c940a0e3e3c7f570a9f, type: 3}
+  shootingSound: {fileID: 8300000, guid: 6dc3ea1a93452a84485a0fd53518b212, type: 3}
+  emplyClick: {fileID: 8300000, guid: 2472755ad094bf84e8674276b1e9e27f, type: 3}
+  reloadSound: {fileID: 8300000, guid: 6af074da9d8b8f44c999c72b2a875355, type: 3}
+  shootingVol: 14
+  emptyClickVol: 13.4
+  reloadSoundVol: 11.4
