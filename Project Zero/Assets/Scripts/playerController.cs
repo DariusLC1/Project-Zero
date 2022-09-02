@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(.01f, 200)][SerializeField] int shootDamage;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;
     [SerializeField] int ammoCount;
+    public int MaxammoCount;
     [SerializeField] GameObject gunModel;
     public List<gunStats> gunStat = new List<gunStats>();
 
@@ -44,7 +45,7 @@ public class playerController : MonoBehaviour, IDamageable
     int HPOrig;
     bool isShooting = false;
     int amtWeapon = 0;
-    int ammoCountOg;
+    public int ammoCountOg;
 
 
     // Start is called before the first frame update
@@ -55,7 +56,7 @@ public class playerController : MonoBehaviour, IDamageable
         ammoCountOg = ammoCount;
         updatePlayerHP();
         updateAmmoCount();
-        
+
     }
 
     // Update is called once per frame
@@ -67,7 +68,7 @@ public class playerController : MonoBehaviour, IDamageable
         Sprint();
         reload();
         StartCoroutine(shoot());
-        
+
     }
     #region PlayerStuff
     void playerMovement()
@@ -94,7 +95,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
- 
+
     void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
@@ -176,7 +177,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootingDist, Color.red, 0.00001f);
-        if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
+        if (gunStat.Count != 0 && Input.GetButton("Shoot")&& ammoCount != 0 && isShooting == false)
         {
             isShooting = true;
             ammoCount--;
@@ -195,7 +196,7 @@ public class playerController : MonoBehaviour, IDamageable
                         isDamageable.takeDamage(shootDamage * 2);
                     else
                         isDamageable.takeDamage(shootDamage);
-                        gameManager.instance.isCoreDestroyed();
+                    gameManager.instance.isCoreDestroyed();
                 }
             }
 
@@ -204,7 +205,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo,  GameObject model,gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int MaxAmmo, GameObject model, gunStats _gstats)
     {
         shootRate = shtRate;
         shootingDist = shtingDist;
@@ -213,6 +214,8 @@ public class playerController : MonoBehaviour, IDamageable
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
         ammoCount = ammo;
         ammoCountOg = ammoCount;
+        MaxammoCount = ammoCountOg * 3;
+        MaxAmmo = MaxammoCount;
         gunStat.Add(_gstats);
         updateAmmoCount();
     }
@@ -251,14 +254,22 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void updateAmmoCount()
     {
-        gameManager.instance.ammoCount.text = $"{ammoCount}/{ammoCountOg}";
+        gameManager.instance.ammoCount.text = $"{ammoCount}/{MaxammoCount}";
     }
 
     void reload()
     {
         if (Input.GetButtonDown("Reload"))
         {
-            ammoCount = ammoCountOg;
+            if (MaxammoCount <= 0)
+            {
+
+            }
+            else
+            {
+                ammoCount = ammoCountOg;
+                MaxammoCount -= ammoCountOg;
+            }
             updateAmmoCount();
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDoorTrigger : MonoBehaviour
@@ -16,8 +14,8 @@ public class EnemyDoorTrigger : MonoBehaviour
                 Door.Open(other.transform.position);
             }
 
-            else if(Door.isOpen && gameManager.instance.doorEnemyCount !=0)
-            { 
+            else if (Door.isOpen && gameManager.instance.doorEnemyCount != 0)
+            {
                 Door.Close();
             }
         }
