@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -77,10 +76,13 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         NavMeshHit hit;
         NavMesh.SamplePosition(RandomDir, out hit, roamRadius, 1);
-        NavMeshPath path = new NavMeshPath();
+        if (hit.hit)
+        {
+            NavMeshPath path = new NavMeshPath();
 
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
+            agent.CalculatePath(hit.position, path);
+            agent.SetPath(path); 
+        }
     }
 
     void canSeePlayer()
@@ -92,7 +94,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection); //debug code, remove later
 
-            if (hit.collider.CompareTag("Player") && angle <= FOV )
+            if (hit.collider.CompareTag("Player") && angle <= FOV)
             {
                 turnToPlayer();
 
@@ -100,7 +102,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 agent.stoppingDistance = stoppingDistanceOrig;
                 agent.speed = speedChase;
 
-                if (!isShooting && angle <= FOVShoot )
+                if (!isShooting && angle <= FOVShoot)
                 {
                     StartCoroutine(shoot());
                 }
@@ -135,15 +137,15 @@ public class enemyAI : MonoBehaviour, IDamageable
                     col.enabled = false;
             }
 
-            else 
-            { 
-            gameManager.instance.checkEnemyTotal();
-            anim.SetBool("Dead", true);
-            agent.enabled = false;
-            foreach (Collider col in GetComponents<Collider>())
-                col.enabled = false;
+            else
+            {
+                gameManager.instance.checkEnemyTotal();
+                anim.SetBool("Dead", true);
+                agent.enabled = false;
+                foreach (Collider col in GetComponents<Collider>())
+                    col.enabled = false;
             }
-           
+
         }
         else
             StartCoroutine(flashColor());
@@ -177,7 +179,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             detection = true;
         }

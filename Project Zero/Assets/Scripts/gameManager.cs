@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -56,11 +54,11 @@ public class gameManager : MonoBehaviour
             else
             {
                 cursorUnlockUnpause();
-                
+
             }
         }
 
-        
+
 
 
     }
@@ -85,15 +83,15 @@ public class gameManager : MonoBehaviour
 
     public void checkEnemyTotal()
     {
-       enemyCount--;
-    //    if (enemyCount <= 0)
-    //    {
-    //        yield return new WaitForSeconds(2);
-    //        gameOver = true;
-    //        winCondition.SetActive(true);
-    //        menuCurrentlyOpen = winCondition;
-    //        cursorLockPause();
-    //    }
+        enemyCount--;
+        //    if (enemyCount <= 0)
+        //    {
+        //        yield return new WaitForSeconds(2);
+        //        gameOver = true;
+        //        winCondition.SetActive(true);
+        //        menuCurrentlyOpen = winCondition;
+        //        cursorLockPause();
+        //    }
     }
 
     public void checkDoorEnemyTotal()
