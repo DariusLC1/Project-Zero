@@ -14,25 +14,15 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(8, 18)][SerializeField] float jumpHeight;
     [Range(15, 30)][SerializeField] float gravity;
     [Range(1, 3)][SerializeField] int jumpsMax;
-    public GameObject playerShield;
 
     [Header("----- Weapon Stats -----")]
     [Range(1, 200)][SerializeField] int shootingDist;
     [Range(.01f, 200)][SerializeField] float shootRate;
     [Range(.01f, 200)][SerializeField] int shootDamage;
-    [Range(.01f, 200)][SerializeField] int reloadTime;
-    [Range(.01f, 20)] public float RecoilAmountX;
-    [Range(.01f, 20)] public float RecoilAmountY;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;
     [SerializeField] int ammoCount;
-    public int MaxammoCount;
     [SerializeField] GameObject gunModel;
     public List<gunStats> gunStat = new List<gunStats>();
-
-    [Header("----- Shield Stats -----")]
-    [Range(1, 20)][SerializeField] int shieldCharge;
-    [SerializeField] int shieldChargeOG;
-
 
     [Header("----- Effects -----")]
     [SerializeField] GameObject hitEffect;
@@ -40,19 +30,11 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("----- Weapon Sounds -----")]
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] soundDamage;
-
-
-    [SerializeField] AudioClip shootSound;
-    [SerializeField] AudioClip emptyClick;
-    [SerializeField] AudioClip reloadSound;
+    [Range(0, 50)][SerializeField] float soundDamageVol;
+    [SerializeField] AudioClip[] shootSound;
     [Range(0, 50)][SerializeField] float shootSoundVol;
-    [Range(0, 50)][SerializeField] float emptyClickVol;
-    [Range(0, 50)][SerializeField] float reloadSoundVol;
-
     [SerializeField] AudioClip[] footSteps;
     [Range(0, 50)][SerializeField] float footStepsVol;
-
-
 
     private Vector3 playerVelocity;
     Vector3 move = Vector3.zero;
@@ -62,28 +44,18 @@ public class playerController : MonoBehaviour, IDamageable
     int HPOrig;
     bool isShooting = false;
     int amtWeapon = 0;
-    public int ammoCountOg;
-    float currentRecXpos;
-    float currentRecYpos;
-    [Range(0.1f, 10)] float recoilTime;
-    private float timePressed;
+    int ammoCountOg;
 
-    AudioSource audSource;
 
     // Start is called before the first frame update
     void Start()
     {
         playerSpeedOriginal = playerSpeed;
         HPOrig = HP;
-        shieldChargeOG = shieldCharge;
         ammoCountOg = ammoCount;
-
-        audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
-        //Recoil_Script = transform.Find("Main Camera/Camera Recoil").GetComponent<cameraRecoil>();
-
         updatePlayerHP();
         updateAmmoCount();
-
+        
     }
 
     // Update is called once per frame
@@ -93,10 +65,9 @@ public class playerController : MonoBehaviour, IDamageable
         weaponSwap();
         playerMovement();
         Sprint();
+        reload();
         StartCoroutine(shoot());
-        StartCoroutine(reload());
-        StartCoroutine(Shielding());
-
+        
     }
     #region PlayerStuff
     void playerMovement()
@@ -123,7 +94,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
-
+ 
     void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
@@ -208,21 +179,14 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
         {
             isShooting = true;
-            if (ammoCount == 0)
-                audSource.PlayOneShot(emptyClick, emptyClickVol);
-            else
-            {
-                ammoCount--;
-                updateAmmoCount();
-                audSource.PlayOneShot(shootSound, shootSoundVol);
-            }
+            ammoCount--;
+            updateAmmoCount();
+
             // do something
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootingDist))
             {
                 Instantiate(hitEffect, hit.point, hitEffect.transform.rotation);
-                recoilMath();
-
                 if (hit.collider.GetComponent<IDamageable>() != null)
                 {
                     IDamageable isDamageable = hit.collider.GetComponent<IDamageable>();
@@ -231,7 +195,7 @@ public class playerController : MonoBehaviour, IDamageable
                         isDamageable.takeDamage(shootDamage * 2);
                     else
                         isDamageable.takeDamage(shootDamage);
-                    gameManager.instance.isCoreDestroyed();
+                        gameManager.instance.isCoreDestroyed();
                 }
             }
 
@@ -240,7 +204,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int MaxAmmo, GameObject model, float recX, float recY, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime,gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo,  GameObject model,gunStats _gstats)
     {
         shootRate = shtRate;
         shootingDist = shtingDist;
@@ -249,21 +213,6 @@ public class playerController : MonoBehaviour, IDamageable
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
         ammoCount = ammo;
         ammoCountOg = ammoCount;
-        MaxammoCount = ammoCountOg * 3;
-        MaxAmmo = MaxammoCount;
-
-        RecoilAmountX = recX;
-        RecoilAmountY = recY;
-
-        shootSound = shootingSound;
-        shootSoundVol = shootingVol;
-        emptyClick = emptyClip;
-        emptyClickVol = emptyClipVol;
-        reloadSound = reloading;
-        reloadSoundVol = reloadingVol;
-
-        reloadTime = rTime;
-
         gunStat.Add(_gstats);
         updateAmmoCount();
     }
@@ -278,21 +227,6 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
-                ammoCount = gunStat[amtWeapon].ammo;
-                MaxammoCount = gunStat[amtWeapon].MaxAmmo;
-
-                RecoilAmountX = gunStat[amtWeapon].recoilAmountX;
-                RecoilAmountY = gunStat[amtWeapon].recoilAmountY;
-
-                shootSound = gunStat[amtWeapon].shootingSound;
-                shootSoundVol = gunStat[amtWeapon].shootingVol;
-                emptyClick = gunStat[amtWeapon].emplyClick;
-                emptyClickVol = gunStat[amtWeapon].emptyClickVol;
-                reloadSound = gunStat[amtWeapon].reloadSound;
-                reloadSoundVol = gunStat[amtWeapon].reloadSoundVol;
-
-                reloadTime = gunStat[amtWeapon].reloadTime;
-
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
@@ -303,21 +237,6 @@ public class playerController : MonoBehaviour, IDamageable
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
-                ammoCount = gunStat[amtWeapon].ammo;
-                MaxammoCount = gunStat[amtWeapon].MaxAmmo;
-
-                RecoilAmountX = gunStat[amtWeapon].recoilAmountX;
-                RecoilAmountY = gunStat[amtWeapon].recoilAmountY;
-
-                shootSound = gunStat[amtWeapon].shootingSound;
-                shootSoundVol = gunStat[amtWeapon].shootingVol;
-                emptyClick = gunStat[amtWeapon].emplyClick;
-                emptyClickVol = gunStat[amtWeapon].emptyClickVol;
-                reloadSound = gunStat[amtWeapon].reloadSound;
-                reloadSoundVol = gunStat[amtWeapon].reloadSoundVol;
-
-                reloadTime = gunStat[amtWeapon].reloadTime;
-
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
@@ -332,47 +251,16 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void updateAmmoCount()
     {
-        gameManager.instance.ammoCount.text = $"{ammoCount}/{MaxammoCount}";
+        gameManager.instance.ammoCount.text = $"{ammoCount}/{ammoCountOg}";
     }
 
-    IEnumerator reload()
+    void reload()
     {
         if (Input.GetButtonDown("Reload"))
         {
-
-            if (MaxammoCount <= 0)
-            {
-
-            }
-            else
-            {
-                audSource.PlayOneShot(reloadSound, reloadSoundVol);
-                yield return new WaitForSeconds(reloadTime);
-                ammoCount = ammoCountOg;
-                MaxammoCount -= ammoCountOg;
-            }
+            ammoCount = ammoCountOg;
             updateAmmoCount();
         }
-    }
-
-    void recoilMath()
-    {
-        currentRecXpos = ((Random.value - .5f) / 2) * RecoilAmountX;
-        currentRecYpos = ((Random.value - .5f) / 2) * (timePressed >= recoilTime ? RecoilAmountY / 3 : RecoilAmountY);
-        //Mathf.Abs(currentRecYpos);
-    }
-    #endregion
-    #region Shield
-    IEnumerator Shielding()
-    {
-        if (Input.GetButtonUp("Shield") && shieldCharge != 0)
-        {
-            playerShield.SetActive(true);
-            yield return new WaitForSeconds(5);
-            playerShield.SetActive(false);
-            shieldCharge -= 1;
-        }
-
     }
     #endregion
 

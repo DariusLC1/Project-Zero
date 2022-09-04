@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class objectDamageable : MonoBehaviour, IDamageable
+public class objectDamageable : MonoBehaviour , IDamageable
 {
     [SerializeField] int HP;
 
