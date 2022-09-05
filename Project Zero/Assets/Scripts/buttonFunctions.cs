@@ -14,6 +14,13 @@ public class buttonFunctions : MonoBehaviour
         }
 
     }
+
+    public void startGame()
+    {
+        SceneManager.LoadScene("test scene");
+    }
+
+
     
     public void respawn()
     {
