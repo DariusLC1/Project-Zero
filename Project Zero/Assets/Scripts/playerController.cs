@@ -14,6 +14,10 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(8, 18)][SerializeField] float jumpHeight;
     [Range(15, 30)][SerializeField] float gravity;
     [Range(1, 3)][SerializeField] int jumpsMax;
+    [SerializeField] float dashSpeed;
+    [SerializeField] float dashTime;
+    [SerializeField] float dashLength;
+
 
     [Header("----- Weapon Stats -----")]
     [Range(1, 200)][SerializeField] int shootingDist;
@@ -41,6 +45,7 @@ public class playerController : MonoBehaviour, IDamageable
     int timesJumped;
     float playerSpeedOriginal;
     bool isSprinting = false;
+    public bool isDashable = true;
     int HPOrig;
     bool isShooting = false;
     int amtWeapon = 0;
@@ -70,7 +75,7 @@ public class playerController : MonoBehaviour, IDamageable
         
     }
     #region PlayerStuff
-    void playerMovement()
+    public void playerMovement()
     {
         if (controller.isGrounded && playerVelocity.y < 0)
         {
@@ -91,6 +96,11 @@ public class playerController : MonoBehaviour, IDamageable
             timesJumped++;
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StartCoroutine(Dash());
+        }
+
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
@@ -109,6 +119,20 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
+    IEnumerator Dash()
+    {
+        isDashable = false;
+        float startTime = Time.time; // need to remember this to know how long to dash
+        while (Time.time < startTime + dashTime)
+        {
+            Vector3 moveDirection = transform.forward * dashLength;
+           // controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+            controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1);
+        isDashable = true;
+    }
     IEnumerator damageFlash()
     {
         gameManager.instance.playerDamageFlash.SetActive(true);

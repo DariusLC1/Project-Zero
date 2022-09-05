@@ -8597,8 +8597,24 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: dashTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: jumpsMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: ammoCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: dashLength
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: playerSpeed
@@ -8607,6 +8623,10 @@ PrefabInstance:
     - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: sprintMultiplyer
       value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 396547166824190383, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7379755196886521911, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: m_Materials.Array.data[0]
