@@ -17,6 +17,8 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamageFlash;
     public Image playerHPBar;
     public TextMeshProUGUI ammoCount;
+    public TextMeshProUGUI killedEnemies;
+    public TextMeshProUGUI ShotsFired;
     public GameObject core;
     public GameObject winMenu;
 
@@ -26,6 +28,7 @@ public class gameManager : MonoBehaviour
 
     public int enemyCount;
     public int doorEnemyCount;
+    int killed;
     public bool gameOver;
     public bool isPaused = false;
     // Start is called before the first frame update
@@ -99,6 +102,9 @@ public class gameManager : MonoBehaviour
     public void checkDoorEnemyTotal()
     {
         doorEnemyCount--;
+        if (doorEnemyCount != 0) 
+        killed++;
+        killedEnemies.text = $"Killed Enemies | {killed}";
     }
 
     public void isCoreDestroyed()

@@ -42,6 +42,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     private Vector3 playerVelocity;
     Vector3 move = Vector3.zero;
+    int shots;
     int timesJumped;
     float playerSpeedOriginal;
     bool isSprinting = false;
@@ -225,6 +226,8 @@ public class playerController : MonoBehaviour, IDamageable
 
             yield return new WaitForSeconds(shootRate);
             isShooting = false;
+            shots++;
+            gameManager.instance.ShotsFired.text = $"Shots Fired = {shots}";
         }
     }
 
