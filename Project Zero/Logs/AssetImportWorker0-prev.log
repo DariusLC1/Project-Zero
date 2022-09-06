@@ -15,7 +15,7 @@ C:/Portfolio2[Repo]/Project-Zero/Project-Zero/Project Zero
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63374
+55900
 Successfully changed project path to: C:/Portfolio2[Repo]/Project-Zero/Project-Zero/Project Zero
 C:/Portfolio2[Repo]/Project-Zero/Project-Zero/Project Zero
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Portfolio2[Repo]/Project-Zero/Project-Zero/Project Zero
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 127.85 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 126.01 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -63,92 +63,92 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56532
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56404
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.010480 seconds.
+Registered in 0.011176 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 125.04 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 134.60 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.000 seconds
+- Completed reload, in  1.017 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1000ms)
-		BeginReloadAssembly (137ms)
+	ReloadAssembly (1018ms)
+		BeginReloadAssembly (87ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (699ms)
-			LoadAssemblies (136ms)
+		EndReloadAssembly (743ms)
+			LoadAssemblies (85ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (175ms)
+			SetupTypeCache (171ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (44ms)
-			SetupLoadedEditorAssemblies (397ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (445ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
+				InitializePlatformSupportModulesInManaged (14ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (125ms)
+				RefreshPlugins (135ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (199ms)
-				ProcessInitializeOnLoadMethodAttributes (58ms)
+				ProcessInitializeOnLoadAttributes (206ms)
+				ProcessInitializeOnLoadMethodAttributes (88ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008945 seconds.
+Registered in 0.010489 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Portfolio2[Repo]\Project-Zero\Project-Zero\Project Zero\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Portfolio2[Repo]\Project-Zero\Project-Zero\Project Zero\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.25 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.58 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.360 seconds
+- Completed reload, in  1.686 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1361ms)
-		BeginReloadAssembly (160ms)
+	ReloadAssembly (1688ms)
+		BeginReloadAssembly (185ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (37ms)
-		EndReloadAssembly (1052ms)
-			LoadAssemblies (105ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1323ms)
+			LoadAssemblies (133ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (378ms)
+			SetupTypeCache (463ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (69ms)
-			SetupLoadedEditorAssemblies (470ms)
+			RebuildScriptCaches (101ms)
+			SetupLoadedEditorAssemblies (551ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (132ms)
-				ProcessInitializeOnLoadAttributes (289ms)
-				ProcessInitializeOnLoadMethodAttributes (31ms)
-				AfterProcessingInitializeOnLoad (7ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (135ms)
+				ProcessInitializeOnLoadAttributes (353ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (13ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.24 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.86 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3790 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 28 unused Assets / (146.8 KB). Loaded Objects now: 4253.
 Memory consumption went from 137.9 MB to 137.8 MB.
-Total: 4.738600 ms (FindLiveObjects: 0.331400 ms CreateObjectMapping: 0.289300 ms MarkObjects: 3.813100 ms  DeleteObjects: 0.303700 ms)
+Total: 3.026300 ms (FindLiveObjects: 0.273000 ms CreateObjectMapping: 0.096000 ms MarkObjects: 2.469200 ms  DeleteObjects: 0.187400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,19 +162,47 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 2853269.723487 seconds.
-  path: Assets/PreFabs/gunPickup - Rifle.prefab
-  artifactKey: Guid(a2d4b35accc657c448380d124df08a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PreFabs/gunPickup - Rifle.prefab using Guid(a2d4b35accc657c448380d124df08a8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9de29d7a90bad8bfab4876f9af4dbf1e') in 0.179097 seconds 
+  Time since last request: 2855305.436104 seconds.
+  path: Assets/Scripts/EnemyDoor.cs
+  artifactKey: Guid(996baf23b4d0bd846a184a8ea54c13de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/EnemyDoor.cs using Guid(996baf23b4d0bd846a184a8ea54c13de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8feafb2437c5af707dc53ee1b81a9988') in 0.045945 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.590908 seconds.
-  path: Assets/PreFabs/GunStat - ShotGun.asset
-  artifactKey: Guid(87063487886d2264487145045d35b299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PreFabs/GunStat - ShotGun.asset using Guid(87063487886d2264487145045d35b299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '350c69d4827550295824150248964e91') in 0.015939 seconds 
+  Time since last request: 0.000056 seconds.
+  path: Assets/Scripts/enemyAI.cs
+  artifactKey: Guid(42fa19daa0770094583792ee0de03147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/enemyAI.cs using Guid(42fa19daa0770094583792ee0de03147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f7f956828232de6d234f5fb22ec48e1') in 0.011346 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.508309 seconds.
-  path: Assets/PreFabs/Heavy Door Enemy.prefab
-  artifactKey: Guid(be935faa8a0876649b2384c3e552b40b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PreFabs/Heavy Door Enemy.prefab using Guid(be935faa8a0876649b2384c3e552b40b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13ecda5f1682d1ce823eb161bc0ab031') in 0.151323 seconds 
+  Time since last request: 0.000050 seconds.
+  path: Assets/Scripts/Door.cs
+  artifactKey: Guid(b65be709410f62a4fbc793f33c699895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Door.cs using Guid(b65be709410f62a4fbc793f33c699895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e510c776b25935bb7ec44f609987f0af') in 0.010770 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Scripts/camera.cs
+  artifactKey: Guid(07716de238c724842b887bd9feadb4d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/camera.cs using Guid(07716de238c724842b887bd9feadb4d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c0b8a24517c690bc212a58ea316a061') in 0.010677 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.169824 seconds.
+  path: Assets/Scripts/gunPickup.cs
+  artifactKey: Guid(7c062528ddc95904b99082940cc98a4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/gunPickup.cs using Guid(7c062528ddc95904b99082940cc98a4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '724ae919e6d22f31ed152c6f92f73eab') in 0.012155 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.227728 seconds.
+  path: Assets/Scripts/MenuButton.cs
+  artifactKey: Guid(bdf39e56224cb264b9ad85b586fc7dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MenuButton.cs using Guid(bdf39e56224cb264b9ad85b586fc7dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b55728dc990711d32cb87706cce231cc') in 0.012113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.709956 seconds.
+  path: Assets/Scripts/playerController.cs
+  artifactKey: Guid(90c109767719b03439e41fd092b24682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/playerController.cs using Guid(90c109767719b03439e41fd092b24682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af9a912ffba4b17083f0bdc0caad5c54') in 0.011102 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

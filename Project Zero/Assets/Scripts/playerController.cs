@@ -358,11 +358,13 @@ public class playerController : MonoBehaviour, IDamageable
             }
             else
             {
+                gameManager.instance.reloadUI.SetActive(true);
                 isReloading = true;
                 audSource.PlayOneShot(reloadSound, reloadSoundVol);
                 yield return new WaitForSeconds(reloadTime);
                 ammoCount = ammoCountOg;
                 MaxammoCount -= ammoCountOg;
+                gameManager.instance.reloadUI.SetActive(false);
             }
             updateAmmoCount();
         }

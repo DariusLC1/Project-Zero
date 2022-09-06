@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI ShotsFired;
     public GameObject core;
     public GameObject winMenu;
+    public GameObject reloadUI;
 
 
 
