@@ -8,6 +8,7 @@ TagManager:
   - Spawner Enemy
   - Door Spawner
   - Options
+  - Door
   layers:
   - Default
   - TransparentFX

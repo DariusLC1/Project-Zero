@@ -368,6 +368,7 @@
 "Assets/Scripts/IDamageable.cs"
 "Assets/Scripts/killarea.cs"
 "Assets/Scripts/MenuButton.cs"
+"Assets/Scripts/Next Level.cs"
 "Assets/Scripts/objectDamageable.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/rotatationManager.cs"

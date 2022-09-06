@@ -20,16 +20,19 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI killedEnemies;
     public TextMeshProUGUI ShotsFired;
     public GameObject core;
+    public GameObject door;
     public GameObject winMenu;
     public GameObject reloadUI;
 
 
 
-    public GameObject playerSpawnPos;
 
+    public GameObject playerSpawnPos;
+    public int scenes = 0;
     public int enemyCount;
     public int doorEnemyCount;
     int killed;
+    public bool bossRush;
     public bool gameOver;
     public bool isPaused = false;
     // Start is called before the first frame update
@@ -112,10 +115,14 @@ public class gameManager : MonoBehaviour
     {
         if (core.activeInHierarchy == false)
         {
-            gameOver = true;
-            winMenu.SetActive(true);
-            menuCurrentlyOpen = winMenu;
-            cursorLockPause();
+            //gameOver = true;
+            //winMenu.SetActive(true);
+            //menuCurrentlyOpen = winMenu;
+            //cursorLockPause();
+            if(door.activeInHierarchy == false)
+            {
+                door.SetActive(true);
+            }
         }
     }
 }
