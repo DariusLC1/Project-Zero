@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
+    playerController player;
+
+
     [SerializeField] int sensHori;
     [SerializeField] int sensVert;
 
@@ -54,4 +57,12 @@ public class camera : MonoBehaviour
         // rotate the player
         transform.parent.Rotate(Vector3.up * mouseX);
     }
+
+    //void recoil()
+    //{
+    //    if(player.isShooting == true)
+    //    {
+
+    //    }
+    //}
 }

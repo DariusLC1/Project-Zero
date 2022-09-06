@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(1, 20)][SerializeField] int shieldCharge;
     [SerializeField] int shieldChargeOG;
 
+
     [Header("----- Weapon Stats -----")]
     [Range(1, 200)][SerializeField] int shootingDist;
     [Range(.01f, 200)][SerializeField] float shootRate;
@@ -57,7 +58,7 @@ public class playerController : MonoBehaviour, IDamageable
     bool isSprinting = false;
     public bool isDashable = true;
     int HPOrig;
-    bool isShooting = false;
+    public bool isShooting = false;
     int amtWeapon = 0;
     int ammoCountOg;
     [SerializeField]bool isReloading;
@@ -429,10 +430,11 @@ public class playerController : MonoBehaviour, IDamageable
     {
         if (Input.GetButtonUp("Shield") && shieldCharge != 0)
         {
-            playerShield.SetActive(true);
-            yield return new WaitForSeconds(5);
-            playerShield.SetActive(false);
-            shieldCharge -= 1;
+                playerShield.SetActive(true);
+                yield return new WaitForSeconds(5);
+                playerShield.SetActive(false);
+                shieldCharge -= 1;
+            
         }
 
     }
