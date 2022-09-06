@@ -5,14 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
+    public static NextLevel Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public async void loadScene(string sceneName)
+    {
+        var scene = SceneManager.LoadSceneAsync(sceneName);
+        scene.allowSceneActivation = true;
+
+
+        await System.Threading.Tasks.Task.Delay(1000);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.scenes++;
-            if(gameManager.instance.scenes == 1)
+            if (gameManager.instance.scenes == 1)
             {
-                SceneManager.LoadScene("Level 2");
+                loadScene("Level 2");
             }
         }
     }

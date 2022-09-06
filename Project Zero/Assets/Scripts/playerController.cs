@@ -12,8 +12,8 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(1, 10)][SerializeField] float playerSpeed;
     [Range(1, 4)][SerializeField] float sprintMultiplyer;
     [Range(8, 18)][SerializeField] float jumpHeight;
-    [Range(15, 30)][SerializeField] float gravity;
-    [Range(1, 3)][SerializeField] int jumpsMax;
+    [Range(15, 30)][SerializeField] public float gravity;
+    [Range(1, 3)][SerializeField] public int jumpsMax;
     [SerializeField] float dashSpeed;
     [SerializeField] float dashTime;
     [SerializeField] float dashLength;
@@ -53,7 +53,7 @@ public class playerController : MonoBehaviour, IDamageable
     private Vector3 playerVelocity;
     Vector3 move = Vector3.zero;
     int shots;
-    int timesJumped;
+    public int timesJumped;
     float playerSpeedOriginal;
     bool isSprinting = false;
     public bool isDashable = true;
