@@ -36,6 +36,10 @@ public class NextLevel : MonoBehaviour
             {
                 loadScene("Level 2");
             }
+            else if (gameManager.instance.scenes == 2)
+            {
+                loadScene("");
+            }
         }
     }
 }

@@ -119,6 +119,7 @@ public class gameManager : MonoBehaviour
             //winMenu.SetActive(true);
             //menuCurrentlyOpen = winMenu;
             //cursorLockPause();
+            scenes++;
             if(door.activeInHierarchy == false)
             {
                 door.SetActive(true);

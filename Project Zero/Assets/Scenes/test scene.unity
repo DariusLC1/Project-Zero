@@ -11476,6 +11476,10 @@ PrefabInstance:
       propertyPath: core
       value: 
       objectReference: {fileID: 7954096619191247061}
+    - target: {fileID: 6143043746575587157, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1341004569}
     - target: {fileID: 6751694722329828946, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: m_Name
       value: UI
@@ -11928,6 +11932,7 @@ GameObject:
   - component: {fileID: 1341004572}
   - component: {fileID: 1341004571}
   - component: {fileID: 1341004570}
+  - component: {fileID: 1341004574}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -12013,6 +12018,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1341004574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341004569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f81fba57aaef343a3f60ed33844f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1360154533
 GameObject:
   m_ObjectHideFlags: 0
@@ -19200,6 +19217,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837621792648109393, guid: fcfb02361326682469142848b2ab8d80, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837621792945995322, guid: fcfb02361326682469142848b2ab8d80, type: 3}
+      propertyPath: enemyMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837621792945995322, guid: fcfb02361326682469142848b2ab8d80, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837621792945995324, guid: fcfb02361326682469142848b2ab8d80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837621792945995324, guid: fcfb02361326682469142848b2ab8d80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261296487637090870, guid: fcfb02361326682469142848b2ab8d80, type: 3}
+      propertyPath: isOpen
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
