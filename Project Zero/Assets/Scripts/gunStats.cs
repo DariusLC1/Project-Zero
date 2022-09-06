@@ -14,7 +14,7 @@ public class gunStats : ScriptableObject
     [Range(.01f, 200)] public int ammo;
     [Range(.01f, 20)] public float recoilAmountX;
     [Range(.01f, 20)] public float recoilAmountY;
-    public int MaxAmmo;
+    public int ammoLeft;
     public GameObject model;
 
     [Header("----- Weapon Sound -----")]
