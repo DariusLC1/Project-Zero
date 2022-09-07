@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6540938428973044265}
   m_Layer: 7
   m_Name: Heavy Door Enemy
-  m_TagString: Untagged
+  m_TagString: Spawner Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +83,8 @@ MonoBehaviour:
   audioSource: {fileID: 6540938428973044265}
   hurting: {fileID: 8300000, guid: 73f4ee18fc01b734c8bbcb3f1e0a058b, type: 3}
   hurtingVol: 10
+  dying: {fileID: 0}
+  dyingVol: 0
   HP: 50
   facePlayer: 5
   FOV: 120
