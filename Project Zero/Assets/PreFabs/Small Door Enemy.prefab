@@ -1545,8 +1545,10 @@ MonoBehaviour:
   rend: {fileID: 1005983042160960734}
   anim: {fileID: 956469774308078198}
   audioSource: {fileID: 5866341777210341339}
-  hurting: {fileID: 8300000, guid: bc41de6a69d08ad4e88669c337dc46dd, type: 3}
+  hurting: {fileID: 8300000, guid: 294a46ae730728840ad00dca816e432f, type: 3}
   hurtingVol: 10
+  dying: {fileID: 0}
+  dyingVol: 0
   HP: 2
   facePlayer: 5
   FOV: 120

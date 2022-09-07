@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - DoorTrigger
     - EnemyDoor
     - EnemyDoorTrigger
+    - NextLevel
     - bullet
     - buttonFunctions
     - camera
@@ -13,6 +14,7 @@ ScriptsOnlyBuild:
     - gameManager
     - gunPickup
     - gunStats
+    - killarea
     - objectDamageable
     - playerController
     - spawner
@@ -25,12 +27,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -100,6 +96,63 @@ ScriptsOnlyBuild:
     fullTypeName: buttonFunctions
     methodName: resume
   sceneClasses:
+    Assets/Scenes/Level 2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 2738}
+    - Class: 114
+      Script: {instanceID: 2912}
+    - Class: 114
+      Script: {instanceID: 3418}
+    - Class: 114
+      Script: {instanceID: 8440}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
     Assets/Scenes/test scene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -150,59 +203,65 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1546}
+      Script: {instanceID: 716}
     - Class: 114
-      Script: {instanceID: 1548}
+      Script: {instanceID: 1588}
     - Class: 114
-      Script: {instanceID: 1974}
+      Script: {instanceID: 1590}
     - Class: 114
-      Script: {instanceID: 1986}
+      Script: {instanceID: 1716}
     - Class: 114
-      Script: {instanceID: 2360}
+      Script: {instanceID: 1892}
     - Class: 114
-      Script: {instanceID: 2756}
+      Script: {instanceID: 1904}
     - Class: 114
-      Script: {instanceID: 2796}
+      Script: {instanceID: 2316}
     - Class: 114
-      Script: {instanceID: 2926}
+      Script: {instanceID: 2738}
+    - Class: 114
+      Script: {instanceID: 2778}
+    - Class: 114
+      Script: {instanceID: 2912}
     - Class: 114
       Script: {instanceID: 3024}
     - Class: 114
-      Script: {instanceID: 3326}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 3374}
+      Script: {instanceID: 3418}
     - Class: 114
-      Script: {instanceID: 3792}
+      Script: {instanceID: 3868}
     - Class: 114
-      Script: {instanceID: 4394}
+      Script: {instanceID: 4526}
     - Class: 114
-      Script: {instanceID: 4664}
+      Script: {instanceID: 4822}
     - Class: 114
-      Script: {instanceID: 5150}
+      Script: {instanceID: 5358}
     - Class: 114
-      Script: {instanceID: 5392}
+      Script: {instanceID: 5640}
     - Class: 114
-      Script: {instanceID: 5434}
+      Script: {instanceID: 5682}
     - Class: 114
-      Script: {instanceID: 6010}
+      Script: {instanceID: 6316}
     - Class: 114
-      Script: {instanceID: 6050}
+      Script: {instanceID: 6360}
     - Class: 114
-      Script: {instanceID: 6204}
+      Script: {instanceID: 6530}
     - Class: 114
-      Script: {instanceID: 6298}
+      Script: {instanceID: 6640}
     - Class: 114
-      Script: {instanceID: 6318}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 7216}
+      Script: {instanceID: 7686}
     - Class: 114
-      Script: {instanceID: 7434}
+      Script: {instanceID: 7932}
     - Class: 114
-      Script: {instanceID: 7860}
+      Script: {instanceID: 8440}
     - Class: 114
-      Script: {instanceID: 8046}
+      Script: {instanceID: 8638}
     - Class: 114
-      Script: {instanceID: 8366}
+      Script: {instanceID: 8866}
+    - Class: 114
+      Script: {instanceID: 8988}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -254,6 +313,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UIElements
     className: PanelRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: killarea
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -358,7 +423,7 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
-      Hash: fdbcf3fab9d6ee6cdb0d65ddaba3a738
+      Hash: e50b3dfec45f4ce01ebee0e2b24dc9e8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: playerController
@@ -400,6 +465,12 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
+      Hash: c8783a6dcf5932c980693a657471cb72
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder.Shapes
+    className: ProBuilderShape
+  - hash:
+      serializedVersion: 2
       Hash: a39fda85bb089a82a859de28826912f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -412,6 +483,12 @@ ScriptsOnlyBuild:
     className: CoroutineRunner
   - hash:
       serializedVersion: 2
+      Hash: d6a8e9bec3160a152b9b2710593d3caa
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: ColorPalette
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
@@ -422,6 +499,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 4218f542d00ca4630513d59892e3fee8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: soundManager
+  - hash:
+      serializedVersion: 2
+      Hash: 61be1abdc1f82f905db69124438f60d5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rotatingDoorTrigger
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -464,6 +553,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnDropdownValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 32f6d1d5a09e5c94c633a32edd3e6836
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: BezierShape
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -574,10 +669,22 @@ ScriptsOnlyBuild:
     className: ScriptGraphAsset
   - hash:
       serializedVersion: 2
+      Hash: c30516b0cd3881f1d47c9bb6bc7864c0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuButton
+  - hash:
+      serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: f6633ace6e530c0000f2ac6da4269c52
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: PolyShape
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -671,6 +778,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: wallJump
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerClickMessageListener
@@ -686,6 +799,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: SceneVariables
+  - hash:
+      serializedVersion: 2
+      Hash: f8f7dc6c82dff1d866dc294799714ddd
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: ProBuilderMesh
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -724,10 +843,22 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: e9389e944eb81a3a9df56fcdb09ce6a9
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: ColliderBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 9c7c87712e298256d276eb96e02a57b1
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: PreferenceDictionary
   - hash:
       serializedVersion: 2
       Hash: bcaee4c2a83047257b5f47d6ed264b75
@@ -760,7 +891,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionEnter2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: bee03e8b864b56c7872107257f32eabc
+      Hash: 4e1a6be435d3cb64e28bec63e72f4b9e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameManager
@@ -808,7 +939,7 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: e51cf30449af0b5d48a08d4cd6e411ae
+      Hash: e826f7a9129da6f6faab744af1e699f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemyAI
@@ -832,10 +963,22 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: b6b2235c32352befdf659a5b0f0e43a1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GUI_Demo
+  - hash:
+      serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 2d3cd3a33a29d3d4a5b568c07c554474
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rotatingDoor
   - hash:
       serializedVersion: 2
       Hash: 4a294c8300a4f27915b14688bae39831
@@ -854,6 +997,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseUpAsButtonMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 301f4da7cc3b301c161d089f9d22efed
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: Entity
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -884,6 +1033,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: e9389e944eb81a3a9df56fcdb09ce6a9
+    assemblyName: Unity.ProBuilder.dll
+    namespaceName: UnityEngine.ProBuilder
+    className: TriggerBehaviour
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1024,7 +1179,13 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: e984960687040534d7c3586d278bf8ab
+      Hash: c1ec2c46e1070de2c369d27a104a7d0a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: rotatationManager
+  - hash:
+      serializedVersion: 2
+      Hash: fd9db42de047acd664e4ea5623cad00c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gunStats
@@ -1072,6 +1233,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NextLevel
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1109,5 +1276,6 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/test scene.unity
-  playerPath: C:/Users/theal/OneDrive/Documents/GitHub/Project-Zero/Project Zero/Builds/Project
+  - Assets/Scenes/Level 2.unity
+  playerPath: C:/Portfolio2[Repo]/Project-Zero/Project-Zero/Project Zero/Builds/PutBuildsHere/Project
     Zero.exe
