@@ -9,6 +9,11 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer rend;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hurting;
+    [SerializeField] float hurtingVol;
+    [SerializeField] AudioClip dying;
+    [SerializeField] float dyingVol;
 
     [Header("-----Stats-----")]
     [Range(0, 100)][SerializeField] int HP;
@@ -123,6 +128,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         HP -= dmg;
         anim.SetTrigger("Damage");
+        audioSource.PlayOneShot(hurting, hurtingVol);
 
         if (HP <= 0)
         {
@@ -146,7 +152,10 @@ public class enemyAI : MonoBehaviour, IDamageable
            
         }
         else
+        {
             StartCoroutine(flashColor());
+        }
+            
     }
 
     IEnumerator flashColor()

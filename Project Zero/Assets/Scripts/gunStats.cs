@@ -12,8 +12,7 @@ public class gunStats : ScriptableObject
     [Range(1, 200)] public int shootDamage;
     [Range(1, 200)] public int reloadTime;
     [Range(.01f, 200)] public int ammo;
-    [Range(.01f, 20)] public float recoilAmountX;
-    [Range(.01f, 20)] public float recoilAmountY;
+    [Range(.01f, 200)] public float shootSpread;
     public int ammoLeft;
     public GameObject model;
 

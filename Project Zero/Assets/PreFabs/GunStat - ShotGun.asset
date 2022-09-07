@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: GunStat - ShotGun
   m_EditorClassIdentifier: 
   shootRate: 2
-  shootingDist: 20
+  shootingDist: 47
   shootDamage: 10
   reloadTime: 1
   ammo: 4
-  recoilAmountX: 0
-  recoilAmountY: 0
-  ammoLeft: 4
+  shootSpread: 0.2
+  ammoLeft: 3
   model: {fileID: 142843593569271752, guid: 5883e6c4db545c940a0e3e3c7f570a9f, type: 3}
   shootingSound: {fileID: 8300000, guid: 4212e854951adfe42bb39ad392054590, type: 3}
   emplyClick: {fileID: 8300000, guid: b715675562e5aa04494c221f3bcc5dc3, type: 3}

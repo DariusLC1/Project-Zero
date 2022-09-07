@@ -18,6 +18,10 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] float dashTime;
     [SerializeField] float dashLength;
     public GameObject playerShield;
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip hurtSound;
+    [SerializeField] float hurtSoundVol;
+    
 
     [Header("----- Shield Stats -----")]
     [Range(1, 20)][SerializeField] int shieldCharge;
@@ -30,8 +34,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(.01f, 200)][SerializeField] int shootDamage;
     [Range(.01f, 200)][SerializeField] int reloadTime;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;
-    [Range(.01f, 20)] public float RecoilAmountX;
-    [Range(.01f, 20)] public float RecoilAmountY;
+    [Range(.01f, 200)] public float ShootSpread;
     [SerializeField] int ammoCount;
     public int MaxammoCount;
     public int AmmoLeft;
@@ -62,6 +65,7 @@ public class playerController : MonoBehaviour, IDamageable
     int amtWeapon = 0;
     int ammoCountOg;
     [SerializeField]bool isReloading;
+    [SerializeField]bool canSwap = true;
 
     // Start is called before the first frame update
     void Start()
@@ -173,7 +177,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         HP -= dmg;
 
-        //aud.PlayOneShot(soundDamage[Random.Range(0, soundDamage.Length)], soundDamageVol);
+        aud.PlayOneShot(hurtSound, hurtSoundVol);
 
         updatePlayerHP();
         StartCoroutine(damageFlash());
@@ -214,6 +218,9 @@ public class playerController : MonoBehaviour, IDamageable
     // --------- for Weapons ------------ \\
     IEnumerator shoot()
     {
+        Vector3 shootDirection = Camera.main.transform.position;
+        shootDirection.x = Random.Range(-ShootSpread, ShootSpread);
+        shootDirection.y = Random.Range(-ShootSpread, ShootSpread);
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootingDist, Color.red, 0.00001f);
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
@@ -223,7 +230,7 @@ public class playerController : MonoBehaviour, IDamageable
                 audSource.PlayOneShot(emptyClick, emptyClickVol);
             else if (isReloading == true)
             {
-                
+
             }
             else
             {
@@ -251,11 +258,11 @@ public class playerController : MonoBehaviour, IDamageable
                 isShooting = false;
                 shots++;
                 gameManager.instance.ShotsFired.text = $"Shots Fired = {shots}";
-            }  
+            }
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float recX, float recY, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float spread, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, gunStats _gstats)
     {
         if (gunStat.Count == 0)
         {
@@ -270,8 +277,7 @@ public class playerController : MonoBehaviour, IDamageable
             ammoLeft = ammo;
             AmmoLeft = ammoLeft;
 
-            RecoilAmountX = recX;
-            RecoilAmountY = recY;
+            ShootSpread = spread;
 
             shootSound = shootingSound;
             shootSoundVol = shootingVol;
@@ -298,8 +304,7 @@ public class playerController : MonoBehaviour, IDamageable
             AmmoLeft = ammoLeft;
             MaxammoCount += ammoCountOg * 2;
 
-            RecoilAmountX = recX;
-            RecoilAmountY = recY;
+            ShootSpread = spread;
 
             shootSound = shootingSound;
             shootSoundVol = shootingVol;
@@ -317,7 +322,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     void weaponSwap()
     {
-        if (gunStat.Count > 0)
+        if (gunStat.Count > 0 && canSwap == true)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && amtWeapon < gunStat.Count - 1)
             {
@@ -337,8 +342,7 @@ public class playerController : MonoBehaviour, IDamageable
                 }
 
 
-                RecoilAmountX = gunStat[amtWeapon].recoilAmountX;
-                RecoilAmountY = gunStat[amtWeapon].recoilAmountY;
+                ShootSpread = gunStat[amtWeapon].shootSpread;
 
                 shootSound = gunStat[amtWeapon].shootingSound;
                 shootSoundVol = gunStat[amtWeapon].shootingVol;
@@ -371,8 +375,7 @@ public class playerController : MonoBehaviour, IDamageable
                 }
 
 
-                RecoilAmountX = gunStat[amtWeapon].recoilAmountX;
-                RecoilAmountY = gunStat[amtWeapon].recoilAmountY;
+                ShootSpread = gunStat[amtWeapon].shootSpread;
 
                 shootSound = gunStat[amtWeapon].shootingSound;
                 shootSoundVol = gunStat[amtWeapon].shootingVol;
@@ -411,6 +414,7 @@ public class playerController : MonoBehaviour, IDamageable
             }
             else
             {
+                canSwap = false;
                 gameManager.instance.reloadUI.SetActive(true);
                 isReloading = true;
                 audSource.PlayOneShot(reloadSound, reloadSoundVol);
@@ -419,7 +423,9 @@ public class playerController : MonoBehaviour, IDamageable
                 AmmoLeft = ammoCount;
                 MaxammoCount -= ammoCountOg;
                 gameManager.instance.reloadUI.SetActive(false);
+                isShooting = false;
                 isReloading = false;
+                canSwap = true;
             }
             updateAmmoCount();
         }
