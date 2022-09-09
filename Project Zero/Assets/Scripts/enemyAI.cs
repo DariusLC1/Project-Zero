@@ -38,6 +38,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     bool detection = false;
     float stoppingDistanceOrig;
     float speedOrig;
+    bool dead;
 
 
     // Start is called before the first frame update
@@ -141,13 +142,15 @@ public class enemyAI : MonoBehaviour, IDamageable
                     col.enabled = false;
             }
 
-            else 
-            { 
-            gameManager.instance.checkEnemyTotal();
-            anim.SetBool("Dead", true);
-            agent.enabled = false;
-            foreach (Collider col in GetComponents<Collider>())
-                col.enabled = false;
+            else
+            {
+                gameManager.instance.checkEnemyTotal();
+                anim.SetBool("Dead", true);
+                agent.enabled = false;
+                foreach (Collider col in GetComponents<Collider>())
+                    col.enabled = false;
+                gameManager.instance.killed++;
+                gameManager.instance.killedEnemies.text = $"Killed Enemies | {gameManager.instance.killed}";
             }
            
         }
