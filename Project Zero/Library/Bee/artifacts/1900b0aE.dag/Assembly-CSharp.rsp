@@ -370,6 +370,7 @@
 "Assets/Scripts/MenuButton.cs"
 "Assets/Scripts/NextLevel.cs"
 "Assets/Scripts/objectDamageable.cs"
+"Assets/Scripts/PickUp.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/rotatationManager.cs"
 "Assets/Scripts/rotatingDoor.cs"

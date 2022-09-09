@@ -9,6 +9,8 @@ TagManager:
   - Door Spawner
   - Options
   - Door
+  - ammo
+  - Health
   layers:
   - Default
   - TransparentFX
