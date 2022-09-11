@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d22b0dbedb7c25409e7ae62cba31613, type: 3}
   m_Name: GunStat - ShotGun
   m_EditorClassIdentifier: 
-  shootRate: 2
-  shootingDist: 47
+  shootRate: 1.5
+  shootingDist: 80
   shootDamage: 10
-  reloadTime: 1
-  ammo: 4
+  reloadTime: 2
+  ammo: 6
   shootSpread: 0.2
-  ammoLeft: 3
+  ammoLeft: 6
   model: {fileID: 142843593569271752, guid: 5883e6c4db545c940a0e3e3c7f570a9f, type: 3}
   shootingSound: {fileID: 8300000, guid: 4212e854951adfe42bb39ad392054590, type: 3}
   emplyClick: {fileID: 8300000, guid: b715675562e5aa04494c221f3bcc5dc3, type: 3}
   reloadSound: {fileID: 8300000, guid: ff05c69a08c2ab945996e437b442ee04, type: 3}
-  shootingVol: 13.6
-  emptyClickVol: 13.6
-  reloadSoundVol: 4.7
+  shootingVol: 0.8
+  emptyClickVol: 0.8
+  reloadSoundVol: 0.8

@@ -97,7 +97,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection); //debug code, remove later
 
-            if (hit.collider.CompareTag("Player") && angle <= FOV )
+            if (hit.collider.CompareTag("Player") && angle <= FOV)
             {
                 turnToPlayer();
 
@@ -105,7 +105,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 agent.stoppingDistance = stoppingDistanceOrig;
                 agent.speed = speedChase;
 
-                if (!isShooting && angle <= FOVShoot )
+                if (!isShooting && angle <= FOVShoot)
                 {
                     StartCoroutine(shoot());
                 }
@@ -149,13 +149,13 @@ public class enemyAI : MonoBehaviour, IDamageable
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
             }
-           
+
         }
         else
         {
             StartCoroutine(flashColor());
         }
-            
+
     }
 
     IEnumerator flashColor()
@@ -186,7 +186,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             detection = true;
         }

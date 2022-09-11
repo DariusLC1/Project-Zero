@@ -63,11 +63,11 @@ public class gameManager : MonoBehaviour
             else
             {
                 cursorUnlockUnpause();
-                
+
             }
         }
 
-        
+
 
 
     }
@@ -92,15 +92,15 @@ public class gameManager : MonoBehaviour
 
     public void checkEnemyTotal()
     {
-       enemyCount--;
-    //    if (enemyCount <= 0)
-    //    {
-    //        yield return new WaitForSeconds(2);
-    //        gameOver = true;
-    //        winCondition.SetActive(true);
-    //        menuCurrentlyOpen = winCondition;
-    //        cursorLockPause();
-    //    }
+        enemyCount--;
+        //    if (enemyCount <= 0)
+        //    {
+        //        yield return new WaitForSeconds(2);
+        //        gameOver = true;
+        //        winCondition.SetActive(true);
+        //        menuCurrentlyOpen = winCondition;
+        //        cursorLockPause();
+        //    }
     }
 
     public void checkDoorEnemyTotal()
@@ -120,7 +120,7 @@ public class gameManager : MonoBehaviour
             //menuCurrentlyOpen = winMenu;
             //cursorLockPause();
             scenes++;
-            if(door.activeInHierarchy == false)
+            if (door.activeInHierarchy == false)
             {
                 door.SetActive(true);
             }
