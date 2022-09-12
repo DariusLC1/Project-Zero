@@ -148,6 +148,8 @@ public class enemyAI : MonoBehaviour, IDamageable
             agent.enabled = false;
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
+                gameManager.instance.killed++;
+                gameManager.instance.killedEnemies.text = $"Killed Enemies | {gameManager.instance.killed}";
             }
 
         }

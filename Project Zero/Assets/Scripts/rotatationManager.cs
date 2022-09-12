@@ -5,13 +5,13 @@ using UnityEngine;
 public class rotatationManager : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 axis;
+    [SerializeField] private Vector3 rotation;
     [SerializeField] private float speed;
-    [SerializeField] private float angle;
 
 
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(rotation * speed * Time.deltaTime);
     }
 }
