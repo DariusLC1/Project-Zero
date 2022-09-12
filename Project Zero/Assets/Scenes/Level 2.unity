@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &27296431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 555884667285484777, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -92.33292
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -752.8967
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2526847611553680009, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590826944697145341, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
+      propertyPath: m_Name
+      value: Death floor Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebb4d7a09f1648e4e8c89abfccf2b412, type: 3}
 --- !u!1 &49898935
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &148793697
 PrefabInstance:
