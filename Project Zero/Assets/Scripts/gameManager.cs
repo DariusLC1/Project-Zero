@@ -31,7 +31,7 @@ public class gameManager : MonoBehaviour
     public int scenes = 0;
     public int enemyCount;
     public int doorEnemyCount;
-    int killed;
+    public int killed;
     public bool bossRush;
     public bool gameOver;
     public bool isPaused = false;
@@ -106,9 +106,6 @@ public class gameManager : MonoBehaviour
     public void checkDoorEnemyTotal()
     {
         doorEnemyCount--;
-        if (doorEnemyCount != 0) 
-        killed++;
-        killedEnemies.text = $"Killed Enemies | {killed}";
     }
 
     public void isCoreDestroyed()

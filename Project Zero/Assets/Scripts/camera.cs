@@ -42,11 +42,11 @@ public class camera : MonoBehaviour
 
         if(gameManager.instance.playerScript.isDashable == false)
         {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 90, 0.5f);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 90, Time.deltaTime * 4);
         }
         else if (gameManager.instance.playerScript.isDashable == true)
         {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, 0.5f);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, 60, Time.deltaTime * 4);
         }
         // clamp the rotation
         xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);

@@ -14,6 +14,7 @@ public class gunStats : ScriptableObject
     [Range(.01f, 200)] public int ammo;
     [Range(.01f, 200)] public float shootSpread;
     public int ammoLeft;
+    public bool limited;
     public GameObject model;
 
     [Header("----- Weapon Sound -----")]

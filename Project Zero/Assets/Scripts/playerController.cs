@@ -56,6 +56,7 @@ public class playerController : MonoBehaviour, IDamageable
     private Vector3 playerVelocity;
     Vector3 move = Vector3.zero;
     int shots;
+    bool limitedw;
     public int timesJumped;
     float playerSpeedOriginal;
     bool isSprinting = false;
@@ -232,6 +233,10 @@ public class playerController : MonoBehaviour, IDamageable
             {
 
             }
+            else if (limitedw == true && gunStat[amtWeapon].ammoLeft == 0)
+            {
+                amtWeapon--;
+            }
             else
             {
                 ammoCount--;
@@ -262,7 +267,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float spread, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, gunStats _gstats)
+    public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float spread, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, bool Limited, gunStats _gstats)
     {
         if (gunStat.Count == 0)
         {
@@ -276,7 +281,7 @@ public class playerController : MonoBehaviour, IDamageable
             MaxammoCount = ammoCountOg * 3;
             ammoLeft = ammo;
             AmmoLeft = ammoLeft;
-
+            limitedw = Limited;
             ShootSpread = spread;
 
             shootSound = shootingSound;
@@ -412,7 +417,7 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 isReloading = false;
             }
-            else
+            else if (MaxammoCount >=0)
             {
                 canSwap = false;
                 gameManager.instance.reloadUI.SetActive(true);
@@ -426,6 +431,10 @@ public class playerController : MonoBehaviour, IDamageable
                 isShooting = false;
                 isReloading = false;
                 canSwap = true;
+            }
+            else if (limitedw == true)
+            {
+                amtWeapon--;
             }
             updateAmmoCount();
         }
