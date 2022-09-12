@@ -267,7 +267,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count == 0)
         {
             shootRate = shtRate;
-s            shootingDist = shtingDist;
+            shootingDist = shtingDist;
             shootDamage = shtDamage;
             gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
