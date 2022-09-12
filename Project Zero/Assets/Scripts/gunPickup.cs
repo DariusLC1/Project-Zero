@@ -10,7 +10,7 @@ public class gunPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<playerController>().gunPickup(gunStat.shootRate, gunStat.shootDamage, gunStat.shootingDist, gunStat.ammo, gunStat.ammoLeft, gunStat.model,
+            other.GetComponent<playerController>().gunPickup(gunStat.shootRate, gunStat.shootingDist, gunStat.shootDamage, gunStat.ammo, gunStat.ammoLeft, gunStat.model,
                 gunStat.shootSpread, gunStat.shootingSound, gunStat.shootingVol, gunStat.emplyClick, gunStat.emptyClickVol, gunStat.reloadSound, gunStat.reloadSoundVol, gunStat.reloadTime, gunStat);
             Destroy(gameObject);
         }
