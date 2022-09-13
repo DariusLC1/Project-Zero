@@ -96,7 +96,6 @@ public class playerController : MonoBehaviour, IDamageable
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
-        StartCoroutine(gunfixes());
 
     }
     #region PlayerStuff
@@ -277,14 +276,6 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
-    IEnumerator gunfixes()
-    {
-        if(isShooting == true)
-        {
-            yield return new WaitForSeconds(shootRate);
-            isShooting = false;
-        }
-    }
     public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float spread, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, bool Limited, gunStats _gstats)
     {
         if (gunStat.Count == 0)
