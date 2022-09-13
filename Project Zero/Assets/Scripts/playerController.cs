@@ -30,7 +30,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     [Header("----- Weapon Stats -----")]
     [Range(1, 200)][SerializeField] int shootingDist;
-    [Range(.01f, 200)][SerializeField] float shootRate;
+    [Range(.01f, 200)][SerializeField]public float shootRate;
     [Range(.01f, 200)][SerializeField] int shootDamage;
     [Range(.01f, 200)][SerializeField] int reloadTime;
     //[Range(.01f, 200)][SerializeField] int bulletPershot;

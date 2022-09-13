@@ -58,11 +58,4 @@ public class camera : MonoBehaviour
         transform.parent.Rotate(Vector3.up * mouseX);
     }
 
-    //void recoil()
-    //{
-    //    if(player.isShooting == true)
-    //    {
-
-    //    }
-    //}
 }
