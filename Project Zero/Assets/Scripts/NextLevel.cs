@@ -34,7 +34,7 @@ public class NextLevel : MonoBehaviour
         {
             if (gameManager.instance.scenes == 1)
             {
-                loadScene("Level 2");
+                loadScene("Level 1 boss");
             }
             else if (gameManager.instance.scenes == 2)
             {
