@@ -1801,7 +1801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105246659579826800}
   - component: {fileID: 2105246659570286060}
-  - component: {fileID: 2105246659579662221}
+  - component: {fileID: 569838218625029700}
   - component: {fileID: 2105246659579662223}
   - component: {fileID: 1022247241}
   - component: {fileID: 513633564}
@@ -1821,7 +1821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105246659579662224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.098974, y: 0.32590598, z: 0}
+  m_LocalPosition: {x: -265.62024, y: 0, z: -495.5625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1856,7 +1856,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2105246659579662221
+--- !u!114 &569838218625029700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1865,28 +1865,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105246659579662224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42fa19daa0770094583792ee0de03147, type: 3}
+  m_Script: {fileID: 11500000, guid: 1382341208f44564faaeecbd0736ee86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2105246659579662223}
-  rend: {fileID: 13700000, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
+  rend: {fileID: 0}
   anim: {fileID: 2105246659570286060}
-  audioSource: {fileID: -2997325331975022555}
-  hurting: {fileID: 8300000, guid: 3bb7e229e6169d04f8181ee08f131bad, type: 3}
-  hurtingVol: 10
+  audioSource: {fileID: 0}
+  hurting: {fileID: 0}
+  hurtingVol: 0
+  dying: {fileID: 0}
+  dyingVol: 0
   HP: 10
-  facePlayer: 5
-  FOV: 120
-  FOVShoot: 25
-  roamRadius: 10
-  speedRoam: 2
-  speedChase: 4
-  shootRate: 0.75
+  facePlayer: 10
+  FOV: 180
+  FOVShoot: 180
+  roamRadius: 40
+  speedRoam: 10
+  speedChase: 20
+  shootRate: 0.5
   damage: 5
-  bulletSpeed: 5
+  bulletSpeed: 3
   bulletDestroyTime: 10
   bullet: {fileID: 6763116933408057900, guid: 07d2c0f69816bca4eb782fae4ac467b4, type: 3}
-  bulletSpawn: {fileID: 2105246659579661924}
+  bulletSpawn: {fileID: 2105246659579662220}
 --- !u!195 &2105246659579662223
 NavMeshAgent:
   m_ObjectHideFlags: 0
