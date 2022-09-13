@@ -1482,7 +1482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865385656788056032}
-  - component: {fileID: 956469774308077963}
+  - component: {fileID: 6962802099472842972}
   - component: {fileID: 956469774308077960}
   - component: {fileID: 956469774308077961}
   - component: {fileID: 956469774308078198}
@@ -1529,7 +1529,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &956469774308077963
+--- !u!114 &6962802099472842972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1538,26 +1538,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 871410909707256798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42fa19daa0770094583792ee0de03147, type: 3}
+  m_Script: {fileID: 11500000, guid: 1382341208f44564faaeecbd0736ee86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 956469774308077961}
-  rend: {fileID: 1005983042160960734}
+  rend: {fileID: 0}
   anim: {fileID: 956469774308078198}
   audioSource: {fileID: -5085645058925469273}
-  hurting: {fileID: 8300000, guid: 294a46ae730728840ad00dca816e432f, type: 3}
-  hurtingVol: 5
+  hurting: {fileID: 0}
+  hurtingVol: 0
   dying: {fileID: 0}
   dyingVol: 0
-  HP: 2
-  facePlayer: 5
-  FOV: 120
-  FOVShoot: 25
-  roamRadius: 5
-  speedRoam: 3
-  speedChase: 5
-  shootRate: 1
-  damage: 2
+  HP: 5
+  facePlayer: 10
+  FOV: 180
+  FOVShoot: 0
+  roamRadius: 10
+  speedRoam: 5
+  speedChase: 20
+  shootRate: 3
+  damage: 1
   bulletSpeed: 10
   bulletDestroyTime: 10
   bullet: {fileID: 6763116933408057900, guid: 07d2c0f69816bca4eb782fae4ac467b4, type: 3}
@@ -1628,7 +1628,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &-5085645058925469273
 AudioSource:
