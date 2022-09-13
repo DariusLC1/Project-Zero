@@ -27,7 +27,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 2, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -77,5 +77,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
-    - _EmissionColor: {r: 0.5, g: 0.38925776, b: 0.13915095, a: 1}
+    - _EmissionColor: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
   m_BuildTextureStacks: []
