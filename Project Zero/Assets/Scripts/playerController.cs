@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip hurtSound;
     [SerializeField] float hurtSoundVol;
-    
+
 
     [Header("----- Shield Stats -----")]
     [Range(1, 20)][SerializeField] int shieldCharge;
@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour, IDamageable
 
 
     [Header("----- Weapon Stats -----")]
+    public Animator gunAnimator;
     [Range(1, 200)][SerializeField] int shootingDist;
     [Range(.01f, 200)][SerializeField] float shootRate;
     [Range(.01f, 200)][SerializeField] int shootDamage;
@@ -68,8 +69,8 @@ public class playerController : MonoBehaviour, IDamageable
     public int sheildregen = 0;
     public bool hassheild = false;
     public bool haswalljump = false;
-    [SerializeField]bool isReloading;
-    [SerializeField]bool canSwap = true;
+    [SerializeField] bool isReloading;
+    [SerializeField] bool canSwap = true;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +83,7 @@ public class playerController : MonoBehaviour, IDamageable
         audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
         updatePlayerHP();
         updateAmmoCount();
-        
+
     }
 
     // Update is called once per frame
@@ -128,7 +129,7 @@ public class playerController : MonoBehaviour, IDamageable
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
- 
+
     void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
@@ -227,9 +228,9 @@ public class playerController : MonoBehaviour, IDamageable
     // --------- for Weapons ------------ \\
     IEnumerator shoot()
     {
-        Vector3 shootDirection = Camera.main.transform.position;
-        shootDirection.x = Random.Range(-ShootSpread, ShootSpread);
-        shootDirection.y = Random.Range(-ShootSpread, ShootSpread);
+        Vector3 deviation3D = Random.insideUnitCircle * ShootSpread;
+        Quaternion rot = Quaternion.LookRotation(Vector3.forward * shootingDist + deviation3D);
+        Vector3 forwardVector = Camera.main.transform.rotation * rot * Vector3.forward;
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootingDist, Color.red, 0.00001f);
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
@@ -252,9 +253,10 @@ public class playerController : MonoBehaviour, IDamageable
                 updateAmmoCount();
                 audSource.PlayOneShot(shootSound, shootSoundVol);
                 RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootingDist))
+                if (Physics.Raycast(Camera.main.transform.position, forwardVector, out hit, shootingDist))
                 {
                     Instantiate(hitEffect, hit.point, hitEffect.transform.rotation);
+                    //Instantiate(bulletTrail, hit.point, hitEffect.transform.rotation);
                     if (hit.collider.GetComponent<IDamageable>() != null)
                     {
                         IDamageable isDamageable = hit.collider.GetComponent<IDamageable>();
@@ -345,7 +347,7 @@ public class playerController : MonoBehaviour, IDamageable
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
                 AmmoLeft = gunStat[amtWeapon].ammoLeft;
-                if(gunStat[amtWeapon].ammo != AmmoLeft)
+                if (gunStat[amtWeapon].ammo != AmmoLeft)
                 {
                     ammoCount = gunStat[amtWeapon].ammoLeft;
                 }
@@ -427,8 +429,9 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 isReloading = false;
             }
-            else if (MaxammoCount >=0)
+            else if (MaxammoCount >= 0)
             {
+                gunAnimator.SetBool("isReloading", true);
                 canSwap = false;
                 gameManager.instance.reloadUI.SetActive(true);
                 isReloading = true;
@@ -438,9 +441,11 @@ public class playerController : MonoBehaviour, IDamageable
                 AmmoLeft = ammoCount;
                 MaxammoCount -= ammoCountOg;
                 gameManager.instance.reloadUI.SetActive(false);
-                isShooting = false;
                 isReloading = false;
+                gunAnimator.SetBool("isReloading", false);
+                isShooting = false;
                 canSwap = true;
+
             }
             else if (limitedw == true)
             {
@@ -448,23 +453,25 @@ public class playerController : MonoBehaviour, IDamageable
             }
             updateAmmoCount();
         }
+
     }
+
     #endregion
     #region Shield
     IEnumerator Shielding()
     {
         if (Input.GetButtonUp("Shield") && shieldCharge != 0 && hassheild == true)
         {
-                playerShield.SetActive(true);
-                yield return new WaitForSeconds(5);
-                playerShield.SetActive(false);
-                shieldCharge--;
-            if(sheildregen == 5)
+            playerShield.SetActive(true);
+            yield return new WaitForSeconds(5);
+            playerShield.SetActive(false);
+            shieldCharge--;
+            if (sheildregen == 5)
             {
                 shieldCharge++;
                 sheildregen = 0;
             }
-            
+
         }
 
     }

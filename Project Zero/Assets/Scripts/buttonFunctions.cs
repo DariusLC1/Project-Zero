@@ -20,6 +20,13 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene("test scene");
     }
 
+    public void BossRush()
+    {
+        gameManager.instance.bossRush = true;
+        gameManager.instance.playerScript.hassheild = true;
+        gameManager.instance.playerScript.haswalljump = true;
+        SceneManager.LoadScene("Level 1 boss");
+    }
 
     
     public void respawn()

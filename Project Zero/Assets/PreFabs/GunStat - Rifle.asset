@@ -17,8 +17,9 @@ MonoBehaviour:
   shootDamage: 10
   reloadTime: 3
   ammo: 25
-  shootSpread: 0.02
+  shootSpread: 10
   ammoLeft: 4
+  limited: 0
   model: {fileID: 142843593569271752, guid: a2d4b35accc657c448380d124df08a8b, type: 3}
   shootingSound: {fileID: 8300000, guid: 73f4ee18fc01b734c8bbcb3f1e0a058b, type: 3}
   emplyClick: {fileID: 8300000, guid: 3bb7e229e6169d04f8181ee08f131bad, type: 3}
