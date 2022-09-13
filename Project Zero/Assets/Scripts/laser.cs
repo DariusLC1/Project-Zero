@@ -5,15 +5,14 @@ using UnityEngine;
 public class laser : MonoBehaviour
 {
 
-    [SerializeField] private playerController playerController;
     private LineRenderer lr;
+    [SerializeField] private int damage;
     [SerializeField] private Transform startPoint;
     // Start is called before the first frame update
     void Start()
     {
         lr = GetComponent<LineRenderer>();
 
-        playerController = GameObject.Find("Player").GetComponent<playerController>();
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class laser : MonoBehaviour
 
             if (hit.transform.tag == "Player")
             {
-                playerController.death();
+                gameManager.instance.playerScript.death();
             }
 
         }
