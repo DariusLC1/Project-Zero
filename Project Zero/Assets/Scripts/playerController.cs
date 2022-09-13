@@ -65,6 +65,9 @@ public class playerController : MonoBehaviour, IDamageable
     public bool isShooting = false;
     int amtWeapon = 0;
     int ammoCountOg;
+    public int sheildregen = 0;
+    public bool hassheild = false;
+    public bool haswalljump = false;
     [SerializeField]bool isReloading;
     [SerializeField]bool canSwap = true;
 
@@ -142,18 +145,23 @@ public class playerController : MonoBehaviour, IDamageable
 
     IEnumerator Dash()
     {
-        isDashable = false;
-        float startTime = Time.time; // need to remember this to know how long to dash
-        while (Time.time < startTime + dashTime)
+        if (isDashable == true)
         {
-            Vector3 moveDirection = transform.forward * dashLength;
-           // controller.Move(moveDirection * dashSpeed * Time.deltaTime);
-            controller.Move(moveDirection * dashSpeed * Time.deltaTime);
-            yield return null;
+            isDashable = false;
+            float startTime = Time.time; // need to remember this to know how long to dash
+            while (Time.time < startTime + dashTime)
+            {
+                Vector3 moveDirection = transform.forward * dashLength;
+                // controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+                controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+                yield return null;
+            }
+            yield return new WaitForSeconds(4);
+            isDashable = true;
         }
-        yield return new WaitForSeconds(1);
-        isDashable = true;
     }
+    #endregion
+    #region damagestuff
     IEnumerator damageFlash()
     {
         gameManager.instance.playerDamageFlash.SetActive(true);
@@ -397,7 +405,8 @@ public class playerController : MonoBehaviour, IDamageable
             }
         }
     }
-
+    #endregion
+    #region Updatefunctions
     public void updatePlayerHP()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
@@ -407,7 +416,8 @@ public class playerController : MonoBehaviour, IDamageable
     {
         gameManager.instance.ammoCount.text = $"{ammoCount}/{MaxammoCount}";
     }
-
+    #endregion
+    #region reload
     IEnumerator reload()
     {
         if (Input.GetButtonDown("Reload"))
@@ -443,12 +453,17 @@ public class playerController : MonoBehaviour, IDamageable
     #region Shield
     IEnumerator Shielding()
     {
-        if (Input.GetButtonUp("Shield") && shieldCharge != 0)
+        if (Input.GetButtonUp("Shield") && shieldCharge != 0 && hassheild == true)
         {
                 playerShield.SetActive(true);
                 yield return new WaitForSeconds(5);
                 playerShield.SetActive(false);
-                shieldCharge -= 1;
+                shieldCharge--;
+            if(sheildregen == 5)
+            {
+                shieldCharge++;
+                sheildregen = 0;
+            }
             
         }
 

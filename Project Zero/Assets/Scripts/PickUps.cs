@@ -10,6 +10,15 @@ public class PickUps : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(gameObject.name == "Sheild pickup")
+            {
+                gameManager.instance.playerScript.hassheild = true;
+            }
+            else if (gameObject.name == "wall jump pickup")
+            {
+                gameManager.instance.playerScript.haswalljump = true;
+            }
+
             if (gameManager.instance.playerScript.HP > 50)
             {
                 Debug.Log("over 50");
