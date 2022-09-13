@@ -31,6 +31,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 10)][SerializeField] int bulletDestroyTime;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bulletSpawn;
+    [SerializeField] GameObject Health;
+    [SerializeField] GameObject Ammo;
 
     Vector3 playerDirection;
     Vector3 startingPos;
@@ -151,6 +153,8 @@ public class enemyAI : MonoBehaviour, IDamageable
                 gameManager.instance.killed++;
                 gameManager.instance.killedEnemies.text = $"Killed Enemies | {gameManager.instance.killed}";
                 gameManager.instance.playerScript.sheildregen++;
+                GameObject.Instantiate(Ammo);
+                GameObject.Instantiate(Health);
             }
 
         }
