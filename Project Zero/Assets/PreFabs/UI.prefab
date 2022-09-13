@@ -2549,8 +2549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 8}
-  m_SizeDelta: {x: 100, y: 25}
+  m_AnchoredPosition: {x: 21.5952, y: 8}
+  m_SizeDelta: {x: 96.8096, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2683854299991782788
 CanvasRenderer:
@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -75.506485, y: 0, z: 24.459888, w: -15.952084}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3428,7 +3428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5251647987766027925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3749,7 +3749,7 @@ AudioSource:
   m_GameObject: {fileID: 7172759587773048302}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6596596174472390578, guid: c9633b0de5357a1448a4b132606bda8e, type: 2}
   m_audioClip: {fileID: 8300000, guid: dfbff33145dee02498923b20ac8d9f3d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3866,6 +3866,7 @@ MonoBehaviour:
   scenes: 0
   enemyCount: 0
   doorEnemyCount: 0
+  killed: 0
   bossRush: 0
   gameOver: 0
   isPaused: 0

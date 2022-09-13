@@ -2,40 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class soundManager : MonoBehaviour
 {
-    [SerializeField] Slider volSlider;
+    [SerializeField] AudioMixer mixer;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
 
-    // Start is called before the first frame update
-    void Start()
+    const string MixerMusic = "MusicVolume";
+    const string MixerSFX = "SFXVolume";
+
+    private void Awake()
     {
-        if (PlayerPrefs.HasKey("volume"))
+        musicSlider.onValueChanged.AddListener(setMusic);
+        sfxSlider.onValueChanged.AddListener(setSFX);
+    }
+
+    private void Start()
+    {
+        if(!PlayerPrefs.HasKey("musicVolume"))
         {
-            PlayerPrefs.SetFloat("volume", 1);
-            load();
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            loadMusic();
         }
-        else
+        else { loadMusic(); }
+
+
+
+        if (!PlayerPrefs.HasKey("sfxVolume"))
         {
-            load();
+            PlayerPrefs.SetFloat("sfxVolume", 1);
+            loadSFX();
         }
-        
+        else { loadSFX(); }
+
     }
 
-    public void changeVolume()
+    void setMusic(float value)
     {
-        AudioListener.volume = volSlider.value;
-        save();
+        mixer.SetFloat(MixerMusic, Mathf.Log10(value) * 20);
+        saveMusic();
     }
 
-    private void load()
+    void setSFX(float value)
     {
-        volSlider.value = PlayerPrefs.GetFloat("volume");
+        mixer.SetFloat(MixerSFX, Mathf.Log10(value) * 20);
+        saveSFX();
     }
 
-    private void save()
+    void saveMusic()
     {
-        PlayerPrefs.SetFloat("volume", volSlider.value);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 
+    void saveSFX()
+    {
+        PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
+    }
+
+    void loadMusic()
+    {
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    void loadSFX()
+    {
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+    }
 }
