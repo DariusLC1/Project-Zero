@@ -227,9 +227,9 @@ public class playerController : MonoBehaviour, IDamageable
     // --------- for Weapons ------------ \\
     IEnumerator shoot()
     {
-        Vector3 shootDirection = Camera.main.transform.position;
-        shootDirection.x = Random.Range(-ShootSpread, ShootSpread);
-        shootDirection.y = Random.Range(-ShootSpread, ShootSpread);
+        Vector3 deviation3D = Random.insideUnitCircle * ShootSpread;
+        Quaternion rot = Quaternion.LookRotation(Vector3.forward * shootingDist + deviation3D);
+        Vector3 forwardVector = Camera.main.transform.rotation * rot * Vector3.forward;
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootingDist, Color.red, 0.00001f);
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
@@ -252,9 +252,10 @@ public class playerController : MonoBehaviour, IDamageable
                 updateAmmoCount();
                 audSource.PlayOneShot(shootSound, shootSoundVol);
                 RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootingDist))
+                if (Physics.Raycast(Camera.main.transform.position, forwardVector, out hit, shootingDist))
                 {
                     Instantiate(hitEffect, hit.point, hitEffect.transform.rotation);
+                    //Instantiate(bulletTrail, hit.point, hitEffect.transform.rotation);
                     if (hit.collider.GetComponent<IDamageable>() != null)
                     {
                         IDamageable isDamageable = hit.collider.GetComponent<IDamageable>();

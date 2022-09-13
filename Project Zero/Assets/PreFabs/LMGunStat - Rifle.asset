@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d22b0dbedb7c25409e7ae62cba31613, type: 3}
+  m_Name: LMGunStat - Rifle
+  m_EditorClassIdentifier: 
+  shootRate: 0.08
+  shootingDist: 155
+  shootDamage: 10
+  reloadTime: 3
+  ammo: 25
+  shootSpread: 10
+  ammoLeft: 0
+  limited: 1
+  model: {fileID: 142843593569271752, guid: a435ef3087ca2be4ebe8bce98cb05f1e, type: 3}
+  shootingSound: {fileID: 8300000, guid: 73f4ee18fc01b734c8bbcb3f1e0a058b, type: 3}
+  emplyClick: {fileID: 8300000, guid: 3bb7e229e6169d04f8181ee08f131bad, type: 3}
+  reloadSound: {fileID: 8300000, guid: 48249e686fc7ed8478f1a707b1dbdd9d, type: 3}
+  shootingVol: 0.8
+  emptyClickVol: 0.8
+  reloadSoundVol: 0.8
