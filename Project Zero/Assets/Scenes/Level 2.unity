@@ -449,6 +449,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167d4161c139e654980fe8374bf0dd48, type: 3}
+--- !u!137 &551969343 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2105246659565994792, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
+  m_PrefabInstance: {fileID: 1936317464861317932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1289098003 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1005983042160960734, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
+  m_PrefabInstance: {fileID: 1557671620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1377062481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,8 +573,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 871410909707256798, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6962802099472842972, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 1289098003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
 --- !u!1001 &1673284762
@@ -671,6 +685,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 569838218625029700, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 551969343}
     - target: {fileID: 2105246659579662224, guid: e9ea66c534cab2a4aac5246dabb61b7c, type: 3}
       propertyPath: m_Name
       value: Regular Enemy
