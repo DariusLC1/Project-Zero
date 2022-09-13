@@ -89,7 +89,6 @@ public class playerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-
         weaponSwap();
         playerMovement();
         Sprint();
@@ -97,6 +96,7 @@ public class playerController : MonoBehaviour, IDamageable
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
+        StartCoroutine(gunfixes());
 
     }
     #region PlayerStuff
@@ -277,6 +277,14 @@ public class playerController : MonoBehaviour, IDamageable
         }
     }
 
+    IEnumerator gunfixes()
+    {
+        if(isShooting == true)
+        {
+            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
+        }
+    }
     public void gunPickup(float shtRate, int shtingDist, int shtDamage, int ammo, int ammoLeft, GameObject model, float spread, AudioClip shootingSound, float shootingVol, AudioClip emptyClip, float emptyClipVol, AudioClip reloading, float reloadingVol, int rTime, bool Limited, gunStats _gstats)
     {
         if (gunStat.Count == 0)
@@ -446,6 +454,23 @@ public class playerController : MonoBehaviour, IDamageable
                 isShooting = false;
                 canSwap = true;
 
+            }
+            else if (MaxammoCount < ammoCountOg)
+            {
+                gunAnimator.SetBool("isReloading", true);
+                canSwap = false;
+                gameManager.instance.reloadUI.SetActive(true);
+                isReloading = true;
+                audSource.PlayOneShot(reloadSound, reloadSoundVol);
+                yield return new WaitForSeconds(reloadTime);
+                ammoCount = MaxammoCount;
+                AmmoLeft = ammoCount;
+                MaxammoCount = 0;
+                gameManager.instance.reloadUI.SetActive(false);
+                isReloading = false;
+                gunAnimator.SetBool("isReloading", false);
+                isShooting = false;
+                canSwap = true;
             }
             else if (limitedw == true)
             {
