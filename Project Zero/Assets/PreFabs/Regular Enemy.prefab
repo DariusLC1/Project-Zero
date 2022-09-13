@@ -1869,9 +1869,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2105246659579662223}
-  rend: {fileID: 0}
+  rend: {fileID: 2105246659565994792}
   anim: {fileID: 2105246659570286060}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: -2997325331975022555}
   hurting: {fileID: 0}
   hurtingVol: 0
   dying: {fileID: 0}
