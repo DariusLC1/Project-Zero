@@ -39,8 +39,10 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
-        gameManager.instance.cursorUnlockUnpause();
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameManager.instance.gameOver = false;
+        gameManager.instance.cursorUnlockUnpause();
     }
 
     public void quit()

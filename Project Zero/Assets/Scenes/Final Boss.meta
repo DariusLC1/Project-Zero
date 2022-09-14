@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Zero/Assets/Scenes/Final Boss.meta
 guid: 7cc49c000722a7442a50a4cb6becfb0f
+========
+guid: 595e336b8a435564e812adbf96b7aa94
+>>>>>>>> main:Project Zero/Assets/UnityStore stuff/ADG_Textures.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

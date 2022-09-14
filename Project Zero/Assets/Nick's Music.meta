@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Zero/Assets/Nick's Music.meta
 guid: 1a51b6ec5229e73429c43c49bafd6fb6
+========
+guid: 28b8270fab73aa549b1580d922711cdb
+>>>>>>>> main:Project Zero/Assets/UnityStore stuff/ADG_Textures/ground_vol1/ground4.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
