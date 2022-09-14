@@ -53,7 +53,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179578142381131528, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: Woosh
+      value: 
+      objectReference: {fileID: 8300000, guid: 6efbe40fef731494ba802fe286366f33, type: 3}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: Jumping
+      value: 
+      objectReference: {fileID: 8300000, guid: 33e4882bff431b1438ccc79951521ad3, type: 3}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: WooshVol
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: JumpingVol
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: gunAnimator
