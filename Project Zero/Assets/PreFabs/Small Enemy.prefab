@@ -1494,7 +1494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &865385656788056032
 Transform:
   m_ObjectHideFlags: 0
@@ -1545,10 +1545,10 @@ MonoBehaviour:
   rend: {fileID: 1005983042160960734}
   anim: {fileID: 956469774308078198}
   audioSource: {fileID: -5085645058925469273}
-  hurting: {fileID: 8300000, guid: 58bbce0bb8cbe64479effdead3f5e4d9, type: 3}
-  hurtingVol: 2
-  dying: {fileID: 8300000, guid: 2b316c8eb12e0f64dbaad6bb5cbb5603, type: 3}
-  dyingVol: 2
+  hurting: {fileID: 0}
+  hurtingVol: 0
+  dying: {fileID: 0}
+  dyingVol: 0
   HP: 5
   facePlayer: 10
   FOV: 180

@@ -18,9 +18,14 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] float dashTime;
     [SerializeField] float dashLength;
     public GameObject playerShield;
+    public GameObject playerShieldUI;
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip hurtSound;
+    [SerializeField] AudioClip Woosh;
+    [SerializeField] AudioClip Jumping;
     [SerializeField] float hurtSoundVol;
+    [SerializeField] float WooshVol;
+    [SerializeField] float JumpingVol;
 
 
     [Header("----- Shield Stats -----")]
@@ -130,6 +135,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (Input.GetButtonDown("Jump") && timesJumped < jumpsMax)
         {
             playerVelocity.y = jumpHeight;
+            aud.PlayOneShot(Jumping, JumpingVol);
             timesJumped++;
         }
 
@@ -166,6 +172,7 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 Vector3 moveDirection = transform.forward * dashLength;
                 // controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+                aud.PlayOneShot(Woosh, WooshVol);
                 controller.Move(moveDirection * dashSpeed * Time.deltaTime);
                 yield return null;
             }
@@ -511,8 +518,11 @@ public class playerController : MonoBehaviour, IDamageable
         if (Input.GetButtonUp("Shield") && shieldCharge != 0 && hassheild == true)
         {
             playerShield.SetActive(true);
+            playerShieldUI.SetActive(true);
             yield return new WaitForSeconds(5);
+            playerShieldUI.SetActive(false);
             playerShield.SetActive(false);
+            
             shieldCharge--;
             if (sheildregen == 5)
             {
