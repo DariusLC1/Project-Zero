@@ -17,7 +17,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     [Header("-----Stats-----")]
     [Range(0, 100)][SerializeField] int HP;
-    [Range(0, 10)][SerializeField] int facePlayer;
+    [Range(0, 30)][SerializeField] int facePlayer;
     [Range(15, 360)][SerializeField] int FOV;
     [Range(15, 360)][SerializeField] int FOVShoot;
     [SerializeField] int roamRadius;
@@ -26,9 +26,9 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     [Header("-----Weapon Stats-----")]
     [Range(0.1f, 5)][SerializeField] float shootRate;
-    [Range(1, 10)][SerializeField] int damage;
-    [Range(1, 10)][SerializeField] int bulletSpeed;
-    [Range(1, 10)][SerializeField] int bulletDestroyTime;
+    [Range(1, 30)][SerializeField] int damage;
+    [Range(1, 200)][SerializeField] int bulletSpeed;
+    [Range(1, 200)][SerializeField] int bulletDestroyTime;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bulletSpawn;
     [SerializeField] GameObject Health;
