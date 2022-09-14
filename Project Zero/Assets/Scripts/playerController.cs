@@ -18,9 +18,14 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] float dashTime;
     [SerializeField] float dashLength;
     public GameObject playerShield;
+    public GameObject playerShieldUI;
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip hurtSound;
+    [SerializeField] AudioClip Woosh;
+    [SerializeField] AudioClip Jumping;
     [SerializeField] float hurtSoundVol;
+    [SerializeField] float WooshVol;
+    [SerializeField] float JumpingVol;
 
 
     [Header("----- Shield Stats -----")]
@@ -64,7 +69,7 @@ public class playerController : MonoBehaviour, IDamageable
     public bool isDashable = true;
     int HPOrig;
     public bool isShooting = false;
-    int amtWeapon = 0;
+    public int amtWeapon = 0;
     int ammoCountOg;
     public int sheildregen = 0;
     public bool hassheild = false;
@@ -88,8 +93,10 @@ public class playerController : MonoBehaviour, IDamageable
         }
         if(GlobalScript.Instance.GlobalgunStat.Count != 0)
         {
-            LoadPlayer();
-            amtWeapon++;
+            GlobalScript.Instance.LoadPlayer();
+            playerSpeedOriginal = playerSpeed;
+            shieldChargeOG = shieldCharge;
+            audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
             updatePlayerHP();
             updateAmmoCount();
         }
@@ -98,10 +105,12 @@ public class playerController : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        
         weaponSwap();
         playerMovement();
         Sprint();
         reload();
+        StartCoroutine(shoot());
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
@@ -126,6 +135,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (Input.GetButtonDown("Jump") && timesJumped < jumpsMax)
         {
             playerVelocity.y = jumpHeight;
+            aud.PlayOneShot(Jumping, JumpingVol);
             timesJumped++;
         }
 
@@ -162,6 +172,7 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 Vector3 moveDirection = transform.forward * dashLength;
                 // controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+                aud.PlayOneShot(Woosh, WooshVol);
                 controller.Move(moveDirection * dashSpeed * Time.deltaTime);
                 yield return null;
             }
@@ -177,20 +188,6 @@ public class playerController : MonoBehaviour, IDamageable
         GlobalScript.Instance.haswalljump = haswalljump;
         GlobalScript.Instance.GHP = HP;
         GlobalScript.Instance.GMaxammoCount = MaxammoCount;
-    }
-
-    public void LoadPlayer()
-    {
-        HP = GlobalScript.Instance.GHP;
-        amtWeapon = GlobalScript.Instance.amtWeapon;
-        hassheild = GlobalScript.Instance.hassheild;
-        haswalljump = GlobalScript.Instance.haswalljump;
-        MaxammoCount = GlobalScript.Instance.GMaxammoCount;
-        for (int i = 0; i < GlobalScript.Instance.GlobalgunStat.Count; i++)
-        {
-            gunStat.Add(GlobalScript.Instance.GlobalgunStat[i]);
-        }
-           
     }
     #endregion
     #region damagestuff
@@ -402,6 +399,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                isShooting = false;
                 updateAmmoCount();
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && amtWeapon > 0)
@@ -436,6 +434,7 @@ public class playerController : MonoBehaviour, IDamageable
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 updateAmmoCount();
+                isShooting = false;
             }
         }
     }
@@ -519,8 +518,11 @@ public class playerController : MonoBehaviour, IDamageable
         if (Input.GetButtonUp("Shield") && shieldCharge != 0 && hassheild == true)
         {
             playerShield.SetActive(true);
+            playerShieldUI.SetActive(true);
             yield return new WaitForSeconds(5);
+            playerShieldUI.SetActive(false);
             playerShield.SetActive(false);
+            
             shieldCharge--;
             if (sheildregen == 5)
             {

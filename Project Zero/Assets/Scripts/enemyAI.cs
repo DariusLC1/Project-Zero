@@ -97,7 +97,6 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection, out hit))
         {
-            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), playerDirection); //debug code, remove later
 
             if (hit.collider.CompareTag("Player") && angle <= FOV)
             {

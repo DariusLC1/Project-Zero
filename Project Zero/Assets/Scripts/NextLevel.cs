@@ -7,19 +7,6 @@ public class NextLevel : MonoBehaviour
 {
     public static NextLevel Instance;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public async void loadScene(string sceneName)
     {
         var scene = SceneManager.LoadSceneAsync(sceneName);
