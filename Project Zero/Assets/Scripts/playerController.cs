@@ -296,9 +296,10 @@ public class playerController : MonoBehaviour, IDamageable
                         gameManager.instance.isCoreDestroyed();
                     }
                 }
-                isShooting = false;
-                yield return new WaitForSeconds(shootRate);
                 
+                yield return new WaitForSeconds(shootRate);
+                isShooting = false;
+
                 shots++;
                 gameManager.instance.ShotsFired.text = $"Shots Fired = {shots}";
             }

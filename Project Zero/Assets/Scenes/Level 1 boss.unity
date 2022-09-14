@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 395983263488862695, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 395983263488862695, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 7172759587773048299, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 5049051500361734576, guid: ed63c067213d8ff40b4f6d73cefb291c, type: 3}
+      objectReference: {fileID: 1607031290}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
 --- !u!1001 &579147977
@@ -1284,6 +1284,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1607031290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5049051500361734576, guid: ed63c067213d8ff40b4f6d73cefb291c, type: 3}
+  m_PrefabInstance: {fileID: 1125525158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1622098923
 PrefabInstance:
   m_ObjectHideFlags: 0
