@@ -115,6 +115,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   startPoint: {fileID: 3223685635458576538}
+  audi: {fileID: 0}
+  laserScream: {fileID: 8300000, guid: f55617aa6ba02d044a796e92fc575d4d, type: 3}
+  volume: 1
 --- !u!120 &3223685635132291260
 LineRenderer:
   m_ObjectHideFlags: 0
