@@ -89,6 +89,9 @@ public class playerController : MonoBehaviour, IDamageable
         if(GlobalScript.Instance.GlobalgunStat.Count != 0)
         {
             LoadPlayer();
+            amtWeapon++;
+            updatePlayerHP();
+            updateAmmoCount();
         }
     }
 
@@ -184,7 +187,10 @@ public class playerController : MonoBehaviour, IDamageable
         haswalljump = GlobalScript.Instance.haswalljump;
         MaxammoCount = GlobalScript.Instance.GMaxammoCount;
         for (int i = 0; i < GlobalScript.Instance.GlobalgunStat.Count; i++)
-            gunStat[i] = GlobalScript.Instance.GlobalgunStat[i];
+        {
+            gunStat.Add(GlobalScript.Instance.GlobalgunStat[i]);
+        }
+           
     }
     #endregion
     #region damagestuff
@@ -257,7 +263,6 @@ public class playerController : MonoBehaviour, IDamageable
         Quaternion rot = Quaternion.LookRotation(Vector3.forward * shootingDist + deviation3D);
         Vector3 forwardVector = Camera.main.transform.rotation * rot * Vector3.forward;
 
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootingDist, Color.red, 0.00001f);
         if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
         {
             isShooting = true;
