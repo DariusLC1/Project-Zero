@@ -19,33 +19,35 @@ public class NextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (gameManager.instance.scenes == 1 && GlobalScript.Instance.bossRush == false)
+            if (GlobalScript.Instance.scenes == 1 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Level 1 boss");
             }
-            else if (gameManager.instance.scenes == 2 && GlobalScript.Instance.bossRush == false)
+            else if (GlobalScript.Instance.scenes == 2 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Level 2");
             }
-            else if (gameManager.instance.scenes == 3 && GlobalScript.Instance.bossRush == false)
+            else if (GlobalScript.Instance.scenes == 3 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Level 3");
             }
-            else if (gameManager.instance.scenes == 4 && GlobalScript.Instance.bossRush == false)
+            else if (GlobalScript.Instance.scenes == 4 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Level 3 boss");
             }
-            else if (gameManager.instance.scenes == 5 && GlobalScript.Instance.bossRush == false)
+            else if (GlobalScript.Instance.scenes == 5 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Final Boss");
             }
 
-            else if(GlobalScript.Instance.bossRush == true)
-            { }
-            else if (GlobalScript.Instance.bossRush == true)
-            { }
-            else if (GlobalScript.Instance.bossRush == true)
-            { }
+            else if(GlobalScript.Instance.bossRush == true && GlobalScript.Instance.scenes == 1)
+            {
+                loadScene("Level 3 boss");
+            }
+            else if (GlobalScript.Instance.bossRush == true && GlobalScript.Instance.scenes == 2)
+            {
+                loadScene("Final Boss");
+            }
 
         }
     }

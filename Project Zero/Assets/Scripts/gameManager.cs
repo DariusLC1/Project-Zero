@@ -28,7 +28,6 @@ public class gameManager : MonoBehaviour
 
 
     public GameObject playerSpawnPos;
-    public int scenes = 0;
     public int enemyCount;
     public int doorEnemyCount;
     public int killed;
@@ -121,8 +120,7 @@ public class gameManager : MonoBehaviour
     {
         if (core.activeInHierarchy == false)
         {
-
-            scenes++;
+            GlobalScript.Instance.scenes++;
             if (door.activeInHierarchy == false)
             {
                 door.SetActive(true);

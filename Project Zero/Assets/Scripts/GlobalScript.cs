@@ -13,6 +13,7 @@ public class GlobalScript : MonoBehaviour
     public bool haswalljump;
     public int amtWeapon;
     public bool bossRush;
+    public int scenes;
     public List<gunStats> GlobalgunStat = new List<gunStats>();
     void Awake()
     {
