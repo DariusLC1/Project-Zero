@@ -7,19 +7,6 @@ public class NextLevel : MonoBehaviour
 {
     public static NextLevel Instance;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public async void loadScene(string sceneName)
     {
         var scene = SceneManager.LoadSceneAsync(sceneName);
@@ -40,7 +27,7 @@ public class NextLevel : MonoBehaviour
             {
                 loadScene("Level 2");
             }
-            else if (gameManager.instance.scenes == 3)
+            else if (gameManager.instance.scenes == 3 || (gameManager.instance.scenes == 2 && gameManager.instance.bossRush == true))
             {
                 loadScene("Level 2 boss");
             }
@@ -48,7 +35,7 @@ public class NextLevel : MonoBehaviour
             {
                 loadScene("Level 3");
             }
-            else if (gameManager.instance.scenes == 5)
+            else if (gameManager.instance.scenes == 5 || (gameManager.instance.scenes == 4 && gameManager.instance.bossRush == true))
             {
                 loadScene("Level 3 boss");
             }

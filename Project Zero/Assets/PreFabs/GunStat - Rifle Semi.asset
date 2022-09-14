@@ -15,7 +15,7 @@ MonoBehaviour:
   shootRate: 1.75
   shootingDist: 160
   shootDamage: 15
-  reloadTime: 3
+  reloadTime: 2
   ammo: 5
   shootSpread: 1
   ammoLeft: 5
