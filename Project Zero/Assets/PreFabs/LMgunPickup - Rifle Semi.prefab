@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8446864754377494745}
   - component: {fileID: -7467568542585865630}
   m_Layer: 0
-  m_Name: gunPickup - Rifle Semi
+  m_Name: LMgunPickup - Rifle Semi
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -110,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c062528ddc95904b99082940cc98a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunStat: {fileID: 11400000, guid: 3d722a591a4c7fe4187de38ba56eb3c1, type: 2}
+  gunStat: {fileID: 11400000, guid: 333d32512442ad741a5676ed84b7cd51, type: 2}
