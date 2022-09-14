@@ -120,7 +120,6 @@ public class gameManager : MonoBehaviour
     {
         if (core.activeInHierarchy == false)
         {
-            GlobalScript.Instance.scenes++;
             if (door.activeInHierarchy == false)
             {
                 door.SetActive(true);

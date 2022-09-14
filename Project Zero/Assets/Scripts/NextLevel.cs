@@ -19,6 +19,7 @@ public class NextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GlobalScript.Instance.scenes++;
             if (GlobalScript.Instance.scenes == 1 && GlobalScript.Instance.bossRush == false)
             {
                 loadScene("Level 1 boss");
