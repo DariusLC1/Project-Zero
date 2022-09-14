@@ -10,7 +10,7 @@ public class wallJump : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && gameManager.instance.playerScript.haswalljump == true)
         {
             aud.PlayOneShot(cl, vol);
             gameManager.instance.playerScript.gravity = gameManager.instance.playerScript.gravity * (float)0.5;

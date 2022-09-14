@@ -13,27 +13,28 @@ public class PickUps : MonoBehaviour
             if(gameObject.name == "Sheild pickup")
             {
                 gameManager.instance.playerScript.hassheild = true;
+                Destroy(gameObject);
             }
             else if (gameObject.name == "wall jump pickup")
             {
                 gameManager.instance.playerScript.haswalljump = true;
+                Destroy(gameObject);
             }
 
             if (gameManager.instance.playerScript.HP > 50)
             {
-                Debug.Log("over 50");
                 if (gameObject.name == "Health pack")
                 {
-                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     gameManager.instance.playerScript.HP += health;
                     gameManager.instance.playerScript.updatePlayerHP();
+                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     Destroy(gameObject);
                 }
                 else if (gameObject.name == "Ammo")
                 {
-                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     gameManager.instance.playerScript.MaxammoCount += ammo;
                     gameManager.instance.playerScript.updateAmmoCount();
+                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     Destroy(gameObject);
                 }
             }
@@ -41,16 +42,16 @@ public class PickUps : MonoBehaviour
             {
                 if (gameObject.name == "Health pack")
                 {
-                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     gameManager.instance.playerScript.HP += health * 2;
                     gameManager.instance.playerScript.updatePlayerHP();
+                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     Destroy(gameObject);
                 }
                 else if (gameObject.name == "Ammo")
                 {
-                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     gameManager.instance.playerScript.MaxammoCount += ammo + 5;
                     gameManager.instance.playerScript.updateAmmoCount();
+                    gameObject.transform.Translate(gameManager.instance.player.transform.position);
                     Destroy(gameObject);
                 }
             }

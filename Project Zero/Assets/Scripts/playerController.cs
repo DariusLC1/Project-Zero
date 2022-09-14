@@ -75,21 +75,26 @@ public class playerController : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeedOriginal = playerSpeed;
-        HPOrig = HP;
-        shieldChargeOG = shieldCharge;
-        ammoCountOg = ammoCount;
+        if (GlobalScript.Instance.GlobalgunStat.Count == 0)
+        {
+            playerSpeedOriginal = playerSpeed;
+            HPOrig = HP;
+            shieldChargeOG = shieldCharge;
+            ammoCountOg = ammoCount;
 
-        audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
-        updatePlayerHP();
-        updateAmmoCount();
-
+            audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
+            updatePlayerHP();
+            updateAmmoCount();
+        }
+        if(GlobalScript.Instance.GlobalgunStat.Count != 0)
+        {
+            LoadPlayer();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
         weaponSwap();
         playerMovement();
         Sprint();
@@ -97,7 +102,7 @@ public class playerController : MonoBehaviour, IDamageable
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
-
+        SavePlayer();
     }
     #region PlayerStuff
     public void playerMovement()
@@ -160,6 +165,26 @@ public class playerController : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(4);
             isDashable = true;
         }
+    }
+
+    public void SavePlayer()
+    {
+        GlobalScript.Instance.amtWeapon = amtWeapon;
+        GlobalScript.Instance.hassheild = hassheild;
+        GlobalScript.Instance.haswalljump = haswalljump;
+        GlobalScript.Instance.GHP = HP;
+        GlobalScript.Instance.GMaxammoCount = MaxammoCount;
+    }
+
+    public void LoadPlayer()
+    {
+        HP = GlobalScript.Instance.GHP;
+        amtWeapon = GlobalScript.Instance.amtWeapon;
+        hassheild = GlobalScript.Instance.hassheild;
+        haswalljump = GlobalScript.Instance.haswalljump;
+        MaxammoCount = GlobalScript.Instance.GMaxammoCount;
+        for (int i = 0; i < GlobalScript.Instance.GlobalgunStat.Count; i++)
+            gunStat[i] = GlobalScript.Instance.GlobalgunStat[i];
     }
     #endregion
     #region damagestuff
@@ -304,6 +329,7 @@ public class playerController : MonoBehaviour, IDamageable
             reloadTime = rTime;
 
             gunStat.Add(_gstats);
+            GlobalScript.Instance.GlobalgunStat.Add(_gstats);
             updateAmmoCount();
         }
         else if (gunStat.Count > 0)
@@ -331,6 +357,7 @@ public class playerController : MonoBehaviour, IDamageable
             reloadTime = rTime;
 
             gunStat.Add(_gstats);
+            GlobalScript.Instance.GlobalgunStat.Add(_gstats);
             updateAmmoCount();
         }
     }
@@ -416,7 +443,14 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void updateAmmoCount()
     {
-        gameManager.instance.ammoCount.text = $"{ammoCount}/{MaxammoCount}";
+        if (limitedw == false)
+        {
+            gameManager.instance.ammoCount.text = $"{ammoCount}/{MaxammoCount}";
+        }
+        else
+        {
+            gameManager.instance.ammoCount.text = $"{ammoCount}/{0}";
+        }
     }
     #endregion
     #region reload
@@ -446,6 +480,23 @@ public class playerController : MonoBehaviour, IDamageable
                 isShooting = false;
                 canSwap = true;
 
+            }
+            else if (MaxammoCount < ammoCountOg)
+            {
+                gunAnimator.SetBool("isReloading", true);
+                canSwap = false;
+                gameManager.instance.reloadUI.SetActive(true);
+                isReloading = true;
+                audSource.PlayOneShot(reloadSound, reloadSoundVol);
+                yield return new WaitForSeconds(reloadTime);
+                ammoCount = MaxammoCount;
+                AmmoLeft = ammoCount;
+                MaxammoCount = 0;
+                gameManager.instance.reloadUI.SetActive(false);
+                isReloading = false;
+                gunAnimator.SetBool("isReloading", false);
+                isShooting = false;
+                canSwap = true;
             }
             else if (limitedw == true)
             {

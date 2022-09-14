@@ -153,8 +153,8 @@ public class enemyAI : MonoBehaviour, IDamageable
                 gameManager.instance.killed++;
                 gameManager.instance.killedEnemies.text = $"Killed Enemies | {gameManager.instance.killed}";
                 gameManager.instance.playerScript.sheildregen++;
-                GameObject.Instantiate(Ammo);
-                GameObject.Instantiate(Health);
+                Instantiate(Ammo);
+                Instantiate(Health);
             }
 
         }
