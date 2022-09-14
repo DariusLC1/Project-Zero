@@ -111,7 +111,6 @@ public class playerController : MonoBehaviour, IDamageable
         Sprint();
         reload();
         StartCoroutine(shoot());
-        StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
         SavePlayer();
@@ -201,6 +200,7 @@ public class playerController : MonoBehaviour, IDamageable
     public void resetHP()
     {
         HP = HPOrig;
+        GlobalScript.Instance.GHP = HPOrig;
         updatePlayerHP();
     }
 

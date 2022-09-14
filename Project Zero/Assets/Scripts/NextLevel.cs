@@ -29,17 +29,13 @@ public class NextLevel : MonoBehaviour
             }
             else if (gameManager.instance.scenes == 3)
             {
-                loadScene("Level 2 boss");
+                loadScene("Level 3");
             }
             else if (gameManager.instance.scenes == 4)
             {
-                loadScene("Level 3");
-            }
-            else if (gameManager.instance.scenes == 5)
-            {
                 loadScene("Level 3 boss");
             }
-            else if (gameManager.instance.scenes == 6)
+            else if (gameManager.instance.scenes == 5)
             {
                 loadScene("Final Boss");
             }
