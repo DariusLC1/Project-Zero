@@ -32,6 +32,7 @@ public class gameManager : MonoBehaviour
     public int enemyCount;
     public int doorEnemyCount;
     public int killed;
+    public int Maxammo;
     public bool bossRush;
     public bool gameOver;
     public bool isPaused = false;
@@ -55,6 +56,7 @@ public class gameManager : MonoBehaviour
             isPaused = !isPaused;
             menuCurrentlyOpen = pauseMenu;
             menuCurrentlyOpen.SetActive(isPaused);
+            Maxammo = playerScript.MaxammoCount;
 
             if (isPaused)
             {

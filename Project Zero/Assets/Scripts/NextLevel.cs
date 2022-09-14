@@ -24,7 +24,7 @@ public class NextLevel : MonoBehaviour
     {
         var scene = SceneManager.LoadSceneAsync(sceneName);
         scene.allowSceneActivation = true;
-
+        gameManager.instance.playerScript.MaxammoCount = gameManager.instance.Maxammo;
 
         await System.Threading.Tasks.Task.Delay(1000);
     }

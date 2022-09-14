@@ -8576,6 +8576,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101438439947140972, guid: ab651b969b7321544bffd2bdc68ff666, type: 3}
+      propertyPath: shieldCharge
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 101438439947140972, guid: ab651b969b7321544bffd2bdc68ff666, type: 3}
+      propertyPath: shieldChargeOG
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 531708705675318338, guid: ab651b969b7321544bffd2bdc68ff666, type: 3}
       propertyPath: m_Name
       value: Player
