@@ -22,10 +22,10 @@ public class buttonFunctions : MonoBehaviour
 
     public void BossRush()
     {
+        SceneManager.LoadScene("Level 1 boss");
         gameManager.instance.bossRush = true;
         gameManager.instance.playerScript.hassheild = true;
         gameManager.instance.playerScript.haswalljump = true;
-        SceneManager.LoadScene("Level 1 boss");
     }
 
     
