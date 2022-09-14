@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aud: {fileID: 1540763697}
-  cl: {fileID: 8300000, guid: 61954af32956f934788d10775f4f0f9e, type: 3}
-  vol: 100
+  cl: {fileID: 8300000, guid: 515eda16de544614b9076b90391122f8, type: 3}
+  vol: 75
 --- !u!82 &65086489
 AudioSource:
   m_ObjectHideFlags: 0
