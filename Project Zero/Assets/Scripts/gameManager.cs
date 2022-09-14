@@ -45,7 +45,6 @@ public class gameManager : MonoBehaviour
 
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         playerScript.respawn();
-        DontDestroyOnLoad(playerScript);
     }
 
     // Update is called once per frame
