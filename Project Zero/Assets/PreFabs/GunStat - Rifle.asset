@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d22b0dbedb7c25409e7ae62cba31613, type: 3}
   m_Name: GunStat - Rifle
   m_EditorClassIdentifier: 
-  shootRate: 0.08
+  shootRate: 0.5
   shootingDist: 155
   shootDamage: 10
   reloadTime: 3

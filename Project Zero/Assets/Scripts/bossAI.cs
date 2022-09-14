@@ -141,20 +141,23 @@ public class bossAI : MonoBehaviour, IDamageable
                 agent.enabled = false;
                 foreach (Collider col in GetComponents<Collider>())
                     col.enabled = false;
+
             }
 
-            else 
-            { 
-            gameManager.instance.checkEnemyTotal();
-            anim.SetBool("Dead", true);
-            agent.enabled = false;
-            foreach (Collider col in GetComponents<Collider>())
-                col.enabled = false;
+            else
+            {
+                gameManager.instance.winGame();
+                gameManager.instance.checkEnemyTotal();
+                anim.SetBool("Dead", true);
+                agent.enabled = false;
+                foreach (Collider col in GetComponents<Collider>())
+                    col.enabled = false;
                 gameManager.instance.killed++;
                 gameManager.instance.killedEnemies.text = $"Killed Enemies | {gameManager.instance.killed}";
                 gameManager.instance.playerScript.sheildregen++;
                 Instantiate(Ammo);
                 Instantiate(Health);
+
             }
 
         }

@@ -267,6 +267,7 @@ public class playerController : MonoBehaviour, IDamageable
                 audSource.PlayOneShot(emptyClick, emptyClickVol);
             else if (isReloading == true)
             {
+                isShooting = false;
 
             }
             else if (limitedw == true && gunStat[amtWeapon].ammoLeft == 0)
@@ -295,9 +296,9 @@ public class playerController : MonoBehaviour, IDamageable
                         gameManager.instance.isCoreDestroyed();
                     }
                 }
-
-                yield return new WaitForSeconds(shootRate);
                 isShooting = false;
+                yield return new WaitForSeconds(shootRate);
+                
                 shots++;
                 gameManager.instance.ShotsFired.text = $"Shots Fired = {shots}";
             }

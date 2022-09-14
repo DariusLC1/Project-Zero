@@ -81,6 +81,14 @@ public class gameManager : MonoBehaviour
 
     }
 
+    public void winGame()
+    {
+        gameOver = true;
+        winMenu.SetActive(true);
+        menuCurrentlyOpen = winMenu;
+        cursorLockPause();
+    }
+
     public void cursorUnlockUnpause()
     {
         Cursor.visible = false;
@@ -113,10 +121,7 @@ public class gameManager : MonoBehaviour
     {
         if (core.activeInHierarchy == false)
         {
-            //gameOver = true;
-            //winMenu.SetActive(true);
-            //menuCurrentlyOpen = winMenu;
-            //cursorLockPause();
+
             scenes++;
             if (door.activeInHierarchy == false)
             {

@@ -22,7 +22,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void BossRush()
     {
-        gameManager.instance.bossRush = true;
+        GlobalScript.Instance.bossRush = true;
         gameManager.instance.playerScript.hassheild = true;
         gameManager.instance.playerScript.haswalljump = true;
         SceneManager.LoadScene("Level 1 boss");
