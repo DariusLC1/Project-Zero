@@ -17,7 +17,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene("test scene");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void BossRush()
