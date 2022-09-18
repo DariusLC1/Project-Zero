@@ -3858,15 +3858,15 @@ MonoBehaviour:
   ammoCount: {fileID: 7172759588418590043}
   killedEnemies: {fileID: 7172759589446863730}
   ShotsFired: {fileID: 7172759588391541889}
-  core: {fileID: 0}
+  core: {fileID: 1204631243342970158, guid: 84dec0d613c73034e9f80868fbbda2a8, type: 3}
   door: {fileID: 0}
   winMenu: {fileID: 7172759589242354867}
   reloadUI: {fileID: 7172759589044968984}
   playerSpawnPos: {fileID: 0}
-  scenes: 0
   enemyCount: 0
   doorEnemyCount: 0
   killed: 0
+  Maxammo: 0
   bossRush: 0
   gameOver: 0
   isPaused: 0
@@ -4796,7 +4796,7 @@ RectTransform:
   m_GameObject: {fileID: 7726271980139257424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3381334033654782587}
@@ -4804,7 +4804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -3, y: -11}
+  m_AnchoredPosition: {x: -0.6, y: -12.6}
   m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8478499414191414576
