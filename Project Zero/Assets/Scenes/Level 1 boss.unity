@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 395983263488862695, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 395983263488862695, guid: 7cd62df7ccb5d704babb9e4a5f3a37e0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1006,6 +1006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 871410909707256798, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 956469774308077961, guid: d42233cde1aa6a44dbf8806e188643c7, type: 3}
       propertyPath: m_Speed
       value: 50
@@ -1355,7 +1359,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1607031290 stripped
 GameObject:
