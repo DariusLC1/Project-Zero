@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +24,19 @@ public class buttonFunctions : MonoBehaviour
     public void BossRush()
     {
         GlobalScript.Instance.bossRush = true;
-        gameManager.instance.playerScript.hassheild = true;
-        gameManager.instance.playerScript.haswalljump = true;
-        SceneManager.LoadScene("Level 1 boss");
+        GlobalScript.Instance.hassheild = true;
+        GlobalScript.Instance.haswalljump = true;
+        WaitUntil();
     }
 
-    
+    private void WaitUntil()
+    {
+        if (GlobalScript.Instance.haswalljump == true)
+        {
+            SceneManager.LoadScene("Level 1 boss");
+        }
+    }
+
     public void respawn()
     {
         gameManager.instance.playerScript.resetHP();

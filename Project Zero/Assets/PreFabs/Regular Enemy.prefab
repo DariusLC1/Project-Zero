@@ -1008,8 +1008,8 @@ MonoBehaviour:
   bulletDestroyTime: 10
   bullet: {fileID: 6763116933408057900, guid: 07d2c0f69816bca4eb782fae4ac467b4, type: 3}
   bulletSpawn: {fileID: 4434393975539969462}
-  Health: {fileID: 0}
-  Ammo: {fileID: 0}
+  Health: {fileID: 2766243599005765801, guid: aa02339a3cd8cdd43b41d3468d588024, type: 3}
+  Ammo: {fileID: 1307061063300082804, guid: d45cc017e1398d349866ba0e7c34ad93, type: 3}
 --- !u!95 &2105246659570286060
 Animator:
   serializedVersion: 4

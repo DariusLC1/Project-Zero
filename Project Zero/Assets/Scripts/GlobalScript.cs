@@ -7,11 +7,10 @@ public class GlobalScript : MonoBehaviour
     public static GlobalScript Instance;
     public playerdata savedPlayerData = new playerdata();
 
-    public int GHP;
-    public int GMaxammoCount;
+    public int GMaxammoCount = 0;
     public bool hassheild;
     public bool haswalljump;
-    public int amtWeapon;
+    public int amtWeapon = 0;
     public bool bossRush;
     public int scenes;
     public List<gunStats> GlobalgunStat = new List<gunStats>();
@@ -38,7 +37,6 @@ public class GlobalScript : MonoBehaviour
     }
     public void LoadPlayer()
     {
-        gameManager.instance.playerScript.HP = GHP;
         gameManager.instance.playerScript.amtWeapon = amtWeapon;
         gameManager.instance.playerScript.hassheild = hassheild;
         gameManager.instance.playerScript.haswalljump = haswalljump;

@@ -91,7 +91,7 @@ public class playerController : MonoBehaviour, IDamageable
             updatePlayerHP();
             updateAmmoCount();
         }
-        if(GlobalScript.Instance.GlobalgunStat.Count != 0)
+        if(GlobalScript.Instance.GlobalgunStat.Count != 0 || GlobalScript.Instance.hassheild == true)
         {
             GlobalScript.Instance.LoadPlayer();
             playerSpeedOriginal = playerSpeed;
@@ -113,7 +113,6 @@ public class playerController : MonoBehaviour, IDamageable
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
-        SavePlayer();
     }
     #region PlayerStuff
     public void playerMovement()
@@ -145,6 +144,7 @@ public class playerController : MonoBehaviour, IDamageable
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        SavePlayer();
     }
 
     void Sprint()
@@ -185,7 +185,6 @@ public class playerController : MonoBehaviour, IDamageable
         GlobalScript.Instance.amtWeapon = amtWeapon;
         GlobalScript.Instance.hassheild = hassheild;
         GlobalScript.Instance.haswalljump = haswalljump;
-        GlobalScript.Instance.GHP = HP;
         GlobalScript.Instance.GMaxammoCount = MaxammoCount;
     }
     #endregion
@@ -200,7 +199,6 @@ public class playerController : MonoBehaviour, IDamageable
     public void resetHP()
     {
         HP = HPOrig;
-        GlobalScript.Instance.GHP = HPOrig;
         updatePlayerHP();
     }
 
@@ -260,7 +258,7 @@ public class playerController : MonoBehaviour, IDamageable
         Quaternion rot = Quaternion.LookRotation(Vector3.forward * shootingDist + deviation3D);
         Vector3 forwardVector = Camera.main.transform.rotation * rot * Vector3.forward;
 
-        if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false)
+        if (gunStat.Count != 0 && Input.GetButton("Shoot") && isShooting == false && canSwap == true)
         {
             isShooting = true;
             if (ammoCount == 0)
@@ -317,7 +315,7 @@ public class playerController : MonoBehaviour, IDamageable
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
             ammoCount = ammo;
             ammoCountOg = ammoCount;
-            MaxammoCount = ammoCountOg * 3;
+            MaxammoCount = ammoCountOg * 8;
             ammoLeft = ammo;
             AmmoLeft = ammoLeft;
             limitedw = Limited;
@@ -347,7 +345,7 @@ public class playerController : MonoBehaviour, IDamageable
             ammoCountOg = ammoCount;
             ammoLeft = ammo;
             AmmoLeft = ammoLeft;
-            MaxammoCount += ammoCountOg * 2;
+            MaxammoCount += ammoCountOg * 5;
 
             ShootSpread = spread;
 
@@ -361,6 +359,7 @@ public class playerController : MonoBehaviour, IDamageable
             reloadTime = rTime;
 
             gunStat.Add(_gstats);
+            gunStat[amtWeapon+1].ammoLeft = AmmoLeft;
             GlobalScript.Instance.GlobalgunStat.Add(_gstats);
             updateAmmoCount();
         }
@@ -372,21 +371,14 @@ public class playerController : MonoBehaviour, IDamageable
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && amtWeapon < gunStat.Count - 1)
             {
-                gunStat[amtWeapon].ammoLeft = AmmoLeft;
+                MaxammoCount -= gunStat[amtWeapon].ammo;
                 amtWeapon++;
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                gunStat[amtWeapon - 1].ammoLeft = AmmoLeft;
                 AmmoLeft = gunStat[amtWeapon].ammoLeft;
-                if (gunStat[amtWeapon].ammo != AmmoLeft)
-                {
-                    ammoCount = gunStat[amtWeapon].ammoLeft;
-                }
-                else
-                {
-                    ammoCount = gunStat[amtWeapon].ammo;
-                }
-
+                ammoCount = gunStat[amtWeapon].ammo;
 
                 ShootSpread = gunStat[amtWeapon].shootSpread;
 
@@ -402,25 +394,22 @@ public class playerController : MonoBehaviour, IDamageable
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 isShooting = false;
+                if(MaxammoCount <= ammoCount)
+                {
+                    MaxammoCount = 0;
+                }
                 updateAmmoCount();
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && amtWeapon > 0)
             {
-                gunStat[amtWeapon].ammoLeft = AmmoLeft;
+                MaxammoCount -= gunStat[amtWeapon].ammo;
                 amtWeapon--;
                 shootRate = gunStat[amtWeapon].shootRate;
                 shootingDist = gunStat[amtWeapon].shootingDist;
                 shootDamage = gunStat[amtWeapon].shootDamage;
+                gunStat[amtWeapon + 1].ammoLeft = AmmoLeft;
                 AmmoLeft = gunStat[amtWeapon].ammoLeft;
-                if (gunStat[amtWeapon].ammo != AmmoLeft)
-                {
-                    ammoCount = gunStat[amtWeapon].ammoLeft;
-                }
-                else
-                {
-                    ammoCount = gunStat[amtWeapon].ammo;
-                }
-
+                ammoCount = gunStat[amtWeapon].ammo;
 
                 ShootSpread = gunStat[amtWeapon].shootSpread;
 
@@ -435,6 +424,10 @@ public class playerController : MonoBehaviour, IDamageable
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                if (MaxammoCount <= ammoCount)
+                {
+                    MaxammoCount = 0;
+                }
                 updateAmmoCount();
                 isShooting = false;
             }
@@ -462,14 +455,14 @@ public class playerController : MonoBehaviour, IDamageable
     #region reload
     IEnumerator reload()
     {
-        if (Input.GetButtonDown("Reload"))
+        if (Input.GetButtonDown("Reload") && canSwap == true)
         {
 
             if (MaxammoCount <= 0)
             {
                 isReloading = false;
             }
-            else if (MaxammoCount >= 0)
+            else if (MaxammoCount >= ammoCountOg)
             {
                 gunAnimator.SetBool("isReloading", true);
                 canSwap = false;
@@ -487,7 +480,7 @@ public class playerController : MonoBehaviour, IDamageable
                 canSwap = true;
 
             }
-            else if (MaxammoCount < ammoCountOg)
+            else if (MaxammoCount <= ammoCountOg && canSwap == true)
             {
                 gunAnimator.SetBool("isReloading", true);
                 canSwap = false;
@@ -519,13 +512,13 @@ public class playerController : MonoBehaviour, IDamageable
     {
         if (Input.GetButtonUp("Shield") && shieldCharge != 0 && hassheild == true)
         {
+            shieldCharge--;
             playerShield.SetActive(true);
             playerShieldUI.SetActive(true);
             yield return new WaitForSeconds(5);
             playerShieldUI.SetActive(false);
             playerShield.SetActive(false);
             
-            shieldCharge--;
             if (sheildregen == 5)
             {
                 shieldCharge++;

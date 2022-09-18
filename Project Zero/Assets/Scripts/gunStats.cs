@@ -13,7 +13,7 @@ public class gunStats : ScriptableObject
     [Range(1, 200)] public int reloadTime;
     [Range(.01f, 200)] public int ammo;
     [Range(.01f, 200)] public float shootSpread;
-    public int ammoLeft;
+    [Range(.01f, 200)] public int ammoLeft;
     public bool limited;
     public GameObject model;
 
