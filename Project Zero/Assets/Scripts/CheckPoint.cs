@@ -11,6 +11,7 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] float volume;
     [SerializeField] TextMeshProUGUI text;
     float delay = 4;
+    bool firstTime = true;
 
     private void Awake()
     {
@@ -18,11 +19,12 @@ public class CheckPoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && firstTime)
         {
             StartCoroutine(ShowCheckPoint());
             trigger.PlayOneShot(checkpoint, volume);
             gameManager.instance.playerSpawnPos.transform.position = transform.position;
+            firstTime = false;
         }
     }
 
