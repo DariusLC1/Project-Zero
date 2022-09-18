@@ -91,15 +91,15 @@ public class playerController : MonoBehaviour, IDamageable
             updatePlayerHP();
             updateAmmoCount();
         }
-        if(GlobalScript.Instance.GlobalgunStat.Count != 0 || GlobalScript.Instance.hassheild == true)
-        {
-            GlobalScript.Instance.LoadPlayer();
-            playerSpeedOriginal = playerSpeed;
-            shieldChargeOG = shieldCharge;
-            audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
-            updatePlayerHP();
-            updateAmmoCount();
-        }
+        //if(GlobalScript.Instance.GlobalgunStat.Count != 0 || GlobalScript.Instance.hassheild == true)
+        //{
+        //    GlobalScript.Instance.LoadPlayer();
+        //    playerSpeedOriginal = playerSpeed;
+        //    shieldChargeOG = shieldCharge;
+        //    audSource = GameObject.Find("Gun Model").GetComponent<AudioSource>();
+        //    updatePlayerHP();
+        //    updateAmmoCount();
+        //}
     }
 
     // Update is called once per frame
@@ -262,7 +262,13 @@ public class playerController : MonoBehaviour, IDamageable
         {
             isShooting = true;
             if (ammoCount == 0)
+            {
+                if(audSource == null)
+                {
+                    CancelInvoke();
+                }
                 audSource.PlayOneShot(emptyClick, emptyClickVol);
+            }
             else if (isReloading == true)
             {
                 isShooting = false;
@@ -294,7 +300,7 @@ public class playerController : MonoBehaviour, IDamageable
                         gameManager.instance.isCoreDestroyed();
                     }
                 }
-                
+
                 yield return new WaitForSeconds(shootRate);
                 isShooting = false;
 

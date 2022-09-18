@@ -27,14 +27,6 @@ public class GlobalScript : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Debug.Log("worked");
-        if (GlobalgunStat.Count != 0)
-        {
-            LoadPlayer();
-        }
-    }
     public void LoadPlayer()
     {
         gameManager.instance.playerScript.amtWeapon = amtWeapon;
