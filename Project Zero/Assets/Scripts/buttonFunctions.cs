@@ -61,4 +61,9 @@ public class buttonFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void quitToMenu()
+    {
+        SceneManager.LoadScene("MAin Menu");
+    }
 }
