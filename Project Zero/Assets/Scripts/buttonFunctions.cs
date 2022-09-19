@@ -51,6 +51,10 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameManager.instance.gameOver = false;
         gameManager.instance.cursorUnlockUnpause();
+        for(int i = 0; i < GlobalScript.Instance.GlobalgunStat.Count; i++)
+        {
+            GlobalScript.Instance.GlobalgunStat.RemoveAt(i);
+        }
     }
 
     public void quit()
