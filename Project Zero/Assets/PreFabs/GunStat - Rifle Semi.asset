@@ -15,10 +15,10 @@ MonoBehaviour:
   shootRate: 1.75
   shootingDist: 160
   shootDamage: 15
-  reloadTime: 3
+  reloadTime: 2
   ammo: 5
   shootSpread: 1
-  ammoLeft: 1
+  ammoLeft: 5
   limited: 0
   model: {fileID: 142843593569271752, guid: 4497d1be2df576d42b7286730a507b51, type: 3}
   shootingSound: {fileID: 8300000, guid: 294a46ae730728840ad00dca816e432f, type: 3}
