@@ -76,6 +76,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3798126866854128715, guid: ccda956a2a8323c4b9bf334f368aa6ef, type: 3}
     - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
+      propertyPath: hurtSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ea3a8efb00492e2468dbc06f5529a171, type: 3}
+    - target: {fileID: 321055913887771686, guid: 32e769bba947c68479e156f202ffeb20, type: 3}
       propertyPath: JumpingVol
       value: 2
       objectReference: {fileID: 0}

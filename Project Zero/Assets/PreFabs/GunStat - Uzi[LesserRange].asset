@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d22b0dbedb7c25409e7ae62cba31613, type: 3}
+  m_Name: GunStat - Uzi[LesserRange]
+  m_EditorClassIdentifier: 
+  shootRate: 0.05
+  shootingDist: 110
+  shootDamage: 5
+  reloadTime: 3
+  ammo: 30
+  shootSpread: 15
+  ammoLeft: 30
+  limited: 0
+  model: {fileID: 142843593569271752, guid: cdb6ec3996e416e4b99eb9d0cfac267b, type: 3}
+  shootingSound: {fileID: 8300000, guid: 21d24c8b0cfa45f49b32b6f5c9ce366b, type: 3}
+  emplyClick: {fileID: 8300000, guid: b715675562e5aa04494c221f3bcc5dc3, type: 3}
+  reloadSound: {fileID: 8300000, guid: dccd18d58067fab4ba25655aceaba6de, type: 3}
+  shootingVol: 0.8
+  emptyClickVol: 0.8
+  reloadSoundVol: 0.8
