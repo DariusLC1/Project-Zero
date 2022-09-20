@@ -113,6 +113,14 @@ public class playerController : MonoBehaviour, IDamageable
         StartCoroutine(shoot());
         StartCoroutine(reload());
         StartCoroutine(Shielding());
+        if(playerSpeed == 0)
+        {
+            playerSpeed = 7.18f;
+        }
+        if(MaxammoCount < 0)
+        {
+            MaxammoCount = 0;
+        }
     }
     #region PlayerStuff
     public void playerMovement()
@@ -400,9 +408,23 @@ public class playerController : MonoBehaviour, IDamageable
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 isShooting = false;
-                if(MaxammoCount <= ammoCount)
+                if (MaxammoCount == ammoCount)
                 {
                     MaxammoCount = 0;
+                }
+                else if (MaxammoCount <= ammoCount && ammoCount == 0)
+                {
+                    ammoCount += MaxammoCount;
+                    if (ammoCount > ammoCountOg)
+                    {
+                        ammoCount -= ammoCountOg;
+                        ammoCount = MaxammoCount;
+                        ammoCount = ammoCountOg;
+                    }
+                }
+                else if(MaxammoCount > ammoCount)
+                {
+                    ammoCount = ammoCountOg;
                 }
                 updateAmmoCount();
             }
@@ -430,9 +452,23 @@ public class playerController : MonoBehaviour, IDamageable
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[amtWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[amtWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                if (MaxammoCount <= ammoCount)
+                if (MaxammoCount == ammoCount)
                 {
                     MaxammoCount = 0;
+                }
+                else if (MaxammoCount <= ammoCount && ammoCount == 0)
+                {
+                    ammoCount += MaxammoCount;
+                    if(ammoCount > ammoCountOg)
+                    {
+                        ammoCount -= ammoCountOg;
+                        ammoCount = MaxammoCount;
+                        ammoCount = ammoCountOg;
+                    }
+                }
+                else if (MaxammoCount > ammoCount)
+                {
+                    ammoCount = ammoCountOg;
                 }
                 updateAmmoCount();
                 isShooting = false;
