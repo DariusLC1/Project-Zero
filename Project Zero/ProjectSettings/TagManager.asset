@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Health
   - ammo
+  - wall jump pickup
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class PickUps : MonoBehaviour
             if(gameObject.name == "Sheild pickup")
             {
                 gameManager.instance.playerScript.hassheild = true;
+                
                 Destroy(gameObject);
             }
             else if (gameObject.name == "wall jump pickup")
