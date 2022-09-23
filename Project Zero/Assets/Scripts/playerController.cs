@@ -274,6 +274,7 @@ public class playerController : MonoBehaviour, IDamageable
                 if(audSource == null)
                 {
                     CancelInvoke();
+                    isShooting = false;
                 }
                 audSource.PlayOneShot(emptyClick, emptyClickVol);
             }
@@ -291,7 +292,10 @@ public class playerController : MonoBehaviour, IDamageable
                 ammoCount--;
                 AmmoLeft--;
                 updateAmmoCount();
-                audSource.PlayOneShot(shootSound, shootSoundVol);
+                if (audSource != null)
+                {
+                    audSource.PlayOneShot(shootSound, shootSoundVol);
+                }
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.transform.position, forwardVector, out hit, shootingDist))
                 {
@@ -510,7 +514,10 @@ public class playerController : MonoBehaviour, IDamageable
                 canSwap = false;
                 gameManager.instance.reloadUI.SetActive(true);
                 isReloading = true;
-                audSource.PlayOneShot(reloadSound, reloadSoundVol);
+                if (audSource != null)
+                {
+                    audSource.PlayOneShot(reloadSound, reloadSoundVol);
+                }
                 yield return new WaitForSeconds(reloadTime);
                 ammoCount = ammoCountOg;
                 AmmoLeft = ammoCount;
